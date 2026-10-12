@@ -84,6 +84,8 @@ main{position:relative;z-index:1}
 html.nogl .world{display:none}
 html.nogl [data-world]{background:linear-gradient(rgba(12,13,11,.55),rgba(12,13,11,.82)),var(--poster,none) center/cover no-repeat,var(--night)}
 .lens-anchor{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+/* on touch screens the glass is lifted with a short hold: keep that hold from selecting the text under it */
+@media (hover:none){:has(> .lens-anchor){-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}}
 html.nogl .lens-anchor{display:none}
 
 /* glass for the control layer and the labels: frosted everywhere, refracting on Chromium */
@@ -822,13 +824,20 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 /* Anatomy of a Living Joint (UOU, 2025) */
 .uou{margin-top:clamp(80px,10vw,150px)}
 .uou-k{margin-top:10px;font:400 12.5px/1.4 var(--mono);color:var(--mute)}
-.uou-film{aspect-ratio:1232/640;background:#000;margin-top:clamp(28px,4vw,56px)}
 .uou .duo,.uou .uou-wide{margin-top:clamp(28px,3.4vw,48px)}
 .uou .media img{object-fit:contain}
 @media (max-width:899px){.uou .duo{grid-template-columns:1fr!important}}
 
 /* REishi chair: the making-of film at the full width of the side column */
 .rc-film,.hm-film{margin-top:clamp(18px,2vw,28px)}
+/* haMMMocks film: its backdrop is the page's paper, so it has no card and its edges fade into the sheet (Raffaele,
+   12 Oct 2026: "no background for the animation so that you can blend it into the page"); on the dark sheet it is a card */
+.hm-film .media{background:none;border-radius:0}
+.hm-film video{display:block;width:100%;height:100%;object-fit:cover;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 94%,transparent);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 94%,transparent);mask-composite:intersect}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hm-film .media{border-radius:14px}:root:not([data-theme="light"]) .hm-film video{-webkit-mask-image:none;mask-image:none}}
+:root[data-theme="dark"] .hm-film .media{border-radius:14px}:root[data-theme="dark"] .hm-film video{-webkit-mask-image:none;mask-image:none}
 
 </style>
 <script>(function(d){d.classList.add('js');try{if(matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('static')}catch(e){}})(document.documentElement)</script>
@@ -1146,26 +1155,18 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         </div>
         <div class="body">
           <p>The joint between the printed segments became an essay in the UOU Scientific Journal of the University of Alicante. Its pattern comes from a brain coral: the ridges leave open channels where air reaches the fungus and closed wells where moisture stays, so hyphae from both segments grow across the seam and weld them without glue.</p>
-          <p>The essay follows the joint through the scales, the way Charles and Ray Eames did in <i>Powers of Ten</i>: hyphae a few micrometres wide, a 30 mm sample, the joint in centimetres, a 9 metre pavilion and a city block whose buildings share a fungal network underground. <a class="u" href="https://doi.org/10.14198/UOU.2025.10.13" target="_blank" rel="noopener">Read the essay</a>, open access.</p>
+          <p>The essay follows the joint through the scales, the way Charles and Ray Eames did in <i>Powers of Ten</i>: from the joint in centimetres down to a 30 mm sample and to hyphae a few micrometres wide, then back out along a column, to a 9 metre pavilion and a city block whose buildings share a fungal network underground. <a class="u" href="https://doi.org/10.14198/UOU.2025.10.13" target="_blank" rel="noopener">Read the essay</a>, open access.</p>
         </div>
       </div>
-      <figure class="media uou-film"><video data-auto muted playsinline loop preload="none" poster="assets/video/uou-joint.webp" aria-label="Two printed segments lying end to end, meeting at their base; a section plane runs along them and back, opening their channels and wells in white"><source src="assets/video/uou-joint.mp4" type="video/mp4"></video></figure>
-      <p class="cap">The joint cut through from end to end, from the slides of my PhD review in November 2025.</p>
-      <div class="duo" style="grid-template-columns:1.17fr 1.95fr">
-        <figure class="media zoomable" style="aspect-ratio:1100/941" data-zoom="assets/img/x/uou-plan.webp" data-cap="Horizontal section of the joint, 30 by 30 cm, drawn from the brain coral."><img src="assets/img/x/uou-plan.webp" alt="Horizontal section of the joint: white ribs folding in a ring around a dark centre, on black" loading="lazy" decoding="async" width="1100" height="941"></figure>
-        <figure class="media zoomable" style="aspect-ratio:1800/924" data-zoom="assets/img/x/uou-long.webp" data-cap="Longitudinal section along a column, 60 by 30 cm, with the welded seams repeating."><img src="assets/img/x/uou-long.webp" alt="Longitudinal section of a printed column: white and grey channels running its length, narrowing at the seams" loading="lazy" decoding="async" width="1800" height="924"></figure>
+      <figure class="media zoomable uou-wide" style="aspect-ratio:1800/1086" data-zoom="assets/img/x/uou-f3.webp" data-cap="Centimetres: the brain coral Diploria labyrinthiformis, 10 cm across (adapted from NMITA), and the joint in plan, 30 by 30 cm."><img src="assets/img/x/uou-f3.webp" alt="Two framed panels from the paper: a brain coral seen from above, and the joint in plan, white printed ribs folding in a ring around a dark centre, each with a scale bar and a View, Scale and Dim strip" loading="lazy" decoding="async" width="1800" height="1086"></figure>
+      <p class="cap">Centimetres. The brain coral, 10 cm across (adapted from NMITA), and the joint in plan, 30 by 30 cm: the white line is the printed path, the black its pores.</p>
+      <div class="duo" style="grid-template-columns:2.17fr 1.77fr">
+        <figure class="media zoomable" style="aspect-ratio:1800/829" data-zoom="assets/img/x/uou-f4.webp" data-cap="Millimetres: three 30 mm samples of the pattern and the moisture fields, each located on the plan."><img src="assets/img/x/uou-f4.webp" alt="Three framed square details of the pattern in black and white, dotted where moisture gathers, each with a small plan showing where it was taken" loading="lazy" decoding="async" width="1800" height="829"></figure>
+        <figure class="media zoomable" style="aspect-ratio:1800/1019" data-zoom="assets/img/x/uou-f5.webp" data-cap="Micrometres: hyphae bridging the pores of a substrate, electron microscopy, 220 and 30 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-f5.webp" alt="Two framed electron microscope images of fungal hyphae, a dense white web on black and a closer view of single threads" loading="lazy" decoding="async" width="1800" height="1019"></figure>
       </div>
-      <p class="cap">The joint in centimetres: the horizontal section drawn from the coral, 30 cm across, and a 60 cm section along a column, where the welded seams repeat.</p>
-      <figure class="media zoomable uou-wide" style="aspect-ratio:1800/581" data-zoom="assets/img/x/uou-mm.webp" data-cap="Three 30 mm samples of the pattern."><img src="assets/img/x/uou-mm.webp" alt="Three square details of the pattern in black and white, dotted where moisture gathers" loading="lazy" decoding="async" width="1800" height="581"></figure>
-      <p class="cap">Three 30 mm samples: where the pattern opens, air reaches the fungus; where it closes, the dots show the moisture that stays.</p>
-      <figure class="media zoomable uou-wide" style="aspect-ratio:1800/946" data-zoom="assets/img/x/uou-pavilion.webp" data-cap="A small pavilion printed in parts and welded by the fungus, 9 by 9 m and 6 m high, in section perspective."><img src="assets/img/x/uou-pavilion.webp" alt="Section perspective of a planted pavilion of grey shells in a park, people sitting, cycling and skateboarding under and on it" loading="lazy" decoding="async" width="1800" height="946"></figure>
-      <p class="cap">A small pavilion printed in parts and welded by the fungus, 9 by 9 m and 6 m high, in section perspective.</p>
-      <div class="duo" style="grid-template-columns:1.08fr 1.28fr 1.5fr">
-        <figure class="media zoomable" style="aspect-ratio:1100/1020" data-zoom="assets/img/x/uou-sem.webp" data-cap="Hyphae bridging the pores of a substrate, electron microscopy, 220 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-sem.webp" alt="Electron microscope image of white fungal threads crossing in a dense web on black" loading="lazy" decoding="async" width="1100" height="1020"></figure>
-        <figure class="media zoomable" style="aspect-ratio:1400/1097" data-zoom="assets/img/x/uou-axo.webp" data-cap="An urban block in exploded axonometry: planted facades above, a shared mycelial network below."><img src="assets/img/x/uou-axo.webp" alt="Exploded axonometric drawing of a planted city block, with spores rising above it and a web of hyphae below the ground" loading="lazy" decoding="async" width="1400" height="1097"></figure>
-        <figure class="media zoomable" style="aspect-ratio:1600/1067" data-zoom="assets/img/x/uou-shell.webp" data-cap="A speculative modular shell for printing."><img src="assets/img/x/uou-shell.webp" alt="Render of a ribbed V-shaped shell in violet on black" loading="lazy" decoding="async" width="1600" height="1067"></figure>
-      </div>
-      <p class="cap">From the micrometre to the city: hyphae bridging the pores of a substrate under the electron microscope, adapted from Islam et al. 2017 and Motamedi et al. 2025; a city block with planted facades above and a shared mycelial network below; a modular shell for printing.</p>
+      <p class="cap">Millimetres and micrometres. Three 30 mm samples, where moisture gathers in the closed parts of the pattern; then hyphae bridging the pores of a substrate under the electron microscope, 220 and 30 micrometres across (adapted from Islam et al. 2017 and Motamedi et al. 2025).</p>
+      <figure class="media uou-wide" style="aspect-ratio:1600/1136"><video data-auto muted playsinline loop preload="none" poster="assets/video/uou-f7.webp" aria-label="The paper's longitudinal section of a 60 cm column, animated: a section plane moves through the column and back, the printed paths cut in white, the solid beyond in grey, the welded seams repeating along its length"><source src="assets/video/uou-f7.mp4" type="video/mp4"></video></figure>
+      <p class="cap">Back to centimetres. A section plane runs through a 60 cm column and back, and the welded seams repeat along it.</p>
     </div>
   </div>
 </section>
@@ -1377,7 +1378,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
           <figure class="media r11"><img src="assets/img/x/hm-sketch-r.webp" alt="Pencil sketch on squared paper of crossed poles with curves hanging between them" loading="lazy" decoding="async" width="900" height="900"></figure>
         </div>
       </div>
-      <figure class="hm-film"><div class="media r169"><video data-auto muted playsinline loop preload="none" poster="assets/video/hm-build.webp" aria-label="AI film of the chestnut frame going up on a beige paper backdrop: the three poles, bound where they cross and tied at the tips with steel wire, are raised from the floor, the base logs slide in under their feet, three limestone blocks come down and settle on the logs, and three cream canvas hammocks drop between the poles and sway still"><source src="assets/video/hm-build.mp4" type="video/mp4"></video></div><figcaption class="cap">The chestnut frame going up, an AI film made from the June 2016 photographs.</figcaption></figure>
+      <figure class="hm-film"><div class="media r169"><video data-auto muted playsinline loop preload="none" poster="assets/video/hm-build.webp" aria-label="AI film of the chestnut frame going up, on the paper of the page: three rough chestnut poles rise and cross, a slim jute lashing binds the crossing, a steel wire is strung between the tips, the base logs slide in under the feet, three limestone blocks come down onto the logs, and three cream canvas hammocks drop from the pole tips on their ropes"><source src="assets/video/hm-build.mp4" type="video/mp4"></video></div><figcaption class="cap">The same build, rendered by AI from the 3D model and the June 2016 photographs.</figcaption></figure>
       <div class="duo" style="grid-template-columns:1.333fr 1.5fr .75fr">
         <figure class="media r43"><img src="assets/img/x/hm-model.webp" alt="Table-top model of the frame: wooden sticks, string and three canvas seats" loading="lazy" decoding="async" width="1100" height="825"></figure>
         <figure class="media r32"><img src="assets/img/x/hm-night.webp" alt="The two finished frames lit at night in the field, people resting in the hammocks, the glow of the sky behind them" loading="lazy" decoding="async" width="1024" height="683"></figure>
@@ -3078,6 +3079,45 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     function collectLenses() { lensEls = $$('[data-lens]'); }
     collectLenses();
 
+    /* on touch screens the glass can be picked up where it lies and pushed around, as the cursor does on a desktop
+       (Raffaele, 12 Oct 2026). A short hold on a dish lifts it, so a swipe that starts on the glass still scrolls the
+       page; a dish stays where it is left, riding with its place in the page */
+    if (!finePointer && !reduce) {
+      var hold = null, tdrag = null;
+      var dishAt = function (x, y) {
+        var hit = null, best = 1e9;
+        lensEls.forEach(function (el) {
+          var d = el._draw; if (!d || el.hasAttribute('data-still')) return;
+          var q = (x - d.x) * (x - d.x) + (y - d.y) * (y - d.y);
+          if (q < d.r * d.r * 0.85 && q < best) { best = q; hit = el; }
+        });
+        return hit;
+      };
+      var drop = function () { if (hold) clearTimeout(hold.tm); hold = null; if (tdrag) tdrag.el._lift = 0; tdrag = null; };
+      document.addEventListener('touchstart', function (e) {
+        drop();
+        if (e.touches.length !== 1) return;
+        var t = e.touches[0];
+        if (e.target.closest && e.target.closest('a,button,input,textarea,select,label,video,canvas,[data-zoom],.thread-box')) return;
+        var el = dishAt(t.clientX, t.clientY); if (!el) return;
+        hold = { el: el, x: t.clientX, y: t.clientY };
+        hold.tm = setTimeout(function () {
+          if (!hold) return;
+          var o = hold.el._t || (hold.el._t = { dx: 0, dy: 0 });
+          tdrag = { el: hold.el, x: hold.x, y: hold.y, dx: o.dx, dy: o.dy }; hold.el._lift = 1; hold = null;
+          if (navigator.vibrate) try { navigator.vibrate(8); } catch (err) {}
+        }, 180);
+      }, { passive: true });
+      document.addEventListener('touchmove', function (e) {
+        var t = e.touches[0]; if (!t) return;
+        if (hold) { if (Math.abs(t.clientX - hold.x) + Math.abs(t.clientY - hold.y) > 10) { clearTimeout(hold.tm); hold = null; } return; }
+        if (!tdrag) return;
+        if (e.cancelable) e.preventDefault();
+        tdrag.el._t.dx = tdrag.dx + t.clientX - tdrag.x; tdrag.el._t.dy = tdrag.dy + t.clientY - tdrag.y;
+      }, { passive: false });
+      ['touchend', 'touchcancel'].forEach(function (n) { document.addEventListener(n, drop, { passive: true }); });
+    }
+
     function fitOf(src, sc, p, t) {
       var sw = src.w || 1, shh = src.h || 1, s = Math.max(cssW / sw, cssH / shh);
       if (sc.fit === 'contain') s = Math.min(cssW / sw, cssH / shh);
@@ -3129,7 +3169,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         Mv[n * 4] = mag; Mv[n * 4 + 1] = reveal; Mv[n * 4 + 2] = alpha; Mv[n * 4 + 3] = 0; n++;
       }
       lensEls.forEach(function (el) {
-        r = el.getBoundingClientRect(); if (r.bottom < -40 || r.top > cssH + 40 || r.width < 4) return;
+        r = el.getBoundingClientRect(); el._draw = null; if (r.bottom < -40 || r.top > cssH + 40 || r.width < 4) return;
         var cx = r.left + r.width / 2, cy = r.top + r.height / 2, rad = Math.min(r.width, r.height) / 2;
         if (!reduce && !el.hasAttribute('data-still') && (el.hasAttribute('data-follow') || finePointer)) {
           /* every dish and lens follows the pointer anywhere on the screen, a little behind it, like glass pushed across a bench */
@@ -3138,6 +3178,9 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
           else { tx = cx + Math.sin(t * 0.23) * rad * 0.18; ty = cy + Math.cos(t * 0.19) * rad * 0.12; }
           var kf = el.hasAttribute('data-follow') ? 0.1 : 0.075; f.dx = lerp(f.dx, tx - cx, kf); f.dy = lerp(f.dy, ty - cy, kf); cx += f.dx; cy += f.dy;
         }
+        if (el._t) { cx += el._t.dx; cy += el._t.dy; }        // where a finger has left it
+        el._lf = lerp(el._lf || 0, el._lift ? 1 : 0, 0.25); rad *= 1 + 0.04 * el._lf;
+        el._draw = { x: cx, y: cy, r: rad };
         var al = +(el.style.getPropertyValue('--a') || el.dataset.alpha || 1);
         push(cx, cy, rad, el.dataset.lens === 'lens' ? 1 : 2, +(el.dataset.mag || 1.2), el.hasAttribute('data-reveal') ? 1 : 0, al);
       });

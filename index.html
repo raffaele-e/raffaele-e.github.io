@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-4Pcq1u/F+sO6Y5L0DTTQujNusqLaW8yA3bUZzHlRLZM='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-r2DOYlJulz97dKhwjjCKnWkfNMEF8OciehDafK9I+5w='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -157,7 +157,10 @@ html.lenis,html.lenis body{height:auto}
 body{margin:0;background:var(--night);color:var(--ink);font-family:var(--display);font-size:18px;line-height:1.56;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
 /* touch screens: the body is see-through, so the html background (which the engine tints with the top of the world) is
    what iOS Safari shows under the status bar (13 Oct 2026) */
-@media (hover:none){html.gl body{background:transparent}html:has(.top.open){background:var(--night)!important}}
+@media (hover:none){html.gl body{background:transparent}html:has(.top.open){background:var(--night)!important}
+  /* the world stays 2px off the top and bottom edges, so iOS Safari shows the page background (the world's edge rows)
+     under the bars instead of a flat band */
+  html.gl .world{top:2px;height:calc(100lvh - 4px)}}
 img,video,canvas,svg{display:block;max-width:100%}
 img{height:auto}
 a{color:inherit}
@@ -201,7 +204,7 @@ html.lg [data-glass]{background:rgba(16,17,14,.3);-webkit-backdrop-filter:blur(4
    paints the status-bar strip solid in the page colour (and keeps it so); 2px down, it lets the page scroll under the notch
    and fade (13 Oct 2026). The open menu has no background of its own for the same reason (a dark fixed panel latches the
    tint for good): the page is hidden and the world dimmed, so the dark ground behind fills the screen and both bars */
-html:has(.top.open) main{visibility:hidden}html:has(.top.open) .world{opacity:.06}
+html:has(.top.open) main{opacity:0;pointer-events:none}html:has(.top.open) .world{opacity:.06}
 .top{position:fixed;inset:2px 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(12px + var(--safe-t)) var(--gut) 12px;font:500 15px/1.2 var(--display);letter-spacing:-.005em;pointer-events:none}
 .top>*{pointer-events:auto}
 .top .name,.top nav,.top .menu{border-radius:999px;min-height:44px;display:flex;align-items:center;padding:0 20px;color:var(--bone);text-decoration:none}
@@ -3297,20 +3300,45 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       gl.uniform4fv(U.uL, L); gl.uniform4fv(U.uM, Mv);
       gl.uniform2f(U.uRes, W, H); gl.uniform1f(U.uTime, t);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
-      /* iOS Safari never draws fixed layers under the status bar: there it shows the page's own background, so that
-         background takes the tone of the top of the world, read back a few times a second (13 Oct 2026) */
-      if (!finePointer && now - tone.t > 200) {
-        tone.t = now; var row = Math.max(0, H - 3), px = tone.buf || (tone.buf = new Uint8Array(W * 4));
-        if (px.length !== W * 4) px = tone.buf = new Uint8Array(W * 4);
-        gl.readPixels(0, row, W, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
-        // the median of the top row, so a glass dish or a bright word crossing it does not grey the colour
-        var ch = [[], [], []]; for (i = 0; i < W * 4; i += 12) { ch[0].push(px[i]); ch[1].push(px[i + 1]); ch[2].push(px[i + 2]); }
-        var med = ch.map(function (a) { a.sort(function (x, y) { return x - y; }); return a[a.length >> 1] || 0; });
-        if (ch[0].length) { tone.c = tone.c ? tone.c.map(function (v, j) { return lerp(v, med[j], 0.5); }) : med;
-          doc.style.backgroundColor = 'rgb(' + tone.c.map(Math.round).join(',') + ')'; }
+      /* iOS Safari never draws a fixed layer under the status bar or the bottom bar; there it shows the page's own background,
+         and only if no fixed layer touches the screen edge (so the world sits 2px in, style.css). That background is made
+         of two small blurred images of the world's edges, mirrored, read back a few times a second and set right against
+         the top and the bottom of the world, so the notch and the bottom bar look like the footage carrying on (13 Oct 2026) */
+      if (!finePointer && now - tone.t > 160) {
+        tone.t = now; tone.d = Math.min(window.devicePixelRatio || 1, wide() ? 1.5 : 1.35);
+        var bands = [{ rows: Math.min(H, Math.round(tone.top * W / cssW)), y: H, flip: true }, { rows: Math.min(H, Math.round(tone.bot * W / cssW)), y: 0, flip: false }];
+        var urls = [];
+        bands.forEach(function (bd, bi) {
+          var n = bd.rows * W * 4, px = tone.bufs[bi];
+          if (!px || px.length !== n) px = tone.bufs[bi] = new Uint8Array(n);
+          gl.readPixels(0, bd.y === H ? H - bd.rows : 0, W, bd.rows, gl.RGBA, gl.UNSIGNED_BYTE, px);
+          var cw = 24, chh = 6, cv = tone.cvs[bi] || (tone.cvs[bi] = document.createElement('canvas')); cv.width = cw; cv.height = chh;
+          var cx = cv.getContext('2d'), im = cx.createImageData(cw, chh), dd = im.data;
+          for (var gy = 0; gy < chh; gy++) for (var gx = 0; gx < cw; gx++) {
+            // GL rows run from the bottom: for the top band the row nearest the edge is the last one read
+            var r0 = Math.floor(gy * bd.rows / chh), r1 = Math.max(r0 + 1, Math.floor((gy + 1) * bd.rows / chh));
+            var c0 = Math.floor(gx * W / cw), c1 = Math.max(c0 + 1, Math.floor((gx + 1) * W / cw)), sr = 0, sg = 0, sb = 0, k = 0;
+            for (var yy = r0; yy < r1; yy += 2) for (var xx = c0; xx < c1; xx += 3) { var q = (yy * W + xx) * 4; sr += px[q]; sg += px[q + 1]; sb += px[q + 2]; k++; }
+            // top band: image row 0 is the farthest from the edge (mirror), so it reads GL rows from the bottom of the band up;
+            // bottom band: image row 0 is next to the edge, which is GL row bd.rows-1 of the band
+            var oy = bd.flip ? gy : chh - 1 - gy, o = (oy * cw + gx) * 4;
+            dd[o] = sr / k; dd[o + 1] = sg / k; dd[o + 2] = sb / k; dd[o + 3] = 255;
+          }
+          cx.putImageData(im, 0, 0); urls.push('url(' + cv.toDataURL() + ')');
+          if (bi === 0) { var c = cx.getImageData(0, chh - 1, cw, 1).data, ar = 0, ag = 0, ab = 0; for (var z = 0; z < cw * 4; z += 4) { ar += c[z]; ag += c[z + 1]; ab += c[z + 2]; } doc.style.backgroundColor = 'rgb(' + Math.round(ar / cw) + ',' + Math.round(ag / cw) + ',' + Math.round(ab / cw) + ')'; }
+        });
+        doc.style.backgroundImage = urls.join(',');
+        tone.place();
       }
     }
-    var tone = { t: 0, c: null, buf: null };
+    var tone = { t: 0, top: 90, bot: 140, bufs: [], cvs: [] };
+    tone.place = function () {   // the mirrored bands sit right against the world's top and bottom edges, wherever the page is
+      var r = canvas.getBoundingClientRect(), y = window.scrollY;
+      doc.style.backgroundRepeat = 'no-repeat';
+      doc.style.backgroundSize = '100% ' + tone.top + 'px,100% ' + tone.bot + 'px';
+      doc.style.backgroundPosition = '0 ' + Math.round(y + r.top - tone.top) + 'px,0 ' + Math.round(y + r.bottom) + 'px';
+    };
+    if (!finePointer) window.addEventListener('scroll', function () { if (tone.cvs.length) tone.place(); }, { passive: true });
     var running = false, wantFrame = true;
     function loop(now) { frame(now); if (!reduce) requestAnimationFrame(loop); else running = false; }
     size();
@@ -4594,7 +4622,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
   initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='1205cba71355';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='601620d2b872';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

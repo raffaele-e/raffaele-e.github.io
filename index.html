@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-r2DOYlJulz97dKhwjjCKnWkfNMEF8OciehDafK9I+5w='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-KSxWmGpSOv/sqInp8+IZ7UmByI3yhINHqoALoCJ8o8Q='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -613,13 +613,7 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 @media (max-width:899px){.th-m{grid-template-columns:1fr}}
 .pair.white .media,.drawing-bg{background:#fff}
 .duo.ai .media{background:var(--night)}
-.spin-row{margin-top:clamp(28px,3.4vw,48px);align-items:start}
-.spin{margin:0}
-.spin canvas{width:100%;aspect-ratio:4/5;background:var(--paper-2);border-radius:14px;cursor:grab;touch-action:pan-y}
-.spin img.hm-still{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:var(--paper);border-radius:14px}
-.spin canvas:active{cursor:grabbing}
-.hm-replay{font:inherit;color:var(--ink);background:none;border:0;border-bottom:1px solid currentColor;padding:0 0 1px;margin-left:4px;cursor:pointer}
-.hm-replay:hover{color:var(--rust)}
+.hm-row{margin-top:clamp(28px,3.4vw,48px);align-items:start}
 .micro{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;background:#000;border-radius:16px;padding:clamp(6px,1vw,14px)}
 .micro img{width:100%;aspect-ratio:1;object-fit:cover}
 .micro .bub{position:relative;display:block;aspect-ratio:1;border-radius:50%;transform-origin:50% 55%}
@@ -1471,20 +1465,14 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <figure class="media r45 zoomable" data-zoom="assets/img/x/hm-red.webp" data-cap="The frame with red hammocks, June 2016."><img src="assets/img/x/hm-red.webp" alt="The same frame of chestnut poles with red striped hammocks" loading="lazy" decoding="async" width="900" height="1125"></figure>
       </div>
       <p class="cap">The frame in two versions, June 2016.</p>
-      <div class="split spin-row">
-        <figure class="spin" data-hm3d>
-          <canvas role="img" aria-label="A 3D model of the frame being built: three chestnut poles rise from the ground and cross, a rope binds the crossing, steel wire joins their tips, the base logs are laid two to a side, three stones land on them, and three cream hammocks drop between the poles"></canvas>
-          <figcaption class="cap">A 3D model of the frame, built for this page from the 2016 drawings and put up in order: the poles, the rope at the crossing, the steel wire, the base and its stones, then the hammocks. Drag to turn it. <button type="button" class="hm-replay" hidden>Build it again</button></figcaption>
-        </figure>
-        <div class="side">
-          <div class="body">
-            <p>The name has three capital Ms for its three poles, the three <i>mazze</i>, as we call them in Neapolitan. The Masseria had asked the university for places to rest, and we designed them from what was already in its store, so each frame cost nothing. Three chestnut poles cross at one joint, held by threaded steel bars, and carry three hammocks between them, with cables tying their tips together. Geometry gives the frame both its strength and its look.</p>
-            <p>The poles hold each other up through reciprocal forces, and the frame needs weight to stay balanced. With one person in it, it stands only because of the anchors at its feet; the more people sit in it, the steadier it gets. It began with a few printed pages on tensegrity and a sketch on squared paper. We drew the parts in Rhino, tested a table-top model and raised the frames in a field among olive trees. It was the first structure I watched find its shape under load, and the first one I built together with others.</p>
-          </div>
-          <figure class="media r11"><img src="assets/img/x/hm-sketch-r.webp" alt="Pencil sketch on squared paper of crossed poles with curves hanging between them" loading="lazy" decoding="async" width="900" height="900"></figure>
+      <div class="split hm-row">
+        <div class="body">
+          <p>The name has three capital Ms for its three poles, the three <i>mazze</i>, as we call them in Neapolitan. The Masseria had asked the university for places to rest, and we designed them from what was already in its store, so each frame cost nothing. Three chestnut poles cross at one joint, held by threaded steel bars, and carry three hammocks between them, with cables tying their tips together. Geometry gives the frame both its strength and its look.</p>
+          <p>The poles hold each other up through reciprocal forces, and the frame needs weight to stay balanced. With one person in it, it stands only because of the anchors at its feet; the more people sit in it, the steadier it gets. It began with a few printed pages on tensegrity and a sketch on squared paper. We drew the parts in Rhino, tested a table-top model and raised the frames in a field among olive trees. It was the first structure I watched find its shape under load, and the first one I built together with others.</p>
         </div>
+        <figure class="media r11"><img src="assets/img/x/hm-sketch-r.webp" alt="Pencil sketch on squared paper of crossed poles with curves hanging between them" loading="lazy" decoding="async" width="900" height="900"></figure>
       </div>
-      <figure class="hm-film"><div class="media r169"><video data-auto muted playsinline loop preload="none" poster="assets/video/hm-build.webp" aria-label="AI film of the chestnut frame going up, on the paper of the page: three rough chestnut poles rise and cross, a slim jute lashing binds the crossing, a steel wire is strung between the tips, the base logs slide in under the feet, three limestone blocks come down onto the logs, and three cream canvas hammocks drop from the pole tips on their ropes"><source src="assets/video/hm-build.mp4" type="video/mp4"></video></div><figcaption class="cap">The same build, rendered by AI from the 3D model and the June 2016 photographs.</figcaption></figure>
+      <figure class="hm-film"><div class="media r169"><video data-auto muted playsinline loop preload="none" poster="assets/video/hm-build.webp" aria-label="AI film of the chestnut frame going up, on the paper of the page: three rough chestnut poles rise and cross, a slim jute lashing binds the crossing, a steel wire is strung between the tips, the base logs slide in under the feet, three limestone blocks come down onto the logs, and three cream canvas hammocks drop from the pole tips on their ropes"><source src="assets/video/hm-build.mp4" type="video/mp4"></video></div><figcaption class="cap">The build, rendered by AI from a 3D model of the frame and the June 2016 photographs.</figcaption></figure>
       <div class="duo" style="grid-template-columns:1.333fr 1.5fr .75fr">
         <figure class="media r43"><img src="assets/img/x/hm-model.webp" alt="Table-top model of the frame: wooden sticks, string and three canvas seats" loading="lazy" decoding="async" width="1100" height="825"></figure>
         <figure class="media r32"><img src="assets/img/x/hm-night.webp" alt="The two finished frames lit at night in the field, people resting in the hammocks, the glow of the sky behind them" loading="lazy" decoding="async" width="1024" height="683"></figure>
@@ -3907,221 +3895,6 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     this.set = function () { var H = doc.scrollHeight - vh(); el.style.setProperty('--p', clamp(window.scrollY / Math.max(1, H), 0, 1).toFixed(4)); if (fill) fill.style.height = ''; };
   }
 
-  /* ---------- the 2016 hammock frame as a turning line model ---------- */
-  function Spin(el) {
-    var canvas = el.querySelector('canvas'), ctx = canvas.getContext('2d'), self = this;
-    this.yaw = 0.35; this.pitch = 0.2; this.vis = false; this.drag = null;
-    var feet = [], N = [0, 0, 0.62], tips = [], rf = 0.36, kx = 3.55, i;
-    for (i = 0; i < 3; i++) {
-      var a = -Math.PI / 2 + i * 2 * Math.PI / 3, F = [rf * Math.cos(a), rf * Math.sin(a), 0];
-      feet.push(F); tips.push([N[0] + (N[0] - F[0]) * kx, N[1] + (N[1] - F[1]) * kx, N[2] + (N[2] - F[2]) * kx]);
-    }
-    var segs = [];
-    for (i = 0; i < 3; i++) segs.push([[feet[i], tips[i]], 'pole']);
-    for (i = 0; i < 3; i++) segs.push([[tips[i], tips[(i + 1) % 3]], 'cable']);
-    for (i = 0; i < 3; i++) {
-      var b0 = -Math.PI / 2 + (i + 0.5) * 2 * Math.PI / 3, b1 = b0 + 2 * Math.PI / 3, Rl = 0.95;
-      segs.push([[[Rl * Math.cos(b0), Rl * Math.sin(b0), 0.03], [Rl * Math.cos(b1), Rl * Math.sin(b1), 0.03]], 'base']);
-    }
-    function end(U, V) { return [(U[0] + (V[0] - U[0]) * 0.16) * 0.84, (U[1] + (V[1] - U[1]) * 0.16) * 0.84, 1.5]; }
-    for (i = 0; i < 3; i++) {
-      var P = tips[i], Q = tips[(i + 1) % 3], A = end(P, Q), B = end(Q, P);
-      segs.push([[P, A], 'cable']); segs.push([[Q, B], 'cable']);
-      var dx = B[0] - A[0], dy = B[1] - A[1], L = Math.hypot(dx, dy), sx = -dy / L, sy = dx / L, lines = [], K = 7;
-      for (var k = 0; k < K; k++) {
-        var off = (k / (K - 1) - 0.5) * 2, pts = [];
-        for (var s = 0; s <= 24; s++) { var t = s / 24, w = 0.3 * Math.pow(Math.sin(Math.PI * t), 0.7) * off, sag = 0.62 * 4 * t * (1 - t) * (1 - 0.15 * off * off); pts.push([A[0] + dx * t + sx * w, A[1] + dy * t + sy * w, A[2] - sag]); }
-        lines.push(pts); segs.push([pts, 'cloth']);
-      }
-      for (var c = 4; c <= 20; c += 4) segs.push([lines.map(function (l) { return l[c]; }), 'rib']);
-    }
-    var col = {};
-    function colours() { col.pole = cssVar('--ink', '#1f201b'); col.cloth = cssVar('--rust', '#9a5418'); col.cable = cssVar('--mute', '#5d5f57'); }
-    this.size = function () { var r = canvas.getBoundingClientRect(), d = DPR(); canvas.width = Math.max(1, Math.round(r.width * d)); canvas.height = Math.max(1, Math.round(r.height * d)); colours(); self.draw(); };
-    this.draw = function () {
-      var W = canvas.width, H = canvas.height, d = DPR(); ctx.clearRect(0, 0, W, H);
-      var cy = Math.cos(self.yaw), sy = Math.sin(self.yaw), cp = Math.cos(self.pitch), sp = Math.sin(self.pitch);
-      var sc = Math.min(W / 3.5, H / 3.6), ox = W / 2, oy = H * 0.86;
-      function Pj(q) { var x = q[0] * cy - q[1] * sy, y = q[0] * sy + q[1] * cy; return [ox + x * sc, oy - (q[2] * cp - y * sp) * sc, y]; }
-      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-      segs.forEach(function (sg) {
-        var kind = sg[1], pts = sg[0];
-        ctx.strokeStyle = kind === 'pole' ? col.pole : (kind === 'cloth' || kind === 'rib') ? col.cloth : col.cable;
-        ctx.lineWidth = (kind === 'pole' ? 3.2 : kind === 'base' ? 2.4 : kind === 'cloth' ? 1.1 : 0.8) * d;
-        ctx.globalAlpha = kind === 'rib' ? 0.45 : kind === 'base' ? 0.5 : 1;
-        ctx.beginPath(); pts.forEach(function (q, j) { var p = Pj(q); if (j) ctx.lineTo(p[0], p[1]); else ctx.moveTo(p[0], p[1]); }); ctx.stroke();
-      });
-      ctx.globalAlpha = 1; ctx.fillStyle = col.pole; var n = Pj(N); ctx.beginPath(); ctx.arc(n[0], n[1], 4.5 * d, 0, Math.PI * 2); ctx.fill();
-    };
-    canvas.addEventListener('pointerdown', function (e) { self.drag = { x: e.clientX, y: e.clientY, yaw: self.yaw, pitch: self.pitch }; try { canvas.setPointerCapture(e.pointerId); } catch (er) {} });
-    canvas.addEventListener('pointermove', function (e) { if (!self.drag) return; self.yaw = self.drag.yaw + (e.clientX - self.drag.x) * 0.01; self.pitch = clamp(self.drag.pitch + (e.clientY - self.drag.y) * 0.006, -0.1, 0.9); self.draw(); });
-    ['pointerup', 'pointercancel'].forEach(function (ev) { canvas.addEventListener(ev, function () { self.drag = null; }); });
-    onScreen(el, function (v) { self.vis = v; });
-    (function tick() { if (self.vis && !self.drag && !reduce && !document.hidden) { self.yaw += 0.0045; self.draw(); } requestAnimationFrame(tick); })();
-  }
-
-  /* ---------- haMMMocks as a 3D model, built in order as it comes into view ----------
-     Dimensions from the 2016 drawings: chestnut poles 4 m long and 120 mm thick crossing at about 1.25 m, a base
-     triangle of 2.32 m logs, two to a side, three limestone blocks resting on them, steel wire between the tips, three
-     hammocks. The model goes
-     up in the order Raffaele asked for (11 Oct 2026): the poles rise from the ground, the rope at the crossing, the
-     wire at the top, the base logs, the stones, then the hammocks drop like drapes. Drag to turn it. */
-  var THREE_URL = './assets/js/three.module.min.js';
-  function Hammock3D(el, fallback) {
-    var canvas = el.querySelector('canvas'), btn = el.querySelector('.hm-replay'), self = this, ready = false;
-    this.size = function () {};
-    // a phone can refuse a new WebGL context for a moment (13 Oct 2026): try again once before giving up
-    var tries = 0, fail = function () { if (++tries < 2) setTimeout(load, 1500); else fallback(); };
-    var load = function () { import(THREE_URL).then(build).catch(fail); };
-    var go = function () { if (ready) return; ready = true; load(); };
-    onScreen(el, function (v) { if (v) go(); }, '1400px 0px');   // load and compile well before it scrolls in
-    function build(T) {
-      var renderer;
-      try { renderer = new T.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); } catch (e) { fail(); return; }
-      renderer.outputColorSpace = T.SRGBColorSpace; renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
-      renderer.shadowMap.enabled = true; renderer.shadowMap.type = T.PCFSoftShadowMap;
-      var scene = new T.Scene(), cam = new T.PerspectiveCamera(30, 0.8, 0.1, 60), rig = new T.Group(); scene.add(rig);
-      scene.add(new T.HemisphereLight(0xffffff, 0xb8ab93, 1.15));
-      var sun = new T.DirectionalLight(0xfff2e2, 2.3); sun.position.set(-4, 8, 5); sun.castShadow = true;
-      var sm = wide() ? 2048 : 1024; sun.shadow.mapSize.set(sm, sm); var sc = sun.shadow.camera; sc.left = -3.2; sc.right = 3.2; sc.top = 3.2; sc.bottom = -3.2; sc.near = 1; sc.far = 22;
-      sun.shadow.bias = -0.0005; sun.shadow.normalBias = 0.02; scene.add(sun);
-      var ground = new T.Mesh(new T.PlaneGeometry(14, 14), new T.ShadowMaterial({ opacity: 0.2 })); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
-      var seed = 7; function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
-      function V(x, y, z) { return new T.Vector3(x, z, -y); }   // drawn with z up, shown with y up
-      // chestnut bark: dark streaks along the pole
-      var bc = document.createElement('canvas'); bc.width = 64; bc.height = 512; var g = bc.getContext('2d');
-      g.fillStyle = '#6b4d35'; g.fillRect(0, 0, 64, 512);
-      for (var q = 0; q < 320; q++) { g.fillStyle = rnd() < 0.55 ? 'rgba(38,24,14,' + (0.18 + rnd() * 0.4).toFixed(2) + ')' : 'rgba(176,146,110,' + (0.08 + rnd() * 0.22).toFixed(2) + ')'; g.fillRect(rnd() * 64, rnd() * 512, 1 + rnd() * 3, 18 + rnd() * 120); }
-      var bark = new T.CanvasTexture(bc); bark.colorSpace = T.SRGBColorSpace; bark.wrapS = bark.wrapT = T.RepeatWrapping; bark.repeat.set(1, 2);
-      var wood = new T.MeshStandardMaterial({ map: bark, bumpMap: bark, bumpScale: 0.6, roughness: 0.92 });
-      var stoneM = new T.MeshStandardMaterial({ color: 0xd8cfbc, roughness: 1 });
-      var ropeM = new T.MeshStandardMaterial({ color: 0xcbbd9c, roughness: 1 });
-      var steel = new T.MeshStandardMaterial({ color: 0x8c9196, roughness: 0.35, metalness: 0.75 });
-      var clothM = new T.MeshStandardMaterial({ color: 0xece2cc, roughness: 0.95, side: T.DoubleSide });
-      var UP = new T.Vector3(0, 1, 0);
-      function rod(a, b, r0, r1, mat, seg) {
-        var d = new T.Vector3().subVectors(b, a), L = d.length(), geo = new T.CylinderGeometry(r1, r0, L, seg || 12, 1);
-        geo.translate(0, L / 2, 0); var m = new T.Mesh(geo, mat); m.position.copy(a); m.quaternion.setFromUnitVectors(UP, d.normalize());
-        m.castShadow = m.receiveShadow = true; m.visible = false; rig.add(m); return m;
-      }
-      // the feet stand on the ground at the corners of the base, between the two logs of each side, as in the chestnut
-      // frame of June 2016 (Raffaele, 12 Oct 2026: "check the geometry of the base according to the chestnut version")
-      var i, A3 = [], L = 4.0, rf = 1.2, zN = 1.25, feet = [], dirs = [], tips = [], poles = [];
-      for (i = 0; i < 3; i++) A3.push(-Math.PI / 2 + i * 2 * Math.PI / 3);
-      for (i = 0; i < 3; i++) {
-        var a = A3[i], F = V(rf * Math.cos(a), rf * Math.sin(a), 0.03);
-        var N = V(-Math.sin(a) * 0.065, Math.cos(a) * 0.065, zN), d = N.clone().sub(F).normalize();   // each pole passes beside the axis, so the three bear on each other
-        feet.push(F); dirs.push(d); tips.push(F.clone().addScaledVector(d, L));
-        var m = rod(F, tips[i], 0.062, 0.05, wood, 14), h = new T.Vector3(d.x, 0, d.z).normalize();
-        poles.push({ m: m, q1: m.quaternion.clone(), q0: new T.Quaternion().setFromUnitVectors(UP, h.add(new T.Vector3(0, 0.05, 0)).normalize()) });
-      }
-      // the rope lashing at the crossing
-      var lash = new T.Group(); lash.position.copy(V(0, 0, zN)); rig.add(lash); lash.visible = false;
-      for (i = 0; i < 6; i++) { var ring = new T.Mesh(new T.TorusGeometry(0.15, 0.014, 8, 40), ropeM); ring.rotation.x = Math.PI / 2 + (i % 2 ? 0.18 : -0.18); ring.position.y = -0.14 + i * 0.056; ring.castShadow = true; lash.add(ring); }
-      // the steel wire between the tips
-      var wires = []; for (i = 0; i < 3; i++) wires.push(rod(tips[i], tips[(i + 1) % 3], 0.007, 0.007, steel, 6));
-      // the base: a triangle of chestnut logs, two side by side along each side with the pole foot between them; each
-      // side lies on the ground at one corner and rests on the next side's logs at the other, so the three sides lock
-      // like the poles above; the logs run 0.12 m past the corners (2.32 m long, from the drawings)
-      var Rc = rf, rl = 0.06, gap = 0.13, C = A3.map(function (a) { return V(Rc * Math.cos(a), Rc * Math.sin(a), 0); }), logs = [], sides = [];
-      for (i = 0; i < 3; i++) {
-        var p0 = C[i], p1 = C[(i + 1) % 3], ax = p1.clone().sub(p0), len = ax.length(); ax.normalize();
-        var perp = new T.Vector3(-ax.z, 0, ax.x), mid = p0.clone().add(p1).multiplyScalar(0.5), out = new T.Vector3(mid.x, 0, mid.z).normalize();
-        var h0 = rl, h1 = 3 * rl, ext = 0.12;
-        sides.push({ p0: p0, ax: ax, perp: perp, len: len, h0: h0, h1: h1 });
-        for (var j = -1; j <= 1; j += 2) {
-          var a0 = p0.clone().addScaledVector(ax, -ext).addScaledVector(perp, j * gap), a1 = p1.clone().addScaledVector(ax, ext).addScaledVector(perp, j * gap);
-          a0.y = h0 - (h1 - h0) * ext / len; a1.y = h1 + (h1 - h0) * ext / len;
-          var lg = rod(a0, a1, 0.064, 0.058, wood, 12);
-          logs.push({ m: lg, p: lg.position.clone(), out: out, k: i });
-        }
-      }
-      // three rough-cut limestone blocks, each set on top of the two logs of one side, a little past its middle
-      var stones = [];
-      for (i = 0; i < 3; i++) {
-        var geo = new T.BoxGeometry(0.5, 0.26, 0.4, 6, 4, 4), pos = geo.attributes.position;
-        for (var k = 0; k < pos.count; k++) { var x = pos.getX(k), y = pos.getY(k), z = pos.getZ(k), hsh = Math.sin(x * 91.7 + y * 47.3 + z * 13.1) * 43758.5; hsh -= Math.floor(hsh); pos.setXYZ(k, x * (1 + (hsh - 0.5) * 0.06), y * (1 + (hsh - 0.5) * 0.08), z * (1 + (hsh - 0.5) * 0.06)); }
-        geo.computeVertexNormals();
-        var st = new T.Mesh(geo, stoneM); st.castShadow = st.receiveShadow = true; st.visible = false; rig.add(st);
-        var sd = sides[i], tpos = 0.56, c0 = sd.p0.clone().addScaledVector(sd.ax, sd.len * tpos);
-        var top = sd.h0 + (sd.h1 - sd.h0) * tpos + rl;   // the top of the logs there
-        c0.y = top + 0.13 - 0.01;
-        st.position.copy(c0);
-        st.rotation.order = 'YXZ'; st.rotation.y = -Math.atan2(sd.ax.z, sd.ax.x) + (rnd() - 0.5) * 0.08; st.rotation.z = Math.atan2(sd.h1 - sd.h0, sd.len);
-        stones.push({ m: st, y: c0.y });
-      }
-      // the hammocks, each hung between two pole tips: as in the photographs, the ropes start at the very top of the
-      // poles, where the steel wire is tied, and come down about a metre to the gathered ends of the cloth
-      var hams = [], NU = 30, NV = 11;
-      for (i = 0; i < 3; i++) {
-        var P = feet[i].clone().addScaledVector(dirs[i], L - 0.04), Q = feet[(i + 1) % 3].clone().addScaledVector(dirs[(i + 1) % 3], L - 0.04);
-        var Ae = P.clone().lerp(Q, 0.16), Be = Q.clone().lerp(P, 0.16); Ae.y -= 0.95; Be.y -= 0.95;
-        var r1 = rod(P, Ae, 0.009, 0.009, ropeM, 6), r2 = rod(Q, Be, 0.009, 0.009, ropeM, 6);
-        var ax = Be.clone().sub(Ae), side = new T.Vector3(-ax.z, 0, ax.x).normalize();
-        var cg = new T.BufferGeometry(), arr = new Float32Array(NU * NV * 3), idx = [];
-        for (var u = 0; u < NU - 1; u++) for (var v = 0; v < NV - 1; v++) { var o = u * NV + v; idx.push(o, o + 1, o + NV, o + 1, o + NV + 1, o + NV); }
-        cg.setIndex(idx); cg.setAttribute('position', new T.BufferAttribute(arr, 3));
-        var cm = new T.Mesh(cg, clothM); cm.castShadow = cm.receiveShadow = true; cm.visible = false; rig.add(cm);
-        hams.push({ r1: r1, r2: r2, m: cm, A: Ae, B: Be, side: side, arr: arr, g: cg });
-      }
-      function drape(h, k) {
-        var w = 0.25 * Math.min(1.15, 0.12 + k), sag = 0.7 * k, cr = 0.24 * Math.max(0, k), n = 0;
-        for (var u = 0; u < NU; u++) {
-          var t = u / (NU - 1), s = Math.pow(Math.sin(Math.PI * t), 0.6), base = h.A.clone().lerp(h.B, t);
-          for (var v = 0; v < NV; v++) {
-            var c = v / (NV - 1) * 2 - 1, p = base.clone().addScaledVector(h.side, c * w * s);
-            p.y -= sag * 4 * t * (1 - t) + cr * (1 - c * c) * s; h.arr[n++] = p.x; h.arr[n++] = p.y; h.arr[n++] = p.z;
-          }
-        }
-        h.g.attributes.position.needsUpdate = true; h.g.computeVertexNormals();
-      }
-      // the timeline, in seconds
-      function cl(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
-      function io(x) { x = cl(x); return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
-      function bounce(x) { x = cl(x); var n = 7.5625, d = 2.75; if (x < 1 / d) return n * x * x; if (x < 2 / d) return n * (x -= 1.5 / d) * x + 0.75; if (x < 2.5 / d) return n * (x -= 2.25 / d) * x + 0.9375; return n * (x -= 2.625 / d) * x + 0.984375; }
-      var END = 10.6;
-      function at(t) {
-        poles.forEach(function (p, k) { var x = (t - k * 0.55) / 1.5; p.m.visible = x > 0; p.m.quaternion.copy(p.q0).slerp(p.q1, io(x)); });
-        var lx = (t - 2.7) / 0.8; lash.visible = lx > 0; lash.scale.setScalar(0.001 + io(lx)); lash.rotation.y = (1 - io(lx)) * 2;
-        wires.forEach(function (w, k) { var x = (t - 3.5 - k * 0.3) / 0.5; w.visible = x > 0; w.scale.y = 0.001 + io(x); });
-        logs.forEach(function (l, k) { var x = (t - 4.6 - l.k * 0.3 - (k % 2) * 0.12) / 0.9; l.m.visible = x > 0; l.m.position.copy(l.p).addScaledVector(l.out, (1 - io(x)) * 1.4); });
-        stones.forEach(function (s, k) { var x = (t - 6.0 - k * 0.25) / 0.8; s.m.visible = x > 0; s.m.position.y = s.y + (1 - bounce(x)) * 1.3; });
-        hams.forEach(function (h, k) {
-          var x = (t - 7.2 - k * 0.45) / 0.45; h.r1.visible = h.r2.visible = x > 0; h.r1.scale.y = h.r2.scale.y = 0.001 + io(x);
-          var y = (t - 7.6 - k * 0.45) / 2.2; h.m.visible = y > 0;
-          if (y > 0) { var yy = cl(y) * 2.2, kk = 1 - Math.exp(-3.2 * yy) * Math.cos(7.5 * yy); drape(h, kk); }
-        });
-      }
-      // camera, turning, and the loop
-      var yaw = 0.5, pitch = 0.2, tt = 0, vis = false, drag = null, raf = 0, last = 0, D = 9.2, TY = 1.45;
-      function place() { cam.position.set(0, TY + D * Math.sin(pitch), D * Math.cos(pitch)); cam.lookAt(0, TY - 0.05, 0); rig.rotation.y = yaw; }
-      self.size = function () {
-        var r = canvas.getBoundingClientRect(); if (!r.width) return;
-        renderer.setPixelRatio(DPR()); renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height; cam.updateProjectionMatrix(); draw();
-      };
-      function draw() { place(); renderer.render(scene, cam); }
-      function frame(now) {
-        raf = 0; if (!vis) return;
-        var dt = last ? Math.min(0.25, (now - last) / 1000) : 0; last = now;   // slow devices skip frames, the build keeps its pace
-        // the build clock runs only while most of the model is on screen, so it is never finished before it is seen
-        var r = canvas.getBoundingClientRect(), H = window.innerHeight;
-        if (r.top < H * 0.8 && r.bottom > H * 0.2) tt += dt;
-        var t = tt; at(Math.min(t, END));
-        if (!drag) yaw += dt * (t < END ? 0.12 : 0.07);
-        draw(); raf = requestAnimationFrame(frame);
-      }
-      if (reduce) { at(END); self.size(); }
-      else onScreen(el, function (v) { vis = v; if (v && !raf) { last = 0; raf = requestAnimationFrame(frame); } }, '0px');
-      canvas.addEventListener('pointerdown', function (e) { drag = { x: e.clientX, y: e.clientY, yaw: yaw, pitch: pitch }; canvas.setPointerCapture(e.pointerId); });
-      canvas.addEventListener('pointermove', function (e) { if (!drag) return; yaw = drag.yaw + (e.clientX - drag.x) * 0.01; pitch = Math.max(0.02, Math.min(0.75, drag.pitch + (e.clientY - drag.y) * 0.004)); if (reduce) draw(); });
-      ['pointerup', 'pointercancel'].forEach(function (n) { canvas.addEventListener(n, function () { drag = null; }); });
-      if (btn) { btn.hidden = false; btn.addEventListener('click', function () { tt = 0; if (reduce) { at(END); draw(); } }); }
-      // compile every material and shadow program once, with the whole model shown, so no part stalls a frame when it appears
-      at(END); place(); try { renderer.compile(scene, cam); } catch (e) {} at(reduce ? END : 0);
-      self.size();
-    }
-  }
-
   /* ---------- reaction-diffusion: brain-coral folds growing from a few seeds ---------- */
   function RD(el) {
     var canvas = el.querySelector('canvas'), ctx = canvas.getContext('2d');
@@ -4511,13 +4284,6 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
   var drawings = $$('[data-drawing]').map(function (el) { return new Drawing(el); });
   stagesAll = $$('[data-stages]').map(function (el) { return new Stages(el); });
   $$('[data-cycle]').forEach(function (el) { new Wall(el); });
-  var spins = $$('[data-spin]').map(function (el) { return new Spin(el); });
-  // if the 3D model cannot start, the finished frame is shown as a still (the old line drawing is retired, 13 Oct 2026)
-  var hm3d = $$('[data-hm3d]').map(function (el) { return new Hammock3D(el, function () {
-    var cv = el.querySelector('canvas'); if (!cv || el.querySelector('img.hm-still')) return;
-    var im = new Image(); im.className = 'hm-still'; im.alt = 'The chestnut frame finished: three poles bound at the crossing, the steel wire at the tips, the doubled log base with its three stones and three cream hammocks';
-    im.src = 'assets/video/hm-build.webp'; cv.replaceWith(im);
-  }); });
   var rds = $$('[data-rd]').map(function (el) { return new RD(el); });
   var mosaics = $$('[data-mosaic]').map(function (el) { return new Mosaic(el); });
   $$('[data-stories]').forEach(function (el) { new Stories(el); });
@@ -4597,7 +4363,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
   if (lenis) lenis.on('scroll', onScroll);
   function sizeAll() {
     if (World) World.size();
-    seqs.forEach(function (s) { s.size(); }); printers.forEach(function (p) { p.size(); }); globes.forEach(function (g) { g.size(); }); spins.forEach(function (q) { q.size(); }); hm3d.forEach(function (q) { q.size(); }); rds.forEach(function (q) { q.size(); }); mosaics.forEach(function (q) { q.size(); }); tubes.forEach(function (t) { t.layout(); });
+    seqs.forEach(function (s) { s.size(); }); printers.forEach(function (p) { p.size(); }); globes.forEach(function (g) { g.size(); }); rds.forEach(function (q) { q.size(); }); mosaics.forEach(function (q) { q.size(); }); tubes.forEach(function (t) { t.layout(); });
     Glass.all(); sizeReels();
   }
   var rt, lastW = window.innerWidth;
@@ -4622,7 +4388,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
   initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='601620d2b872';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='852341de497c';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

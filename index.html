@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-Qj2LqVkM1pjkJzUhjLSda/qnzpZ1DjAahdswRR/hCBg='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
 <meta name="description" content="Architect and doctoral researcher in Umeå, Sweden. 3D printed building parts made from biochar, wood waste and living mycelium, and the projects that led there.">
@@ -14,10 +16,102 @@
 <meta property="og:image" content="https://raffaeleerrichiello.com/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0d0b'/%3E%3Cpath d='M4 19h8c3 0 3-6 6-6h10' fill='none' stroke='%23c17324' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
+/* Bricolage Grotesque, Instrument Serif and JetBrains Mono (SIL Open Font License), served by the site itself so a
+   visit sends nothing to Google (12 Oct 2026); latin and latin-ext only, the scripts the page uses */
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url(assets/fonts/bricolage-grotesque-latin-ext-e55cbc.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+  src: url(assets/fonts/bricolage-grotesque-latin-4c16a1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/instrument-serif-italic-latin-ext-59d106.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/instrument-serif-italic-latin-416828.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/instrument-serif-latin-ext-7cd6b8.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/instrument-serif-latin-03435c.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/jetbrains-mono-latin-ext-9326b4.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/jetbrains-mono-latin-b87346.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/jetbrains-mono-latin-ext-9326b4.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/jetbrains-mono-latin-b87346.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* Raffaele Errichiello, version 8: the lab at night.
    Three layers. At the back, a WebGL world: Raffaele's footage stained per chapter with a combination from Sanzo Wada's
    A Dictionary of Color Combinations, a mycelium colony growing over it, and the chapter's word or year set huge.
@@ -84,8 +178,8 @@ main{position:relative;z-index:1}
 html.nogl .world{display:none}
 html.nogl [data-world]{background:linear-gradient(rgba(12,13,11,.55),rgba(12,13,11,.82)),var(--poster,none) center/cover no-repeat,var(--night)}
 .lens-anchor{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
-/* on touch screens the glass is lifted with a short hold: keep that hold from selecting the text under it */
-@media (hover:none){:has(> .lens-anchor){-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}}
+/* on touch screens the glass is lifted with a short hold: while a finger is on it, nothing can be selected (iOS) */
+html.glass-hold,html.glass-hold *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
 html.nogl .lens-anchor{display:none}
 
 /* glass for the control layer and the labels: frosted everywhere, refracting on Chromium */
@@ -1855,7 +1949,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <div class="side">
           <div class="body">
             <p>A collective atlas of environmental conflicts across the Nordic and Arctic region, made with Alejandro Haiek Coll and a team of researchers. For the exhibition at the UmArts studio in January 2024 we showed soil and plant samples from the sites, each jar labelled with its coordinates, a microscope to look closer, and a mixed-reality layer: 3D-scanned objects and imagined landscapes placed in the gallery and explored through a headset.</p>
-            <a class="more" href="http://laboratoryofplanetarydiplomacy.tilda.ws/nordic-arctic-atlas" target="_blank" rel="noopener">Open the atlas</a>
+            <a class="more" href="https://laboratoryofplanetarydiplomacy.tilda.ws/nordic-arctic-atlas" target="_blank" rel="noopener">Open the atlas</a>
             <a class="more storylink" href="#stories" data-story="17">Watch the stories from the exhibition</a>
           </div>
           <div class="pair">
@@ -2193,7 +2287,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     </div>
     <p class="addr">Material Practices Lab, Umeå School of Architecture, Umeå University, Sweden.</p>
     <footer class="foot">
-      <p>Photographs and footage by Raffaele Errichiello unless credited. Winter Garden opening, aerial and inflation photographs from the Laboratory of Planetary Diplomacy. Pallet Parliament from above by Kent Brodin. Instagram stories by the accounts named on each. Images made with Midjourney are marked as such; the AURORA rendering at the school and the full-scale MK3 rendering were made with Gemini. Behind the page, the footage is stained with colour combinations from Sanzo Wada's A Dictionary of Color Combinations, one per chapter, and the mycelium grows by diffusion-limited aggregation, after Michael Fogleman's dlaf. The glass is drawn live in WebGL.</p>
+      <p>Photographs and footage by Raffaele Errichiello unless credited. Winter Garden opening, aerial and inflation photographs from the Laboratory of Planetary Diplomacy. Pallet Parliament from above by Kent Brodin. Instagram stories by the accounts named on each. Every image or film made with AI is marked as such in its caption: Midjourney for early renders; Gemini for the AURORA renderings, the full-scale MK3 rendering and the coloured Stasys drawings; Veo and Google Flow for the AURORA and haMMMocks films. Behind the page, the footage is stained with colour combinations from Sanzo Wada's A Dictionary of Color Combinations, one per chapter, and the mycelium grows by diffusion-limited aggregation, after Michael Fogleman's dlaf. The glass is drawn live in WebGL.</p>
       <p>© 2026 Raffaele Errichiello</p>
     </footer>
   </div>
@@ -2585,7 +2679,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 })();
 
 </script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script src="assets/js/lenis.min.js"></script>
 <script>
 /* Raffaele Errichiello, portfolio engine, version 8.
    Behind the page runs one WebGL "world": Raffaele's own footage, stained per chapter with a colour combination from
@@ -3093,13 +3187,18 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         });
         return hit;
       };
-      var drop = function () { if (hold) clearTimeout(hold.tm); hold = null; if (tdrag) tdrag.el._lift = 0; tdrag = null; };
+      /* iOS turns a held finger into a text selection and then takes the touch away: from the moment a finger lands on
+         the glass, nothing under it can be selected and no callout opens, until the finger lifts */
+      var docEl = document.documentElement;
+      var drop = function () { if (hold) clearTimeout(hold.tm); hold = null; if (tdrag) tdrag.el._lift = 0; tdrag = null; docEl.classList.remove('glass-hold'); };
+      ['selectstart', 'contextmenu'].forEach(function (n) { document.addEventListener(n, function (e) { if (hold || tdrag) e.preventDefault(); }); });
       document.addEventListener('touchstart', function (e) {
         drop();
         if (e.touches.length !== 1) return;
         var t = e.touches[0];
         if (e.target.closest && e.target.closest('a,button,input,textarea,select,label,video,canvas,[data-zoom],.thread-box')) return;
         var el = dishAt(t.clientX, t.clientY); if (!el) return;
+        docEl.classList.add('glass-hold');
         hold = { el: el, x: t.clientX, y: t.clientY };
         hold.tm = setTimeout(function () {
           if (!hold) return;
@@ -3110,7 +3209,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       }, { passive: true });
       document.addEventListener('touchmove', function (e) {
         var t = e.touches[0]; if (!t) return;
-        if (hold) { if (Math.abs(t.clientX - hold.x) + Math.abs(t.clientY - hold.y) > 10) { clearTimeout(hold.tm); hold = null; } return; }
+        if (hold) { if (Math.abs(t.clientX - hold.x) + Math.abs(t.clientY - hold.y) > 10) { clearTimeout(hold.tm); hold = null; docEl.classList.remove('glass-hold'); } return; }
         if (!tdrag) return;
         if (e.cancelable) e.preventDefault();
         tdrag.el._t.dx = tdrag.dx + t.clientX - tdrag.x; tdrag.el._t.dy = tdrag.dy + t.clientY - tdrag.y;
@@ -3215,9 +3314,13 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     if (World) World.canvas(name, this);
   }
   Plate.prototype.size = function () {
+    // the size of the world canvas itself, not of the window: on iOS the world spans the large viewport (100lvh)
+    // while innerHeight shrinks with Safari's bars, and a plate of the window's size was stretched to cover the world,
+    // so what it drew under a dish came out bigger and lower than the dish (seen in the growth film, 13 Oct 2026)
+    var vw = World ? World.css() : [window.innerWidth, window.innerHeight], cw = vw[0] || window.innerWidth, ch = vw[1] || window.innerHeight;
     var d = Math.min(window.devicePixelRatio || 1, this.hi ? 1.5 : 1.25);
-    if (this.res) d = Math.min(d, this.res / Math.min(window.innerWidth, window.innerHeight));
-    var w = Math.round(window.innerWidth * d), h = Math.round(window.innerHeight * d);
+    if (this.res) d = Math.min(d, this.res / Math.min(cw, ch));
+    var w = Math.round(cw * d), h = Math.round(ch * d);
     if (this.canvas.width !== w || this.canvas.height !== h) { this.canvas.width = w; this.canvas.height = h; }
     this.d = d; this.dirty = true;
   };
@@ -3813,7 +3916,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
      hammocks. The model goes
      up in the order Raffaele asked for (11 Oct 2026): the poles rise from the ground, the rope at the crossing, the
      wire at the top, the base logs, the stones, then the hammocks drop like drapes. Drag to turn it. */
-  var THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js';
+  var THREE_URL = './assets/js/three.module.min.js';
   function Hammock3D(el, fallback) {
     var canvas = el.querySelector('canvas'), btn = el.querySelector('.hm-replay'), self = this, ready = false;
     this.size = function () {};

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-Qj2LqVkM1pjkJzUhjLSda/qnzpZ1DjAahdswRR/hCBg='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-4Pcq1u/F+sO6Y5L0DTTQujNusqLaW8yA3bUZzHlRLZM='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -155,6 +155,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;background:var(--night)
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 body{margin:0;background:var(--night);color:var(--ink);font-family:var(--display);font-size:18px;line-height:1.56;font-optical-sizing:auto;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+/* touch screens: the body is see-through, so the html background (which the engine tints with the top of the world) is
+   what iOS Safari shows under the status bar (13 Oct 2026) */
+@media (hover:none){html.gl body{background:transparent}html:has(.top.open){background:var(--night)!important}}
 img,video,canvas,svg{display:block;max-width:100%}
 img{height:auto}
 a{color:inherit}
@@ -194,7 +197,12 @@ html.lg [data-glass]{background:rgba(16,17,14,.3);-webkit-backdrop-filter:blur(4
 }
 
 /* ---------------------------------------------------------------- header */
-.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(12px + var(--safe-t)) var(--gut) 12px;font:500 15px/1.2 var(--display);letter-spacing:-.005em;pointer-events:none}
+/* the header starts 2px below the top edge: iOS 26 Safari treats a fixed element touching the top edge as a header and
+   paints the status-bar strip solid in the page colour (and keeps it so); 2px down, it lets the page scroll under the notch
+   and fade (13 Oct 2026). The open menu has no background of its own for the same reason (a dark fixed panel latches the
+   tint for good): the page is hidden and the world dimmed, so the dark ground behind fills the screen and both bars */
+html:has(.top.open) main{visibility:hidden}html:has(.top.open) .world{opacity:.06}
+.top{position:fixed;inset:2px 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(12px + var(--safe-t)) var(--gut) 12px;font:500 15px/1.2 var(--display);letter-spacing:-.005em;pointer-events:none}
 .top>*{pointer-events:auto}
 .top .name,.top nav,.top .menu{border-radius:999px;min-height:44px;display:flex;align-items:center;padding:0 20px;color:var(--bone);text-decoration:none}
 .top .name{font-weight:650;white-space:nowrap}
@@ -205,7 +213,7 @@ html.lg [data-glass]{background:rgba(16,17,14,.3);-webkit-backdrop-filter:blur(4
 @media (max-width:760px){
   .top .menu{display:flex}
   .top nav{display:none}
-  .top.open{pointer-events:auto;background:rgba(12,13,11,.94);height:100svh;align-items:flex-start;flex-wrap:wrap;align-content:flex-start}
+  .top.open{pointer-events:auto;height:100svh;align-items:flex-start;flex-wrap:wrap;align-content:flex-start}
   .top.open nav{display:flex;flex-direction:column;gap:6px;width:100%;margin-top:28px;border-radius:0;min-height:0;align-items:flex-start;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:0}
   .top.open nav::before{display:none}
   .top.open nav a{font:650 36px/1.25 var(--display);letter-spacing:-.03em;opacity:1}
@@ -605,6 +613,7 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .spin-row{margin-top:clamp(28px,3.4vw,48px);align-items:start}
 .spin{margin:0}
 .spin canvas{width:100%;aspect-ratio:4/5;background:var(--paper-2);border-radius:14px;cursor:grab;touch-action:pan-y}
+.spin img.hm-still{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:var(--paper);border-radius:14px}
 .spin canvas:active{cursor:grabbing}
 .hm-replay{font:inherit;color:var(--ink);background:none;border:0;border-bottom:1px solid currentColor;padding:0 0 1px;margin-left:4px;cursor:pointer}
 .hm-replay:hover{color:var(--rust)}
@@ -3288,7 +3297,20 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       gl.uniform4fv(U.uL, L); gl.uniform4fv(U.uM, Mv);
       gl.uniform2f(U.uRes, W, H); gl.uniform1f(U.uTime, t);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
+      /* iOS Safari never draws fixed layers under the status bar: there it shows the page's own background, so that
+         background takes the tone of the top of the world, read back a few times a second (13 Oct 2026) */
+      if (!finePointer && now - tone.t > 200) {
+        tone.t = now; var row = Math.max(0, H - 3), px = tone.buf || (tone.buf = new Uint8Array(W * 4));
+        if (px.length !== W * 4) px = tone.buf = new Uint8Array(W * 4);
+        gl.readPixels(0, row, W, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+        // the median of the top row, so a glass dish or a bright word crossing it does not grey the colour
+        var ch = [[], [], []]; for (i = 0; i < W * 4; i += 12) { ch[0].push(px[i]); ch[1].push(px[i + 1]); ch[2].push(px[i + 2]); }
+        var med = ch.map(function (a) { a.sort(function (x, y) { return x - y; }); return a[a.length >> 1] || 0; });
+        if (ch[0].length) { tone.c = tone.c ? tone.c.map(function (v, j) { return lerp(v, med[j], 0.5); }) : med;
+          doc.style.backgroundColor = 'rgb(' + tone.c.map(Math.round).join(',') + ')'; }
+      }
     }
+    var tone = { t: 0, c: null, buf: null };
     var running = false, wantFrame = true;
     function loop(now) { frame(now); if (!reduce) requestAnimationFrame(loop); else running = false; }
     size();
@@ -3920,11 +3942,14 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
   function Hammock3D(el, fallback) {
     var canvas = el.querySelector('canvas'), btn = el.querySelector('.hm-replay'), self = this, ready = false;
     this.size = function () {};
-    var go = function () { if (ready) return; ready = true; import(THREE_URL).then(build).catch(fallback); };
+    // a phone can refuse a new WebGL context for a moment (13 Oct 2026): try again once before giving up
+    var tries = 0, fail = function () { if (++tries < 2) setTimeout(load, 1500); else fallback(); };
+    var load = function () { import(THREE_URL).then(build).catch(fail); };
+    var go = function () { if (ready) return; ready = true; load(); };
     onScreen(el, function (v) { if (v) go(); }, '1400px 0px');   // load and compile well before it scrolls in
     function build(T) {
       var renderer;
-      try { renderer = new T.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); } catch (e) { fallback(); return; }
+      try { renderer = new T.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); } catch (e) { fail(); return; }
       renderer.outputColorSpace = T.SRGBColorSpace; renderer.toneMapping = T.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
       renderer.shadowMap.enabled = true; renderer.shadowMap.type = T.PCFSoftShadowMap;
       var scene = new T.Scene(), cam = new T.PerspectiveCamera(30, 0.8, 0.1, 60), rig = new T.Group(); scene.add(rig);
@@ -4459,7 +4484,12 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
   stagesAll = $$('[data-stages]').map(function (el) { return new Stages(el); });
   $$('[data-cycle]').forEach(function (el) { new Wall(el); });
   var spins = $$('[data-spin]').map(function (el) { return new Spin(el); });
-  var hm3d = $$('[data-hm3d]').map(function (el) { return new Hammock3D(el, function () { var sp = new Spin(el); spins.push(sp); sp.size(); }); });
+  // if the 3D model cannot start, the finished frame is shown as a still (the old line drawing is retired, 13 Oct 2026)
+  var hm3d = $$('[data-hm3d]').map(function (el) { return new Hammock3D(el, function () {
+    var cv = el.querySelector('canvas'); if (!cv || el.querySelector('img.hm-still')) return;
+    var im = new Image(); im.className = 'hm-still'; im.alt = 'The chestnut frame finished: three poles bound at the crossing, the steel wire at the tips, the doubled log base with its three stones and three cream hammocks';
+    im.src = 'assets/video/hm-build.webp'; cv.replaceWith(im);
+  }); });
   var rds = $$('[data-rd]').map(function (el) { return new RD(el); });
   var mosaics = $$('[data-mosaic]').map(function (el) { return new Mosaic(el); });
   $$('[data-stories]').forEach(function (el) { new Stories(el); });
@@ -4564,6 +4594,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
   initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
+(function(){var B='1205cba71355';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

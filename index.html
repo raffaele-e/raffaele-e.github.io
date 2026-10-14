@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-KSxWmGpSOv/sqInp8+IZ7UmByI3yhINHqoALoCJ8o8Q='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-mKFKu4f99wEMADsnpNiqv6g8BWWdMgElMZoxt0MERtE='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -822,7 +822,7 @@ html.nogl .mz-field canvas{display:block}
 /* lightbox */
 dialog.lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:96vh;color:var(--bone)}
 dialog.lb::backdrop{background:rgba(8,9,7,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-dialog.lb img{max-width:96vw;max-height:84vh;width:auto;height:auto;object-fit:contain;margin-inline:auto;border-radius:10px}
+dialog.lb img,dialog.lb video{display:block;max-width:96vw;max-height:84vh;width:auto;height:auto;object-fit:contain;margin-inline:auto;border-radius:10px}dialog.lb [hidden]{display:none}
 dialog.lb p{color:var(--bone-2);text-align:center;font:400 13px/1.4 var(--mono);margin-top:12px;padding-inline:16px}
 dialog.lb button{position:fixed;top:calc(14px + var(--safe-t));right:16px;border:0;border-radius:999px;min-height:42px;padding:0 18px;background:rgba(244,239,230,.14);color:var(--bone);font:500 14px var(--display);cursor:pointer}
 
@@ -1133,12 +1133,12 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <p>The mix rests for about two weeks, so the fungus is established before printing.</p>
       </li>
       <li>
-        <figure class="media r45"><video data-auto muted playsinline loop preload="none" poster="assets/video/print.webp" aria-label="Close-up of the nozzle laying paste along the brain-coral pattern"><source src="assets/video/print.mp4" type="video/mp4"></video></figure>
+        <figure class="media r45"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/print.webp" aria-label="Close-up of the nozzle laying paste along the brain-coral pattern"><source src="assets/video/print.mp4" type="video/mp4"></video></figure>
         <h3>Print</h3>
         <p>A clay printer lays the paste through an 8 mm nozzle, in one line that never stops.</p>
       </li>
       <li>
-        <figure class="media r45"><video data-auto muted playsinline loop preload="none" poster="assets/video/chamber.webp" aria-label="Night camera in the fermentation room: printed cylinders turning white and growing over two weeks, with the date stamp running"><source src="assets/video/chamber.mp4" type="video/mp4"></video></figure>
+        <figure class="media r45"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/chamber.webp" aria-label="Night camera in the fermentation room: printed cylinders turning white and growing over two weeks, with the date stamp running"><source src="assets/video/chamber.mp4" type="video/mp4"></video></figure>
         <h3>Grow</h3>
         <p>Two weeks in a humid chamber at 24 °C, filmed by the night camera of the fermentation room, date stamp and all.</p>
       </li>
@@ -1270,7 +1270,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <figure class="media zoomable" style="aspect-ratio:1800/1019" data-zoom="assets/img/x/uou-f5.webp" data-cap="Micrometres: hyphae bridging the pores of a substrate, electron microscopy, 220 and 30 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-f5.webp" alt="Two framed electron microscope images of fungal hyphae, a dense white web on black and a closer view of single threads" loading="lazy" decoding="async" width="1800" height="1019"></figure>
       </div>
       <p class="cap">Millimetres and micrometres. Three 30 mm samples, where moisture gathers in the closed parts of the pattern; then hyphae bridging the pores of a substrate under the electron microscope, 220 and 30 micrometres across (adapted from Islam et al. 2017 and Motamedi et al. 2025).</p>
-      <figure class="media uou-wide" style="aspect-ratio:1600/1136"><video data-auto muted playsinline loop preload="none" poster="assets/video/uou-f7.webp" aria-label="The paper's longitudinal section of a 60 cm column, animated: a section plane moves through the column and back, the printed paths cut in white, the solid beyond in grey, the welded seams repeating along its length"><source src="assets/video/uou-f7.mp4" type="video/mp4"></video></figure>
+      <figure class="media uou-wide" style="aspect-ratio:1600/1136"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/uou-f7.webp" aria-label="The paper's longitudinal section of a 60 cm column, animated: a section plane moves through the column and back, the printed paths cut in white, the solid beyond in grey, the welded seams repeating along its length"><source src="assets/video/uou-f7.mp4" type="video/mp4"></video></figure>
       <p class="cap">Back to centimetres. A section plane runs through a 60 cm column and back, and the welded seams repeat along it.</p>
     </div>
   </div>
@@ -1402,11 +1402,11 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 
     <div class="hold" id="hold">
       <figure>
-        <div class="media r45"><video data-auto muted playsinline loop preload="none" poster="assets/video/sit2.webp" aria-label="Raffaele sitting on demonstrator D2, then standing on it on one leg"><source src="assets/video/sit2.mp4" type="video/mp4"></video></div>
+        <div class="media r45"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sit2.webp" aria-label="Raffaele sitting on demonstrator D2, then standing on it on one leg"><source src="assets/video/sit2.mp4" type="video/mp4"></video></div>
         <figcaption class="cap">Sitting and standing on demonstrator D2, 2026.</figcaption>
       </figure>
       <figure>
-        <div class="media r34"><video data-auto muted playsinline loop preload="none" poster="assets/video/press9.webp" aria-label="The press descending steadily while the film switches between printed samples at the same height, each cracking as it is crushed"><source src="assets/video/press9.mp4" type="video/mp4"></video></div>
+        <div class="media r34"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/press9.webp" aria-label="The press descending steadily while the film switches between printed samples at the same height, each cracking as it is crushed"><source src="assets/video/press9.mp4" type="video/mp4"></video></div>
         <figcaption class="cap">Compression tests, 29 April 2025. Cut so the press makes one steady descent: every half second the film jumps to another sample at the same press height, the tall ones first, then the short ones.</figcaption>
       </figure>
       <div class="txt">
@@ -1477,7 +1477,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         </div>
         <figure class="media r11"><img src="assets/img/x/hm-sketch-r.webp" alt="Pencil sketch on squared paper of crossed poles with curves hanging between them" loading="lazy" decoding="async" width="900" height="900"></figure>
       </div>
-      <figure class="hm-film"><div class="media r169"><video data-auto muted playsinline loop preload="none" poster="assets/video/hm-build.webp" aria-label="AI film of the chestnut frame going up, on the paper of the page: three rough chestnut poles rise and cross, a slim jute lashing binds the crossing, a steel wire is strung between the tips, the base logs slide in under the feet, three limestone blocks come down onto the logs, and three cream canvas hammocks drop from the pole tips on their ropes"><source src="assets/video/hm-build.mp4" type="video/mp4"></video></div><figcaption class="cap">The build, rendered by AI from a 3D model of the frame and the June 2016 photographs.</figcaption></figure>
+      <figure class="hm-film"><div class="media r169"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/hm-build.webp" aria-label="AI film of the chestnut frame going up, on the paper of the page: three rough chestnut poles rise and cross, a slim jute lashing binds the crossing, a steel wire is strung between the tips, the base logs slide in under the feet, three limestone blocks come down onto the logs, and three cream canvas hammocks drop from the pole tips on their ropes"><source src="assets/video/hm-build.mp4" type="video/mp4"></video></div><figcaption class="cap">The build, rendered by AI from a 3D model of the frame and the June 2016 photographs.</figcaption></figure>
       <div class="duo" style="grid-template-columns:1.333fr 1.5fr .75fr">
         <figure class="media r43"><img src="assets/img/x/hm-model.webp" alt="Table-top model of the frame: wooden sticks, string and three canvas seats" loading="lazy" decoding="async" width="1100" height="825"></figure>
         <figure class="media r32"><img src="assets/img/x/hm-night.webp" alt="The two finished frames lit at night in the field, people resting in the hammocks, the glow of the sky behind them" loading="lazy" decoding="async" width="1024" height="683"></figure>
@@ -1505,7 +1505,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 
       <p class="meta">Form-finding studies and a fabric prototype with Fabiana Polichetti, during our Erasmus year at Umeå School of Architecture, September 2019 to March 2020.</p>
       <div class="split" style="margin-top:clamp(24px,3vw,40px)">
-        <figure><div class="media r45"><video data-auto muted playsinline loop preload="none" poster="assets/video/snow.webp" aria-label="The fabric prototype in the snow, the low sun moving behind it"><source src="assets/video/snow.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="media r45"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/snow.webp" aria-label="The fabric prototype in the snow, the low sun moving behind it"><source src="assets/video/snow.mp4" type="video/mp4"></video></div></figure>
         <div class="side">
           <div class="body">
             <p>In Umeå we tried to let structures find their own shape. First came models of wire and net, then fabric soaked in a coating and left to stiffen, then simulations of minimal surfaces: the smallest surface that can span a given edge, the way a soap film does.</p>
@@ -1526,10 +1526,10 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <figure class="media r34"><img src="assets/img/stasys-inside.webp" alt="Looking up inside the fabric prototype" loading="lazy" decoding="async" width="1000" height="1249"></figure>
       </div>
       <div class="sn-films">
-        <figure class="sn-w"><div class="media"><video data-auto muted playsinline loop preload="none" poster="assets/video/sn-model.webp" aria-label="The concrete model being made: thin rods bent into arches on a board, chicken wire stretched over them, clear plastic film pressed onto the wire and shrunk with a heat gun, a coat brushed over it, a layer of concrete, and the finished grey shell standing on its own"><source src="assets/video/sn-model.mp4" type="video/mp4"></video></div><figcaption class="cap">The concrete model, December 2019: rods bent into arches, chicken wire over them, plastic film shrunk onto the wire with a heat gun, a coat brushed on, then the concrete.</figcaption></figure>
-        <figure class="sn-t"><div class="media"><video data-auto muted playsinline loop preload="none" poster="assets/video/sn-pipes.webp" aria-label="At night in the school hall: lines of tape on the floor marking the plan, a white pipe, Raffaele on a stool bending the pipes into place, and a walk through the finished cluster of arching pipes"><source src="assets/video/sn-pipes.mp4" type="video/mp4"></video></div><figcaption class="cap">The pipes, the night of 4 February 2020: the plan taped on the floor of the school hall, then the white pipes bent into place.</figcaption></figure>
-        <figure class="sn-w"><div class="media"><video data-auto muted playsinline loop preload="none" poster="assets/video/sn-net.webp" aria-label="Timelapse in the workshop: a white net pulled over the arching pipes piece by piece until it wraps the shells, the frame held in the same place from one shot to the next"><source src="assets/video/sn-net.mp4" type="video/mp4"></video></div><figcaption class="cap">The net, 12 February 2020, pulled over the pipes with Fabiana Polichetti in the workshop: four timelapses from that evening, in the order of the work and framed alike, so each shot picks up the net where the last one left it.</figcaption></figure>
-        <figure class="sn-t"><div class="media"><video data-auto muted playsinline loop preload="none" poster="assets/video/sn-snow.webp" aria-label="Outside the school in the snow: the white shells in low winter sun, Raffaele spraying them with a hose, the sun behind the net, and the iced shells at night"><source src="assets/video/sn-snow.mp4" type="video/mp4"></video></div><figcaption class="cap">Outside, 14 February 2020: the shells in the snow, sprayed with water until the net iced, and the same shells at night.</figcaption></figure>
+        <figure class="sn-w"><div class="media"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sn-model.webp" aria-label="The concrete model being made: thin rods bent into arches on a board, chicken wire stretched over them, clear plastic film pressed onto the wire and shrunk with a heat gun, a coat brushed over it, a layer of concrete, and the finished grey shell standing on its own"><source src="assets/video/sn-model.mp4" type="video/mp4"></video></div><figcaption class="cap">The concrete model, December 2019: rods bent into arches, chicken wire over them, plastic film shrunk onto the wire with a heat gun, a coat brushed on, then the concrete.</figcaption></figure>
+        <figure class="sn-t"><div class="media"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sn-pipes.webp" aria-label="At night in the school hall: lines of tape on the floor marking the plan, a white pipe, Raffaele on a stool bending the pipes into place, and a walk through the finished cluster of arching pipes"><source src="assets/video/sn-pipes.mp4" type="video/mp4"></video></div><figcaption class="cap">The pipes, the night of 4 February 2020: the plan taped on the floor of the school hall, then the white pipes bent into place.</figcaption></figure>
+        <figure class="sn-w"><div class="media"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sn-net.webp" aria-label="Timelapse in the workshop: a white net pulled over the arching pipes piece by piece until it wraps the shells, the frame held in the same place from one shot to the next"><source src="assets/video/sn-net.mp4" type="video/mp4"></video></div><figcaption class="cap">The net, 12 February 2020, pulled over the pipes with Fabiana Polichetti in the workshop: four timelapses from that evening, in the order of the work and framed alike, so each shot picks up the net where the last one left it.</figcaption></figure>
+        <figure class="sn-t"><div class="media"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sn-snow.webp" aria-label="Outside the school in the snow: the white shells in low winter sun, Raffaele spraying them with a hose, the sun behind the net, and the iced shells at night"><source src="assets/video/sn-snow.mp4" type="video/mp4"></video></div><figcaption class="cap">Outside, 14 February 2020: the shells in the snow, sprayed with water until the net iced, and the same shells at night.</figcaption></figure>
       </div>
       <div class="pmore" data-more="assets/img/more/m01b.webp" data-n="11" role="img" aria-label="Eleven more photographs of this project from the archive, changing every few seconds"><i></i><i></i><i></i><i></i></div>
       </div>
@@ -1561,7 +1561,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       </div>
       <div class="duo" style="grid-template-columns:1fr 1fr">
         <figure class="cycle" data-cycle data-every="3000" aria-label="Renderings of the library, inside and out, changing every few seconds"><div class="tile r1610"><img src="assets/img/x/th-lib-in.webp" alt="Rendering inside the library: steps for sitting, long tables and shelves of books under the shells" loading="lazy" decoding="async" width="1600" height="1000"><img src="assets/img/x/th-lib-in2.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"><img src="assets/img/x/th-lib-1.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"><img src="assets/img/x/th-lib-4.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"><img src="assets/img/x/th-lib-6.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"><img src="assets/img/x/th-lib-5.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"><img src="assets/img/x/th-lib-8.webp" alt="" loading="lazy" decoding="async" width="1600" height="1000"></div></figure>
-        <figure class="media r1610"><video data-auto muted playsinline loop preload="none" poster="assets/video/th-turn.webp" aria-label="Rendering of the library turning a full circle on its base"><source src="assets/video/th-turn.mp4" type="video/mp4"></video></figure>
+        <figure class="media r1610"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/th-turn.webp" aria-label="Rendering of the library turning a full circle on its base"><source src="assets/video/th-turn.mp4" type="video/mp4"></video></figure>
       </div>
       <div class="th-m">
         <div class="th-h"><h4 class="th-t">Shells on the steps</h4><p class="th-d">November 2021 to January 2022</p><p>Ribbed shells set on a flight of outdoor steps, a stage by the river in Umeå. They were drawn over the stair in Rhino and 3D printed at small scale to test the ribs.</p></div>
@@ -1612,7 +1612,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <div class="ch-body">
 
       <p class="meta">Alongside the thesis, November 2021 to May 2022: growing <i>Pleurotus ostreatus</i>, the oyster mushroom, at home near Naples, a visit to the farm Il Rivo above Sorrento, then the first sterile cultures in Umeå.</p>
-      <figure class="media r169" style="margin-top:clamp(24px,3vw,40px)"><video data-auto muted playsinline loop preload="none" poster="assets/video/ex-mix.webp" aria-label="Filmed from above on a white sheet: bowls of substrates weighed and mixed by hand, bags filled and taped, a pressure cooker, then bags opened and inoculated by hands in a clean suit and gloves"><source src="assets/video/ex-mix.mp4" type="video/mp4"></video></figure>
+      <figure class="media r169" style="margin-top:clamp(24px,3vw,40px)"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/ex-mix.webp" aria-label="Filmed from above on a white sheet: bowls of substrates weighed and mixed by hand, bags filled and taped, a pressure cooker, then bags opened and inoculated by hands in a clean suit and gloves"><source src="assets/video/ex-mix.mp4" type="video/mp4"></video></figure>
       <p class="cap">Mixing day, 19 January 2022, filmed from above: the substrates weighed and mixed, the bags filled and taped, sterilised in a pressure cooker, then inoculated with spawn.</p>
       <div class="zig rev" style="margin-top:clamp(48px,6vw,88px)">
         <div class="duo" style="grid-template-columns:1fr 1fr;margin-top:0">
@@ -1672,7 +1672,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
             <p>My first grown object: a seat of workshop leftovers, bound by the mycelium of the reishi mushroom and set on turned wooden legs. I packed the substrate by hand into a mould shaped around the joints of the legs, and the fungus did the rest.</p>
             <p>It won an award at the school's first furniture fair for bio-fabrication and circular design.</p>
           </div>
-          <figure class="rc-film"><div class="media r34"><video data-auto muted playsinline loop preload="none" poster="assets/video/rc-film.webp" aria-label="The making of the REishi chair, from start to finish: turned spindles on the bench, a rail notched with a chisel, pegged and drilled, spindles softened in boiling water; Raffaele crumbling the colonised substrate and packing it into a tray, setting the rails and legs into it, the mould frame, the back spindles and the crest; the chair in its clear mould in the grow tent; unmoulded on the studio table and seen from under the seat; the grown surface low across and in warm light; the first small mushrooms, the legs and spindles in the seat, and the finished chair turning into view"><source src="assets/video/rc-film.mp4" type="video/mp4"></video></div><figcaption class="cap">The making, April to May 2022.</figcaption></figure>
+          <figure class="rc-film"><div class="media r34"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/rc-film.webp" aria-label="The making of the REishi chair, from start to finish: turned spindles on the bench, a rail notched with a chisel, pegged and drilled, spindles softened in boiling water; Raffaele crumbling the colonised substrate and packing it into a tray, setting the rails and legs into it, the mould frame, the back spindles and the crest; the chair in its clear mould in the grow tent; unmoulded on the studio table and seen from under the seat; the grown surface low across and in warm light; the first small mushrooms, the legs and spindles in the seat, and the finished chair turning into view"><source src="assets/video/rc-film.mp4" type="video/mp4"></video></div><figcaption class="cap">The making, April to May 2022.</figcaption></figure>
         </div>
       </div>
       <div class="duo" style="grid-template-columns:.75fr .75fr .75fr 1fr">
@@ -1714,7 +1714,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       </div>
       <div class="duo" style="grid-template-columns:1.5fr 1fr .75fr">
         <figure class="media r32"><img src="assets/img/x/rods-net2.webp" alt="A rope net stretched between bent steel rods on a workbench" loading="lazy" decoding="async" width="1500" height="1000"></figure>
-        <figure class="media r11"><video data-auto muted playsinline loop preload="none" poster="assets/video/mk-jig.webp" aria-label="The bending jig, 14 July 2022: a steel tube along a curve of pulleys screwed to a plywood table, the pulleys and clamps up close, a hand pressing the tube into the curve, and Raffaele feeding the tube through with a wrench"><source src="assets/video/mk-jig.mp4" type="video/mp4"></video></figure>
+        <figure class="media r11"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/mk-jig.webp" aria-label="The bending jig, 14 July 2022: a steel tube along a curve of pulleys screwed to a plywood table, the pulleys and clamps up close, a hand pressing the tube into the curve, and Raffaele feeding the tube through with a wrench"><source src="assets/video/mk-jig.mp4" type="video/mp4"></video></figure>
         <figure class="cycle" data-cycle data-every="3000" aria-label="Bent steel parts of MK3, changing every few seconds"><div class="tile r34"><img src="assets/img/x/mk-s.webp" alt="A long steel tube bent into a large S, laid on the concrete floor of the school hall" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/mk-arc.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/mk-joint.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"></div></figure>
       </div>
       <p class="cap">A test net on bent rods, the bending jig at work in July 2022, and the bent parts: the large S on the hall floor, a tube hung against the wall, a clamp joint.</p>
@@ -1741,8 +1741,8 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <figure class="media r169 unveil zoomable" style="margin-top:clamp(24px,3vw,40px)" data-zoom="assets/img/pallets-aerial.webp" data-cap="Pallet Parliament from above. Photograph by Kent Brodin."><img src="assets/img/pallets-aerial.webp" alt="Aerial view of curving rows of stacked pallets forming an amphitheatre on asphalt" loading="lazy" decoding="async" width="2000" height="1125"></figure>
       <p class="cap">From above. Photograph by Kent Brodin.</p>
       <div class="people3">
-        <figure><div class="media r45"><video data-auto muted playsinline loop preload="none" poster="assets/video/pallets-walk.webp" aria-label="Walking along the curved rows of stacked pallets, the amphitheatre bending away towards the trees"><source src="assets/video/pallets-walk.mp4" type="video/mp4"></video></div><figcaption class="cap">Along the rows, 29 August 2022, four days before the opening.</figcaption></figure>
-        <figure><div class="media r45"><video data-auto muted playsinline loop preload="none" poster="assets/video/pp-band.webp" aria-label="The opening of Pallet Parliament: the curved pallet seating, a band playing on the asphalt, neighbours sitting on the pallets and standing around"><source src="assets/video/pp-band.mp4" type="video/mp4"></video></div><figcaption class="cap">The opening, 2 September 2022: a band on the asphalt and the neighbourhood on the pallets. Clip from @the.public.machinery.</figcaption></figure>
+        <figure><div class="media r45"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/pallets-walk.webp" aria-label="Walking along the curved rows of stacked pallets, the amphitheatre bending away towards the trees"><source src="assets/video/pallets-walk.mp4" type="video/mp4"></video></div><figcaption class="cap">Along the rows, 29 August 2022, four days before the opening.</figcaption></figure>
+        <figure><div class="media r45"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/pp-band.webp" aria-label="The opening of Pallet Parliament: the curved pallet seating, a band playing on the asphalt, neighbours sitting on the pallets and standing around"><source src="assets/video/pp-band.mp4" type="video/mp4"></video></div><figcaption class="cap">The opening, 2 September 2022: a band on the asphalt and the neighbourhood on the pallets. Clip from @the.public.machinery.</figcaption></figure>
         <div class="body">
           <p>Used euro pallets, stacked into a curving amphitheatre on an empty parking lot in Teg. The parliament was a stage, a playground and an open classroom for the neighbourhood, built for the Böledagen day of the GoGreenRoutes project and used as a place to talk about the area's new street plan.</p>
           <p>The curve was set out from one repeating module. We tested the stacking on a desk model of small pallets, drew the curve on the asphalt with chalk, and assembled it pallet by pallet.</p>
@@ -1750,7 +1750,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         </div>
       </div>
       <div class="duo" style="grid-template-columns:1fr 1.333fr">
-        <figure class="cycle" data-cycle data-every="3000" aria-label="The design and making of Pallet Parliament, photographs and short clips changing every few seconds"><div class="tile r43"><img src="assets/img/x/pp-p-rhino.webp" alt="The Rhino model of the amphitheatre: pallets stacked in curving tiers round an empty floor" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/pp-p-rhino2.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><video muted playsinline preload="none" data-hold="4400" poster="assets/video/pp-laser.webp" aria-label="The laser cutter cutting the setting-out disc"><source src="assets/video/pp-laser.mp4" type="video/mp4"></video><img src="assets/img/x/pp-p-laser.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/pp-p-tower.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/pp-p-chalk.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><video muted playsinline preload="none" data-hold="4400" poster="assets/video/pp-ring.webp" aria-label="Pallets laid round the chalk circle for the first ring"><source src="assets/video/pp-ring.mp4" type="video/mp4"></video><img src="assets/img/x/pp-p-ring.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"></div></figure>
+        <figure class="cycle" data-cycle data-every="3000" aria-label="The design and making of Pallet Parliament, photographs and short clips changing every few seconds"><div class="tile r43"><img src="assets/img/x/pp-p-rhino.webp" alt="The Rhino model of the amphitheatre: pallets stacked in curving tiers round an empty floor" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/pp-p-rhino2.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><video muted playsinline preload="none" data-hold="4400" data-poster="assets/video/pp-laser.webp" aria-label="The laser cutter cutting the setting-out disc"><source src="assets/video/pp-laser.mp4" type="video/mp4"></video><img src="assets/img/x/pp-p-laser.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/pp-p-tower.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/pp-p-chalk.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><video muted playsinline preload="none" data-hold="4400" data-poster="assets/video/pp-ring.webp" aria-label="Pallets laid round the chalk circle for the first ring"><source src="assets/video/pp-ring.mp4" type="video/mp4"></video><img src="assets/img/x/pp-p-ring.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"></div></figure>
         <figure class="cycle" data-cycle data-every="3200" aria-label="The finished amphitheatre, empty, from six sides, changing every few seconds"><div class="tile r169"><img src="assets/img/x/pp-whole3.webp" alt="The finished Pallet Parliament seen whole across the empty parking lot, its stacked tiers curving round under a blue sky" loading="lazy" decoding="async" width="1600" height="900"><img src="assets/img/x/pp-whole2.webp" alt="" loading="lazy" decoding="async" width="1600" height="900"><img src="assets/img/x/pp-whole1.webp" alt="" loading="lazy" decoding="async" width="1600" height="900"><img src="assets/img/x/pp-whole6.webp" alt="" loading="lazy" decoding="async" width="1600" height="900"><img src="assets/img/x/pp-whole5.webp" alt="" loading="lazy" decoding="async" width="1600" height="900"><img src="assets/img/x/pp-whole4.webp" alt="" loading="lazy" decoding="async" width="1600" height="900"></div></figure>
       </div>
       <p class="cap">Left, the design and the making, August 2022: the Rhino model, the laser cutter and the laser-cut miniature pallets weighed down with nuts, a tower test on the desk, the chalk circle with the laser-cut setting-out disc at its centre, and the first ring. Right, the finished parliament from six sides on the afternoon of 5 September 2022.</p>
@@ -1855,7 +1855,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 
       <p class="meta">Guest researcher with Ellinor Werner, RISE Research Institutes of Sweden, Scharinska Villan, Umeå, January to February 2023.</p>
       <div class="split" style="margin-top:clamp(24px,3vw,40px)">
-        <figure><div class="media r32"><video data-auto muted playsinline loop preload="none" poster="assets/video/rise.webp" aria-label="A delta printer laying a brown mycelium paste into a low vessel"><source src="assets/video/rise.mp4" type="video/mp4"></video></div><figcaption class="cap">One of the first prints, January 2023.</figcaption></figure>
+        <figure><div class="media r32"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/rise.webp" aria-label="A delta printer laying a brown mycelium paste into a low vessel"><source src="assets/video/rise.mp4" type="video/mp4"></video></div><figcaption class="cap">One of the first prints, January 2023.</figcaption></figure>
         <div class="side">
           <div class="body">
             <p>At RISE I began developing a mycelium-based, fibre-reinforced material that could be printed instead of cast. The first extrusions were rough, but they held their shape: low vessels, a fluted dome, a serpentine block. They were shown as Living Architecture.</p>
@@ -1908,7 +1908,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         </div>
         <p class="cap">Right: early Midjourney sketches for the trophy, December 2022. The design turned out to be set already, by Doberman.</p>
       </div>
-      <figure class="media" style="aspect-ratio:16/9;margin-top:clamp(28px,3.4vw,48px)"><video data-auto muted playsinline loop preload="none" poster="assets/video/ds-film.webp" aria-label="Making the Design S plaques, filmed from the bench: a block cut on the table saw, then on the band saw, a plate cut from it, the planer set to five millimetres and the plate fed under, the plates dropped one by one into a pile, the award text engraved by laser, and the photographer filming the three grown S pieces in the room"><source src="assets/video/ds-film.mp4" type="video/mp4"></video></figure>
+      <figure class="media" style="aspect-ratio:16/9;margin-top:clamp(28px,3.4vw,48px)"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/ds-film.webp" aria-label="Making the Design S plaques, filmed from the bench: a block cut on the table saw, then on the band saw, a plate cut from it, the planer set to five millimetres and the plate fed under, the plates dropped one by one into a pile, the award text engraved by laser, and the photographer filming the three grown S pieces in the room"><source src="assets/video/ds-film.mp4" type="video/mp4"></video></figure>
         <p class="cap">Making the plaques, 21 and 22 April 2023: cut on the table saw and the band saw, planed to five millimetres, stacked and engraved by laser in the school workshop. Then the finished set filmed before the ceremony, 30 May.</p>
       <div class="pmore" data-more="assets/img/more/m09.webp" data-n="12" role="img" aria-label="Twelve more photographs of this project from the archive, changing every few seconds"><i></i><i></i><i></i><i></i></div>
       </div>
@@ -1948,7 +1948,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <p class="cap">Soil, moss and lichen samples under the microscope, October 2023.</p>
       <div class="split rev" style="margin-top:clamp(28px,3.4vw,48px)">
         <figure>
-          <div class="media r11"><video data-auto muted playsinline loop preload="none" poster="assets/video/atlas.webp" aria-label="Mixed-reality view through a headset in the UmArts gallery: scanned rocks on a river map projected on the floor and a tower appearing among them; the hand menu; a globe where a place is picked with a red ring; objects swapped from the menu, a rock, the tower, a railway, a timber ruin; a press on the menu that opens onto a fungal forest, lichen and a snowy landscape in section; the snow world as a sphere floating in the room"><source src="assets/video/atlas.mp4" type="video/mp4"></video></div>
+          <div class="media r11"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/atlas.webp" aria-label="Mixed-reality view through a headset in the UmArts gallery: scanned rocks on a river map projected on the floor and a tower appearing among them; the hand menu; a globe where a place is picked with a red ring; objects swapped from the menu, a rock, the tower, a railway, a timber ruin; a press on the menu that opens onto a fungal forest, lichen and a snowy landscape in section; the snow world as a sphere floating in the room"><source src="assets/video/atlas.mp4" type="video/mp4"></video></div>
           <figcaption class="cap">Recorded through the headset at UmArts, January 2024: the objects in the room, the hand menu and the globe, then the worlds.</figcaption>
         </figure>
         <div class="side">
@@ -1958,7 +1958,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
             <a class="more storylink" href="#stories" data-story="17">Watch the stories from the exhibition</a>
           </div>
           <div class="pair">
-            <figure><div class="media r11"><video data-auto muted playsinline loop preload="none" poster="assets/video/micro8.webp" aria-label="Looking through a microscope as the focus moves across a sample"><source src="assets/video/micro8.mp4" type="video/mp4"></video></div></figure>
+            <figure><div class="media r11"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/micro8.webp" aria-label="Looking through a microscope as the focus moves across a sample"><source src="assets/video/micro8.mp4" type="video/mp4"></video></div></figure>
             <figure class="media r11"><img src="assets/img/x/at-dishes.webp" alt="Petri dishes of soil samples, each labelled by hand with the site it came from, such as Lakode dam and landfill" loading="lazy" decoding="async" width="1000" height="1000"></figure>
           </div>
         </div>
@@ -1992,7 +1992,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
             <p>It was the first time a client asked for the material rather than a drawing.</p>
           </div>
           <div class="pair">
-            <figure><div class="media r45"><video data-auto muted playsinline loop preload="none" poster="assets/video/spray.webp" aria-label="Spraying the grown letters red in a spray booth, sped up"><source src="assets/video/spray.mp4" type="video/mp4"></video></div></figure>
+            <figure><div class="media r45"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/spray.webp" aria-label="Spraying the grown letters red in a spray booth, sped up"><source src="assets/video/spray.mp4" type="video/mp4"></video></div></figure>
             <figure class="media r45"><img src="assets/img/netflix-grown.webp" alt="The grown N before painting, white with brown patches" loading="lazy" decoding="async" width="1200" height="1500"></figure>
           </div>
         </div>
@@ -2035,16 +2035,17 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
           <figure><div class="media r32"><img src="assets/img/x/pl-group.webp" alt="Raffaele with his group of students in front of the finished timber vault, the bee boxes stacked beside it" loading="lazy" decoding="async" width="1200" height="800"></div><figcaption class="cap">The team that built it, with their tutors.</figcaption></figure>
         </div>
       </div>
-      <div class="duo" style="grid-template-columns:.75fr .75fr .75fr .75fr">
-        <figure class="cycle" data-cycle data-every="3000"><div class="tile r34"><img src="assets/img/x/pl-wave.webp" alt="The canoe from above, its laminated layers stepping in waves towards the bow" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/pl-3053.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"></div></figure>
-        <figure class="cycle" data-cycle data-every="3000"><div class="tile r34"><img src="assets/img/x/pl-canoe.webp" alt="The canoe standing on its supports in the workshop hall" loading="lazy" decoding="async" width="1000" height="1333"><img src="assets/img/x/pl-3062.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"></div></figure>
-        <figure class="cycle" data-cycle data-every="3000"><div class="tile r34"><img src="assets/img/x/pl-rib.webp" alt="Close-up of the thin laminated wood, cut in long curving slots" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/pl-3027.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/pl-3058.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"></div></figure>
-        <figure class="cycle" data-cycle data-every="3000"><div class="tile r34"><img src="assets/img/x/pl-rib2.webp" alt="The double-curved hull seen from inside" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/pl-3068.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"></div></figure>
+      <!-- the canoe was the students' project: shown in the making, not in full frame (Raffaele, 14 Oct 2026; v8-tools/protolab_make.py) -->
+      <div class="duo" style="grid-template-columns:.75fr 1.333fr 1.333fr">
+        <figure class="media r34"><img src="assets/img/x/pl-make-bend.webp" alt="Students clamping a thin laminated skin over a cardboard tube on the workbench, a tutor beside them" loading="lazy" decoding="async" width="825" height="1100"></figure>
+        <figure class="media r43"><img src="assets/img/x/pl-make-tutor.webp" alt="A tutor in the workshop hall beside the bending jigs, cardboard tubes clamped under curved strips of laminated wood" loading="lazy" decoding="async" width="1100" height="825"></figure>
+        <figure class="media r43"><img src="assets/img/x/pl-make-jigs.webp" alt="The forming jigs on their trestles: large cardboard tubes with laminated wood bent over them, clamped" loading="lazy" decoding="async" width="1100" height="825"></figure>
       </div>
       <div class="pair" style="margin-top:clamp(8px,1.2vw,18px)">
         <figure class="media r32"><img src="assets/img/x/pl-canoe-group.webp" alt="The canoe group presenting the finished hull to visitors in the hall, with their tutors" loading="lazy" decoding="async" width="1200" height="800"></figure>
         <figure class="media r32"><img src="assets/img/x/pl-canoe-try.webp" alt="Two students lying in the finished canoe on the cobbles outside the hall" loading="lazy" decoding="async" width="1200" height="800"></figure>
       </div>
+      <p class="cap">Making the canoe, July 2025: the laminated skin bent over cardboard tubes on the forming jigs; then the presentation, and the first try.</p>
       </div>
     </div>
   </div>
@@ -2079,11 +2080,13 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <li><figure class="media r34"><img src="assets/img/x/mk-hoops.webp" alt="MK3 in the workshop: bent steel hoops carrying a rope net" loading="lazy" decoding="async" width="900" height="1200"></figure><p><b>2022</b>MK3</p></li>
         <li class="au-cell"><figure class="cycle drawing-bg" data-cycle data-every="2800"><div class="tile r32"><img src="assets/img/x/au-fig1.webp" alt="From the AURORA paper: the outline of the shell found from a triangle, then divided by radial lines into a mesh" loading="lazy" decoding="async" width="1500" height="1000"><img src="assets/img/x/au-fig2.webp" alt="" loading="lazy" decoding="async" width="1500" height="1000"><img src="assets/img/x/au-fig3.webp" alt="" loading="lazy" decoding="async" width="1500" height="1000"><img src="assets/img/x/au-fig4.webp" alt="" loading="lazy" decoding="async" width="1500" height="1000"></div></figure><p><b>2024</b>AURORA, the paper: the form found from a triangle, the planarity of its panels, the reaction-diffusion relief, material use and stress</p></li>
       </ol>
-      <div class="duo" style="grid-template-columns:1.5fr 1.5fr;margin-top:clamp(28px,3.4vw,48px)">
+      <!-- the courtyard film made for the UmArts talk on 14 Oct 2026 (v8-tools/aurora-film/web.py), in place of au-sun;
+           16:9 so its "AI visualisation" label at the lower left is never cropped, the columns set so both frames are the same height -->
+      <div class="duo" style="grid-template-columns:1.5fr 1.778fr;margin-top:clamp(28px,3.4vw,48px)">
         <figure class="media r32"><img src="assets/img/x/au-cover.webp" alt="The AURORA cover from the SIGraDi 2024 talk: the shell in violet on black" loading="lazy" decoding="async" width="1400" height="933"></figure>
-        <figure class="media r32 zoomable" aria-label="Enlarge: AURORA on a sunny day, AI rendering" data-zoom="assets/img/x/au-sun-full.webp" data-cap="AURORA in the courtyard of Umeå School of Architecture on a sunny day (AI rendering)."><video data-auto muted playsinline loop preload="none" poster="assets/video/au-sun.webp" aria-label="AI rendering, animated: AURORA's ribbed white mycelium shell on the timber deck in front of Umeå School of Architecture on a sunny afternoon, its ribbed shadow on the deck, students talking under it, one touching a leg, two walking past through sun and shade"><source src="assets/video/au-sun.mp4" type="video/mp4"></video></figure>
+        <figure class="media r169 zoomable" aria-label="Enlarge the film: AURORA in the courtyard of Umeå School of Architecture, AI visualisation" data-zoom="assets/video/au-film-hd.mp4" data-cap="AURORA in the courtyard of Umeå School of Architecture, from the path and from inside the school (AI visualisation)."><video data-auto muted playsinline loop preload="none" data-poster="assets/video/au-film.webp" aria-label="AI visualisation, film: AURORA, three pale funnel shells of mycelium composite with rust streaks and reishi brackets, standing on upturned birch trunks in the sunlit courtyard of Umeå School of Architecture. The camera walks in along the path past the bike racks, slides slowly past the pavilion while people talk under it, then looks out at it through the glass wall of the school, the river behind, people seen from behind"><source src="assets/video/au-film.mp4" type="video/mp4"></video></figure>
       </div>
-      <p class="cap">The cover of the SIGraDi 2024 talk, and AURORA in the courtyard of Umeå School of Architecture (AI rendering).</p>
+      <p class="cap">The cover of the SIGraDi 2024 talk, and AURORA in the courtyard of Umeå School of Architecture, from the path and from inside the school (AI visualisation).</p>
       <figure class="rd rd-wide" data-rd data-w="330" data-h="110"><canvas role="img" aria-label="A reaction-diffusion pattern growing live from a few random seeds into folds like brain coral"></canvas></figure>
       <div class="rd-txt">
         <h4 class="th-t">Reaction‑diffusion pattern</h4>
@@ -2122,19 +2125,19 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <div class="phone">
           <div class="bars" aria-hidden="true"></div>
           <div class="screen">
-              <figure class="s" data-d="14 February 2020"><video muted playsinline preload="none" poster="assets/story/sn-snow.webp" aria-label="Story: the fabric shells on slender poles in the snow, the low sun moving behind them"><source src="assets/story/sn-snow.mp4" type="video/mp4"></video></figure>
-              <figure class="s" data-d="6 May 2022"><video muted playsinline preload="none" poster="assets/story/rc-bags.webp" aria-label="Story: a grow bag of woodchips turning white with mycelium, captioned mushrooms are ready"><source src="assets/story/rc-bags.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-d="14 February 2020"><video muted playsinline preload="none" data-poster="assets/story/sn-snow.webp" aria-label="Story: the fabric shells on slender poles in the snow, the low sun moving behind them"><source src="assets/story/sn-snow.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-d="6 May 2022"><video muted playsinline preload="none" data-poster="assets/story/rc-bags.webp" aria-label="Story: a grow bag of woodchips turning white with mycelium, captioned mushrooms are ready"><source src="assets/story/rc-bags.mp4" type="video/mp4"></video></figure>
               <figure class="s" data-d="16 May 2022"><img src="assets/story/rc-petri.webp" alt="Story: a gloved hand holding a petri dish of woodchips and mycelium" loading="lazy" decoding="async" width="720" height="1280"></figure>
-              <figure class="s" data-d="24 May 2022"><video muted playsinline preload="none" poster="assets/story/rc-seat.webp" aria-label="Story: close-up of the REishi seat, grown and orange-brown, under the chair spindles"><source src="assets/story/rc-seat.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-d="24 May 2022"><video muted playsinline preload="none" data-poster="assets/story/rc-seat.webp" aria-label="Story: close-up of the REishi seat, grown and orange-brown, under the chair spindles"><source src="assets/story/rc-seat.mp4" type="video/mp4"></video></figure>
               <figure class="s" data-h="umafurniturefair" data-d="27 May 2022"><img src="assets/story/rc-fair.webp" alt="Story: the REishi chair's seat at the furniture fair" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-h="architetto_del_cuore" data-d="27 May 2022"><img src="assets/story/rc-fair2.webp" alt="Story: the REishi chair on show at the furniture fair" loading="lazy" decoding="async" width="720" height="1280"></figure>
-              <figure class="s" data-d="1 September 2022"><video muted playsinline preload="none" poster="assets/story/pp-arena.webp" aria-label="Story: the Pallet Parliament seating rings being stacked on the gravel, a rainbow over the houses behind"><source src="assets/story/pp-arena.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-d="1 September 2022"><video muted playsinline preload="none" data-poster="assets/story/pp-arena.webp" aria-label="Story: the Pallet Parliament seating rings being stacked on the gravel, a rainbow over the houses behind"><source src="assets/story/pp-arena.mp4" type="video/mp4"></video></figure>
               <figure class="s" data-d="1 September 2022"><img src="assets/story/pp-rainbow.webp" alt="Story: the stacked pallets under a rainbow" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-h="lolorebeccarudolph" data-d="8 July 2025"><img src="assets/story/pp-above.webp" alt="Story: the Pallet Parliament seen from above, three years on" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="7 December 2022"><img src="assets/story/wg-water.webp" alt="Story by the.public.machinery: the blue membrane laid out on the terrace by the river" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="7 December 2022"><img src="assets/story/wg-water2.webp" alt="Story by the.public.machinery: the dome half inflated on the terrace" loading="lazy" decoding="async" width="720" height="1280"></figure>
-              <figure class="s" data-in data-h="the.public.machinery" data-d="7 December 2022"><video muted playsinline preload="none" poster="assets/story/wg-screen.webp" aria-label="Story by the.public.machinery: last chance to see the Winter Garden"><source src="assets/story/wg-screen.mp4" type="video/mp4"></video></figure>
-              <figure class="s" data-in data-h="francescocamilli" data-d="7 December 2022"><video muted playsinline preload="none" poster="assets/story/wg-inside.webp" aria-label="Story by francescocamilli: a musician playing inside the dome"><source src="assets/story/wg-inside.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="the.public.machinery" data-d="7 December 2022"><video muted playsinline preload="none" data-poster="assets/story/wg-screen.webp" aria-label="Story by the.public.machinery: last chance to see the Winter Garden"><source src="assets/story/wg-screen.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="francescocamilli" data-d="7 December 2022"><video muted playsinline preload="none" data-poster="assets/story/wg-inside.webp" aria-label="Story by francescocamilli: a musician playing inside the dome"><source src="assets/story/wg-inside.mp4" type="video/mp4"></video></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="7 December 2022"><img src="assets/story/wg-shop.webp" alt="Story by the.public.machinery: the blue dome seen through a doorway" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-h="uma_architecture" data-d="17 January 2023"><img src="assets/story/s12-explore.webp" alt="Story: a petri dish of mycelium, captioned have a look at last semester's explorations by Studio 12" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="15 February 2023"><img src="assets/story/ex-hall.webp" alt="Story by the.public.machinery: black and white view of the dome in the hall" loading="lazy" decoding="async" width="720" height="1280"></figure>
@@ -2142,19 +2145,19 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
               <figure class="s" data-in data-h="the.public.machinery" data-d="15 February 2023"><img src="assets/story/ex-hall3.webp" alt="Story by the.public.machinery: the hall from above, the dome and benches laid out" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-h="umarts.research" data-d="15 February 2023"><img src="assets/story/ex-dome.webp" alt="Story: the blue dome glimpsed through the Arts Campus atrium" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-h="umeainstituteofdesign" data-d="17 February 2023"><img src="assets/story/ex-sunset.webp" alt="Story: the dome glowing at sunset" loading="lazy" decoding="async" width="720" height="1280"></figure>
-              <figure class="s" data-in data-h="the.public.machinery" data-d="18 February 2023"><video muted playsinline preload="none" poster="assets/story/wg-atrium.webp" aria-label="Story by the.public.machinery: the dome rising inside the atrium"><source src="assets/story/wg-atrium.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="the.public.machinery" data-d="18 February 2023"><video muted playsinline preload="none" data-poster="assets/story/wg-atrium.webp" aria-label="Story by the.public.machinery: the dome rising inside the atrium"><source src="assets/story/wg-atrium.mp4" type="video/mp4"></video></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="18 February 2023"><img src="assets/story/ex-samples.webp" alt="Story by the.public.machinery: grown white objects on the floor in front of the blue dome" loading="lazy" decoding="async" width="720" height="1280"></figure>
-              <figure class="s" data-in data-h="the.public.machinery" data-d="23 February 2023"><video muted playsinline preload="none" poster="assets/story/wg-reel.webp" aria-label="Story by the.public.machinery: a reel of the dome indoors"><source src="assets/story/wg-reel.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="the.public.machinery" data-d="23 February 2023"><video muted playsinline preload="none" data-poster="assets/story/wg-reel.webp" aria-label="Story by the.public.machinery: a reel of the dome indoors"><source src="assets/story/wg-reel.mp4" type="video/mp4"></video></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="13 March 2023"><img src="assets/story/ex-snow.webp" alt="Story by the.public.machinery: a grown object lying on a field of white" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-d="1 June 2023"><img src="assets/story/ds-statuette.webp" alt="Story: one of the S statuettes, captioned statyett i mycel" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-h="nola_urban_furniture" data-d="1 June 2023"><img src="assets/story/ds-pattern.webp" alt="Story: an S trophy next to a black and white pattern" loading="lazy" decoding="async" width="720" height="1280"></figure>
-              <figure class="s" data-in data-h="the.public.machinery" data-d="12 January 2024"><video muted playsinline preload="none" poster="assets/story/at-invite.webp" aria-label="Story by the.public.machinery: an invitation to the Nordic-Arctic Atlas exhibition over jars of samples"><source src="assets/story/at-invite.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="the.public.machinery" data-d="12 January 2024"><video muted playsinline preload="none" data-poster="assets/story/at-invite.webp" aria-label="Story by the.public.machinery: an invitation to the Nordic-Arctic Atlas exhibition over jars of samples"><source src="assets/story/at-invite.mp4" type="video/mp4"></video></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><img src="assets/story/at-house.webp" alt="Story by the.public.machinery: the UmArts studio building in snow" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><img src="assets/story/at-gallery.webp" alt="Story by the.public.machinery: the exhibition room with tables of samples" loading="lazy" decoding="async" width="720" height="1280"></figure>
-              <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><video muted playsinline preload="none" poster="assets/story/at-screens.webp" aria-label="Story by the.public.machinery: landscapes on screens set on easels"><source src="assets/story/at-screens.mp4" type="video/mp4"></video></figure>
-              <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><video muted playsinline preload="none" poster="assets/story/at-screens2.webp" aria-label="Story by the.public.machinery: a landscape playing on a screen set on an easel"><source src="assets/story/at-screens2.mp4" type="video/mp4"></video></figure>
-              <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><video muted playsinline preload="none" poster="assets/story/at-samples.webp" aria-label="Story by the.public.machinery: jars of samples labelled with coordinates"><source src="assets/story/at-samples.mp4" type="video/mp4"></video></figure>
-              <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><video muted playsinline preload="none" poster="assets/story/at-micro.webp" aria-label="Story by the.public.machinery: a slide placed under the microscope"><source src="assets/story/at-micro.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><video muted playsinline preload="none" data-poster="assets/story/at-screens.webp" aria-label="Story by the.public.machinery: landscapes on screens set on easels"><source src="assets/story/at-screens.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><video muted playsinline preload="none" data-poster="assets/story/at-screens2.webp" aria-label="Story by the.public.machinery: a landscape playing on a screen set on an easel"><source src="assets/story/at-screens2.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><video muted playsinline preload="none" data-poster="assets/story/at-samples.webp" aria-label="Story by the.public.machinery: jars of samples labelled with coordinates"><source src="assets/story/at-samples.mp4" type="video/mp4"></video></figure>
+              <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><video muted playsinline preload="none" data-poster="assets/story/at-micro.webp" aria-label="Story by the.public.machinery: a slide placed under the microscope"><source src="assets/story/at-micro.mp4" type="video/mp4"></video></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><img src="assets/story/at-scope.webp" alt="Story by the.public.machinery: branching threads seen through the microscope" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><img src="assets/story/at-branch.webp" alt="Story by the.public.machinery: a map of branching lines" loading="lazy" decoding="async" width="720" height="1280"></figure>
               <figure class="s" data-in data-h="the.public.machinery" data-d="13 January 2024"><img src="assets/story/at-moss.webp" alt="Story by the.public.machinery: a drawing of moss and water" loading="lazy" decoding="async" width="720" height="1280"></figure>
@@ -2246,11 +2249,11 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 </section>
 
 <!-- ============================================================ the archive: every work photograph, grown as a colony -->
-<section class="pin mosaic" id="archive" data-pin data-world data-src="canvas:archive" data-mono="1" data-dim="1" data-hy="0" data-stain="#07080a #2a4382 #c17324 #ffdd00" data-mosaic="assets/archive/meta.json" data-dla="data/dla.b64.txt" data-hl="assets/hl/hl.json" data-tour-ids="1 163 370 545 712 934 1115 1449" data-atlas="assets/archive/a0.webp assets/archive/a1.webp" aria-labelledby="archive-h">
+<section class="pin mosaic" id="archive" data-pin data-world data-src="canvas:archive" data-mono="1" data-dim="1" data-hy="0" data-stain="#07080a #2a4382 #c17324 #ffdd00" data-mosaic="assets/archive/meta.json" data-dla="data/dla.b64.txt" data-hl="assets/hl/hl.json" data-tour-ids="1 163 370 545 707 929 1110 1444" data-atlas="assets/archive/a0.webp assets/archive/a1.webp" aria-labelledby="archive-h">
   <div class="stage">
     <div class="mz-copy">
       <p class="kick">Archive, 2016 to 2026</p>
-      <h2 class="h2" id="archive-h">Ten years,<span class="it">1,676 photographs</span></h2>
+      <h2 class="h2" id="archive-h">Ten years,<span class="it">1,671 photographs</span></h2>
       <p class="mz-lede">Every photograph of the work in my archive, without people, in the order it was taken, grown like a colony: 2016 at the centre, 2026 at the tips. Most of them only make the shape. The thirty with a white ring are the best of them: scroll to dive into eight of them, or point at any ringed cell to open it under glass.</p>
       <div class="mz-read" data-glass data-bezel="12" data-refract="22" aria-live="off"><span class="when" data-out="when">June 2016</span><span class="what" data-out="what">haMMMocks, Lecce</span><span class="count"><b data-out="n">0</b> photographs</span></div>
     </div>
@@ -2304,6 +2307,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 <dialog class="lb" id="lb" aria-label="Enlarged image">
   <button type="button" data-close>Close</button>
   <img alt="">
+  <video muted playsinline loop hidden></video>
   <p></p>
 </dialog>
 
@@ -2684,7 +2688,9 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 })();
 
 </script>
-<script src="assets/js/lenis.min.js"></script>
+<script>
+function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;value=0;from=0;to=0;currentTime=0;lerp;duration;easing;onUpdate;advance(e){if(!this.isRunning)return;let i=!1;if(this.duration&&this.easing){this.currentTime+=e;const s=t(0,this.currentTime/this.duration,1);i=s>=1;const o=i?1:this.easing(s);this.value=this.from+(this.to-this.from)*o}else this.lerp?(this.value=function(t,e,i,s){return function(t,e,i){return(1-i)*t+i*e}(t,e,1-Math.exp(-i*s))}(this.value,this.to,60*this.lerp,e),Math.round(this.value)===this.to&&(this.value=this.to,i=!0)):(this.value=this.to,i=!0);i&&this.stop(),this.onUpdate?.(this.value,i)}stop(){this.isRunning=!1}fromTo(t,e,{lerp:i,duration:s,easing:o,onStart:n,onUpdate:r}){this.from=this.value=t,this.to=e,this.lerp=i,this.duration=s,this.easing=o,this.currentTime=0,this.isRunning=!0,n?.(),this.onUpdate=r}};var i=class{constructor(t,e,{autoResize:i=!0,debounce:s=250}={}){this.wrapper=t,this.content=e,i&&(this.debouncedResize=function(t,e){let i;return function(...s){let o=this;clearTimeout(i),i=setTimeout((()=>{i=void 0,t.apply(o,s)}),e)}}(this.resize,s),this.wrapper instanceof Window?window.addEventListener("resize",this.debouncedResize,!1):(this.wrapperResizeObserver=new ResizeObserver(this.debouncedResize),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(this.debouncedResize),this.contentResizeObserver.observe(this.content)),this.resize()}width=0;height=0;scrollHeight=0;scrollWidth=0;debouncedResize;wrapperResizeObserver;contentResizeObserver;destroy(){this.wrapperResizeObserver?.disconnect(),this.contentResizeObserver?.disconnect(),this.wrapper===window&&this.debouncedResize&&window.removeEventListener("resize",this.debouncedResize,!1)}resize=()=>{this.onWrapperResize(),this.onContentResize()};onWrapperResize=()=>{this.wrapper instanceof Window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)};onContentResize=()=>{this.wrapper instanceof Window?(this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth):(this.scrollHeight=this.wrapper.scrollHeight,this.scrollWidth=this.wrapper.scrollWidth)};get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}},s=class{events={};emit(t,...e){let i=this.events[t]||[];for(let t=0,s=i.length;t<s;t++)i[t]?.(...e)}on(t,e){return this.events[t]?.push(e)||(this.events[t]=[e]),()=>{this.events[t]=this.events[t]?.filter((t=>e!==t))}}off(t,e){this.events[t]=this.events[t]?.filter((t=>e!==t))}destroy(){this.events={}}},o=100/6,n={passive:!1},r=class{constructor(t,e={wheelMultiplier:1,touchMultiplier:1}){this.element=t,this.options=e,window.addEventListener("resize",this.onWindowResize,!1),this.onWindowResize(),this.element.addEventListener("wheel",this.onWheel,n),this.element.addEventListener("touchstart",this.onTouchStart,n),this.element.addEventListener("touchmove",this.onTouchMove,n),this.element.addEventListener("touchend",this.onTouchEnd,n)}touchStart={x:0,y:0};lastDelta={x:0,y:0};window={width:0,height:0};emitter=new s;on(t,e){return this.emitter.on(t,e)}destroy(){this.emitter.destroy(),window.removeEventListener("resize",this.onWindowResize,!1),this.element.removeEventListener("wheel",this.onWheel,n),this.element.removeEventListener("touchstart",this.onTouchStart,n),this.element.removeEventListener("touchmove",this.onTouchMove,n),this.element.removeEventListener("touchend",this.onTouchEnd,n)}onTouchStart=t=>{const{clientX:e,clientY:i}=t.targetTouches?t.targetTouches[0]:t;this.touchStart.x=e,this.touchStart.y=i,this.lastDelta={x:0,y:0},this.emitter.emit("scroll",{deltaX:0,deltaY:0,event:t})};onTouchMove=t=>{const{clientX:e,clientY:i}=t.targetTouches?t.targetTouches[0]:t,s=-(e-this.touchStart.x)*this.options.touchMultiplier,o=-(i-this.touchStart.y)*this.options.touchMultiplier;this.touchStart.x=e,this.touchStart.y=i,this.lastDelta={x:s,y:o},this.emitter.emit("scroll",{deltaX:s,deltaY:o,event:t})};onTouchEnd=t=>{this.emitter.emit("scroll",{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:t})};onWheel=t=>{let{deltaX:e,deltaY:i,deltaMode:s}=t;e*=1===s?o:2===s?this.window.width:1,i*=1===s?o:2===s?this.window.height:1,e*=this.options.wheelMultiplier,i*=this.options.wheelMultiplier,this.emitter.emit("scroll",{deltaX:e,deltaY:i,event:t})};onWindowResize=()=>{this.window={width:window.innerWidth,height:window.innerHeight}}},l=t=>Math.min(1,1.001-Math.pow(2,-10*t)),Lenis=class{_isScrolling=!1;_isStopped=!1;_isLocked=!1;_preventNextNativeScrollEvent=!1;_resetVelocityTimeout=null;__rafID=null;isTouching;time=0;userData={};lastVelocity=0;velocity=0;direction=0;options;targetScroll;animatedScroll;animate=new e;emitter=new s;dimensions;virtualScroll;constructor({wrapper:t=window,content:e=document.documentElement,eventsTarget:s=t,smoothWheel:o=!0,syncTouch:n=!1,syncTouchLerp:h=.075,touchInertiaMultiplier:a=35,duration:c,easing:p,lerp:d=.1,infinite:u=!1,orientation:m="vertical",gestureOrientation:v="vertical",touchMultiplier:g=1,wheelMultiplier:w=1,autoResize:S=!0,prevent:f,virtualScroll:y,overscroll:E=!0,autoRaf:T=!1,anchors:z=!1,autoToggle:b=!1,allowNestedScroll:_=!1,__experimental__naiveDimensions:L=!1}={}){window.lenisVersion="1.3.4",t&&t!==document.documentElement||(t=window),"number"==typeof c&&"function"!=typeof p?p=l:"function"==typeof p&&"number"!=typeof c&&(c=1),this.options={wrapper:t,content:e,eventsTarget:s,smoothWheel:o,syncTouch:n,syncTouchLerp:h,touchInertiaMultiplier:a,duration:c,easing:p,lerp:d,infinite:u,gestureOrientation:v,orientation:m,touchMultiplier:g,wheelMultiplier:w,autoResize:S,prevent:f,virtualScroll:y,overscroll:E,autoRaf:T,anchors:z,autoToggle:b,allowNestedScroll:_,__experimental__naiveDimensions:L},this.dimensions=new i(t,e,{autoResize:S}),this.updateClassName(),this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.addEventListener("scrollend",this.onScrollEnd,{capture:!0}),this.options.anchors&&this.options.wrapper===window&&this.options.wrapper.addEventListener("click",this.onClick,!1),this.options.wrapper.addEventListener("pointerdown",this.onPointerDown,!1),this.virtualScroll=new r(s,{touchMultiplier:g,wheelMultiplier:w}),this.virtualScroll.on("scroll",this.onVirtualScroll),this.options.autoToggle&&this.rootElement.addEventListener("transitionend",this.onTransitionEnd,{passive:!0}),this.options.autoRaf&&(this.__rafID=requestAnimationFrame(this.raf))}destroy(){this.emitter.destroy(),this.options.wrapper.removeEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.removeEventListener("scrollend",this.onScrollEnd,{capture:!0}),this.options.wrapper.removeEventListener("pointerdown",this.onPointerDown,!1),this.options.anchors&&this.options.wrapper===window&&this.options.wrapper.removeEventListener("click",this.onClick,!1),this.virtualScroll.destroy(),this.dimensions.destroy(),this.cleanUpClassName(),this.__rafID&&cancelAnimationFrame(this.__rafID)}on(t,e){return this.emitter.on(t,e)}off(t,e){return this.emitter.off(t,e)}onScrollEnd=t=>{t instanceof CustomEvent||"smooth"!==this.isScrolling&&!1!==this.isScrolling||t.stopPropagation()};dispatchScrollendEvent=()=>{this.options.wrapper.dispatchEvent(new CustomEvent("scrollend",{bubbles:this.options.wrapper===window,detail:{lenisScrollEnd:!0}}))};onTransitionEnd=t=>{if(t.propertyName.includes("overflow")){const t=this.isHorizontal?"overflow-x":"overflow-y",e=getComputedStyle(this.rootElement)[t];["hidden","clip"].includes(e)?this.stop():this.start()}};setScroll(t){this.isHorizontal?this.options.wrapper.scrollTo({left:t,behavior:"instant"}):this.options.wrapper.scrollTo({top:t,behavior:"instant"})}onClick=t=>{const e=t.composedPath().find((t=>t instanceof HTMLAnchorElement&&(t.getAttribute("href")?.startsWith("#")||t.getAttribute("href")?.startsWith("/#")||t.getAttribute("href")?.startsWith("./#"))));if(e){const t=e.getAttribute("href");if(t){const e="object"==typeof this.options.anchors&&this.options.anchors?this.options.anchors:void 0;let i=`#${t.split("#")[1]}`;["#","/#","./#","#top","/#top","./#top"].includes(t)&&(i=0),this.scrollTo(i,e)}}};onPointerDown=t=>{1===t.button&&this.reset()};onVirtualScroll=t=>{if("function"==typeof this.options.virtualScroll&&!1===this.options.virtualScroll(t))return;const{deltaX:e,deltaY:i,event:s}=t;if(this.emitter.emit("virtual-scroll",{deltaX:e,deltaY:i,event:s}),s.ctrlKey)return;if(s.lenisStopPropagation)return;const o=s.type.includes("touch"),n=s.type.includes("wheel");this.isTouching="touchstart"===s.type||"touchmove"===s.type;const r=0===e&&0===i;if(this.options.syncTouch&&o&&"touchstart"===s.type&&r&&!this.isStopped&&!this.isLocked)return void this.reset();const l="vertical"===this.options.gestureOrientation&&0===i||"horizontal"===this.options.gestureOrientation&&0===e;if(r||l)return;let h=s.composedPath();h=h.slice(0,h.indexOf(this.rootElement));const a=this.options.prevent;if(h.find((t=>t instanceof HTMLElement&&("function"==typeof a&&a?.(t)||t.hasAttribute?.("data-lenis-prevent")||o&&t.hasAttribute?.("data-lenis-prevent-touch")||n&&t.hasAttribute?.("data-lenis-prevent-wheel")||this.options.allowNestedScroll&&this.checkNestedScroll(t,{deltaX:e,deltaY:i})))))return;if(this.isStopped||this.isLocked)return void s.preventDefault();if(!(this.options.syncTouch&&o||this.options.smoothWheel&&n))return this.isScrolling="native",this.animate.stop(),void(s.lenisStopPropagation=!0);let c=i;"both"===this.options.gestureOrientation?c=Math.abs(i)>Math.abs(e)?i:e:"horizontal"===this.options.gestureOrientation&&(c=e),(!this.options.overscroll||this.options.infinite||this.options.wrapper!==window&&(this.animatedScroll>0&&this.animatedScroll<this.limit||0===this.animatedScroll&&i>0||this.animatedScroll===this.limit&&i<0))&&(s.lenisStopPropagation=!0),s.preventDefault();const p=o&&this.options.syncTouch,d=o&&"touchend"===s.type&&Math.abs(c)>5;d&&(c=this.velocity*this.options.touchInertiaMultiplier),this.scrollTo(this.targetScroll+c,{programmatic:!1,...p?{lerp:d?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}})};resize(){this.dimensions.resize(),this.animatedScroll=this.targetScroll=this.actualScroll,this.emit()}emit(){this.emitter.emit("scroll",this)}onNativeScroll=()=>{if(null!==this._resetVelocityTimeout&&(clearTimeout(this._resetVelocityTimeout),this._resetVelocityTimeout=null),this._preventNextNativeScrollEvent)this._preventNextNativeScrollEvent=!1;else if(!1===this.isScrolling||"native"===this.isScrolling){const t=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity,this.velocity=this.animatedScroll-t,this.direction=Math.sign(this.animatedScroll-t),this.isStopped||(this.isScrolling="native"),this.emit(),0!==this.velocity&&(this._resetVelocityTimeout=setTimeout((()=>{this.lastVelocity=this.velocity,this.velocity=0,this.isScrolling=!1,this.emit()}),400))}};reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity=0,this.animate.stop()}start(){this.isStopped&&(this.reset(),this.isStopped=!1,this.emit())}stop(){this.isStopped||(this.reset(),this.isStopped=!0,this.emit())}raf=t=>{const e=t-(this.time||t);this.time=t,this.animate.advance(.001*e),this.options.autoRaf&&(this.__rafID=requestAnimationFrame(this.raf))};scrollTo(e,{offset:i=0,immediate:s=!1,lock:o=!1,duration:n=this.options.duration,easing:r=this.options.easing,lerp:h=this.options.lerp,onStart:a,onComplete:c,force:p=!1,programmatic:d=!0,userData:u}={}){if(!this.isStopped&&!this.isLocked||p){if("string"==typeof e&&["top","left","start"].includes(e))e=0;else if("string"==typeof e&&["bottom","right","end"].includes(e))e=this.limit;else{let t;if("string"==typeof e?t=document.querySelector(e):e instanceof HTMLElement&&e?.nodeType&&(t=e),t){if(this.options.wrapper!==window){const t=this.rootElement.getBoundingClientRect();i-=this.isHorizontal?t.left:t.top}const s=t.getBoundingClientRect();e=(this.isHorizontal?s.left:s.top)+this.animatedScroll}}if("number"==typeof e){if(e+=i,e=Math.round(e),this.options.infinite){if(d){this.targetScroll=this.animatedScroll=this.scroll;const t=e-this.animatedScroll;t>this.limit/2?e-=this.limit:t<-this.limit/2&&(e+=this.limit)}}else e=t(0,e,this.limit);if(e===this.targetScroll)return a?.(this),void c?.(this);if(this.userData=u??{},s)return this.animatedScroll=this.targetScroll=e,this.setScroll(this.scroll),this.reset(),this.preventNextNativeScrollEvent(),this.emit(),c?.(this),this.userData={},void requestAnimationFrame((()=>{this.dispatchScrollendEvent()}));d||(this.targetScroll=e),"number"==typeof n&&"function"!=typeof r?r=l:"function"==typeof r&&"number"!=typeof n&&(n=1),this.animate.fromTo(this.animatedScroll,e,{duration:n,easing:r,lerp:h,onStart:()=>{o&&(this.isLocked=!0),this.isScrolling="smooth",a?.(this)},onUpdate:(t,e)=>{this.isScrolling="smooth",this.lastVelocity=this.velocity,this.velocity=t-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=t,this.setScroll(this.scroll),d&&(this.targetScroll=t),e||this.emit(),e&&(this.reset(),this.emit(),c?.(this),this.userData={},requestAnimationFrame((()=>{this.dispatchScrollendEvent()})),this.preventNextNativeScrollEvent())}})}}}preventNextNativeScrollEvent(){this._preventNextNativeScrollEvent=!0,requestAnimationFrame((()=>{this._preventNextNativeScrollEvent=!1}))}checkNestedScroll(t,{deltaX:e,deltaY:i}){const s=Date.now(),o=t._lenis??={};let n,r,l,h,a,c,p,d;const u=this.options.gestureOrientation;if(s-(o.time??0)>2e3){o.time=Date.now();const e=window.getComputedStyle(t);o.computedStyle=e;const i=e.overflowX,s=e.overflowY;if(n=["auto","overlay","scroll"].includes(i),r=["auto","overlay","scroll"].includes(s),o.hasOverflowX=n,o.hasOverflowY=r,!n&&!r)return!1;if("vertical"===u&&!r)return!1;if("horizontal"===u&&!n)return!1;a=t.scrollWidth,c=t.scrollHeight,p=t.clientWidth,d=t.clientHeight,l=a>p,h=c>d,o.isScrollableX=l,o.isScrollableY=h,o.scrollWidth=a,o.scrollHeight=c,o.clientWidth=p,o.clientHeight=d}else l=o.isScrollableX,h=o.isScrollableY,n=o.hasOverflowX,r=o.hasOverflowY,a=o.scrollWidth,c=o.scrollHeight,p=o.clientWidth,d=o.clientHeight;if(!n&&!r||!l&&!h)return!1;if(!("vertical"!==u||r&&h))return!1;if(!("horizontal"!==u||n&&l))return!1;let m,v,g,w,S,f;if("horizontal"===u)m="x";else if("vertical"===u)m="y";else{0!==e&&n&&l&&(m="x"),0!==i&&r&&h&&(m="y")}if(!m)return!1;if("x"===m)v=t.scrollLeft,g=a-p,w=e,S=n,f=l;else{if("y"!==m)return!1;v=t.scrollTop,g=c-d,w=i,S=r,f=h}return(w>0?v<g:v>0)&&S&&f}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.options.__experimental__naiveDimensions?this.isHorizontal?this.rootElement.scrollWidth-this.rootElement.clientWidth:this.rootElement.scrollHeight-this.rootElement.clientHeight:this.dimensions.limit[this.isHorizontal?"x":"y"]}get isHorizontal(){return"horizontal"===this.options.orientation}get actualScroll(){const t=this.options.wrapper;return this.isHorizontal?t.scrollX??t.scrollLeft:t.scrollY??t.scrollTop}get scroll(){return this.options.infinite?(t=this.animatedScroll,e=this.limit,(t%e+e)%e):this.animatedScroll;var t,e}get progress(){return 0===this.limit?1:this.scroll/this.limit}get isScrolling(){return this._isScrolling}set isScrolling(t){this._isScrolling!==t&&(this._isScrolling=t,this.updateClassName())}get isStopped(){return this._isStopped}set isStopped(t){this._isStopped!==t&&(this._isStopped=t,this.updateClassName())}get isLocked(){return this._isLocked}set isLocked(t){this._isLocked!==t&&(this._isLocked=t,this.updateClassName())}get isSmooth(){return"smooth"===this.isScrolling}get className(){let t="lenis";return this.options.autoToggle&&(t+=" lenis-autoToggle"),this.isStopped&&(t+=" lenis-stopped"),this.isLocked&&(t+=" lenis-locked"),this.isScrolling&&(t+=" lenis-scrolling"),"smooth"===this.isScrolling&&(t+=" lenis-smooth"),t}updateClassName(){this.cleanUpClassName(),this.rootElement.className=`${this.rootElement.className} ${this.className}`.trim()}cleanUpClassName(){this.rootElement.className=this.rootElement.className.replace(/lenis(-\w+)?/g,"").trim()}};globalThis.Lenis=Lenis,globalThis.Lenis.prototype=Lenis.prototype;
+</script>
 <script>
 /* Raffaele Errichiello, portfolio engine, version 8.
    Behind the page runs one WebGL "world": Raffaele's own footage, stained per chapter with a colour combination from
@@ -3120,12 +3126,15 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, this.ok ? this.t : black);
     };
 
+    // scenes that show the same file share one Source, so a film used twice is downloaded once (arch, seat; 14 Oct 2026)
+    var sources = {}, srcs = [];
+    function sourceFor(spec, poster) { var k = spec + ' ' + (poster || ''); if (!sources[k]) srcs.push(sources[k] = new Source(spec, poster)); return sources[k]; }
     var scenes = $$('[data-world]').map(function (el) {
       var st = (el.dataset.stain || '#262726 #5c757b #bfa1a0 #eef1ec').split(/\s+/).map(hexRgb);
       st.sort(function (a, b) { return lum(a) - lum(b); });
       st[0] = st[0].map(function (v) { return v * 0.55; });   // the darkest member lowered, so text stays legible on the world
       return {
-        el: el, src: new Source(el.dataset.src, el.dataset.poster), stain: st,
+        el: el, src: sourceFor(el.dataset.src, el.dataset.poster), stain: st,
         dim: +(el.dataset.dim || 0.6), ta: +(el.dataset.ta || 1), mono: +(el.dataset.mono || 0), hy: +(el.dataset.hy || 0.7),
         place: el.dataset.place || 'year', fit: el.dataset.fit || 'cover', drift: el.hasAttribute('data-drift'),
         type: function () { var c = el.querySelector('[data-type].cur') || (el.hasAttribute('data-type') ? el : null); return c ? c.dataset.type : ''; }
@@ -3241,7 +3250,9 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       if (a > 0 && tops[a] > mid - band) { b = a; a = a - 1; m = smooth(mid + band, mid - band, tops[b]); }
       var A = scenes[a], B = scenes[b];
       if (!A) return;
-      scenes.forEach(function (s, k) { s.src.play(k === a || (k === b && m > 0.01)); });
+      srcs.forEach(function (q) { q.on = false; });
+      scenes.forEach(function (s, k) { if (k === a || (k === b && m > 0.01)) s.src.on = true; });
+      srcs.forEach(function (q) { q.play(q.on); });
 
       var y = window.scrollY, scrolled = Math.abs(y - lastY); lastY = y;
       hy.step(dt, scrolled);
@@ -3679,6 +3690,10 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     if (reduce || !all.length) return;
     var seen = false, k = 0;
     onScreen(el, function (v) { seen = v; }, '120px 0px');
+    // every frame of the stepped and looping tiles is fetched once the wall is within reach, not when the page opens: fetched
+    // at the start, the frames of all the walls held up the first screen on a slow connection (14 Oct 2026)
+    var frames = [].concat.apply([], steps.concat(loops).map(function (t) { return $$('img', t); }));
+    onScreen(el, function (v) { if (v && frames.length) { frames.forEach(function (x) { x.loading = 'eager'; }); frames = []; } }, '1600px 0px');
     // one clock per step length, shared by every tile on the wall: tiles with the same data-step change on the same beat
     // (Raffaele, 11 Oct 2026: "sync them"); each change is timed from the previous one, so a busy frame delays the
     // whole wall together instead of doubling a step in one tile
@@ -3688,7 +3703,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       var im = $$('img', t), n = im.length, step = +t.dataset.step, fade = t.dataset.fade != null ? +t.dataset.fade : step * 1.8;
       if (n < 2) return;
       t.classList.add('stepped');
-      im.forEach(function (x, j) { x.loading = 'eager'; x.style.transition = 'none'; x.style.opacity = j === 0 ? 1 : 0; x.style.zIndex = j === 0 ? 1 : 0; });
+      im.forEach(function (x, j) { x.style.transition = 'none'; x.style.opacity = j === 0 ? 1 : 0; x.style.zIndex = j === 0 ? 1 : 0; });
       var c = clocks[step] || (clocks[step] = { step: step, beats: 0, last: 0, tiles: [] });
       c.tiles.push({ im: im, n: n, fade: fade, i: 0, z: 1 });
     });
@@ -3715,7 +3730,6 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       var im = $$('img', t), n = im.length - 1, T = +t.dataset.loop || 4400, raf = 0, t0 = 0;
       if (n < 1) return;
       t.classList.add('loop');
-      im.forEach(function (x) { x.loading = 'eager'; });
       function draw(now) {
         if (!t0) t0 = now;
         var el2 = beat ? beat.beats * beat.step + (beat.last ? Math.min(beat.step, now - beat.last) : 0) : now - t0;
@@ -3803,18 +3817,22 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         t += (goal - t) * 0.2;
         if (Math.abs(t - shown) > 1 / 45 && !v.seeking) { v.currentTime = t; shown = t; }
       }
+      var ctl = null;
       onScreen(box, function (s) {
         on = s;
-        if (!s) return;
+        // scrolled past before the film has arrived: stop fetching it, so it does not hold up what comes next (14 Oct 2026)
+        if (!s) { if (ctl) { ctl.abort(); ctl = null; primed = false; } return; }
         if (!primed) {
           primed = true;
           // load the whole film once, as a blob it can always be scrubbed, whatever the host does with byte ranges
           var src = $('source', v) ? $('source', v).getAttribute('src') : v.getAttribute('src');
-          fetch(src).then(function (r) { if (!r.ok) throw r; return r.blob(); }).then(function (b) {
+          var mine = ctl = window.AbortController ? new AbortController() : null;
+          fetch(src, mine ? { signal: mine.signal } : undefined).then(function (r) { if (!r.ok) throw r; return r.blob(); }).then(function (b) {
+            if (ctl === mine) ctl = null;
             $$('source', v).forEach(function (x) { x.remove(); });
             v.src = URL.createObjectURL(b); shown = -1;
             var pp = v.play(); if (pp && pp.then) pp.then(function () { v.pause(); }, function () {}); else v.pause();
-          }).catch(function () { v.preload = 'auto'; });
+          }).catch(function (e) { if (e && e.name === 'AbortError') return; v.preload = 'auto'; });
         }
         tick();
       }, '300px 0px');
@@ -3828,26 +3846,57 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     if (reduce) { vids.forEach(function (v) { v.removeAttribute('autoplay'); v.controls = true; }); return; }
     if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.play().catch(function () {}); }); return; }
     var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { if (v.preload === 'none') v.preload = 'auto'; v.play().catch(function () {}); } else v.pause(); });
+      es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { unpark(v); if (v.preload === 'none') v.preload = 'auto'; v.play().catch(function () {}); } else { v.pause(); park(v); } });
     }, { rootMargin: '200px 0px', threshold: 0.01 });
     vids.forEach(function (v) { io.observe(v); });
+  }
+  // a film scrolled past before it has finished loading stops downloading, and starts again when it comes back: on a first
+  // visit the films went on loading after they were passed, and at 20 Mbit/s the pictures on screen waited behind them for
+  // up to 40 s (14 Oct 2026). A film that is fully loaded, or that the browser has already stopped fetching, is left alone.
+  function park(v) {
+    var b = v.buffered;
+    if (v.networkState !== 2 || (b.length && v.duration && b.end(b.length - 1) >= v.duration - 0.3)) return;
+    $$('source', v).forEach(function (x) { x.setAttribute('data-park', x.getAttribute('src')); x.removeAttribute('src'); });
+    v.load();
+  }
+  function unpark(v) {
+    var ss = $$('source[data-park]', v); if (!ss.length) return;
+    ss.forEach(function (x) { x.setAttribute('src', x.getAttribute('data-park')); x.removeAttribute('data-park'); });
+    v.load();
+  }
+
+  /* ---------- film posters are set shortly before their film comes into view, not all when the page opens (build.py
+     writes them as data-poster; 14 Oct 2026) ---------- */
+  function initPosters() {
+    var vs = $$('video[data-poster]'); if (!vs.length) return;
+    var set = function (v) { v.setAttribute('poster', v.getAttribute('data-poster')); v.removeAttribute('data-poster'); };
+    if (!('IntersectionObserver' in window)) { vs.forEach(set); return; }
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { set(e.target); io.unobserve(e.target); } }); }, { rootMargin: '1600px 0px' });
+    vs.forEach(function (v) { io.observe(v); });
   }
 
   /* ---------- lightbox ---------- */
   var openBox = function () {};
   function initLightbox() {
     var dlg = document.getElementById('lb'); if (!dlg || typeof dlg.showModal !== 'function') return;
-    var img = dlg.querySelector('img'), cap = dlg.querySelector('p');
-    openBox = function (src, alt, text) { img.src = src; img.alt = alt || ''; cap.textContent = text || ''; dlg.showModal(); if (lenis) lenis.stop(); };
+    var img = dlg.querySelector('img'), vid = dlg.querySelector('video'), cap = dlg.querySelector('p');
+    // a figure whose data-zoom is a film opens it large and playing (the AURORA courtyard film, 14 Oct 2026)
+    openBox = function (src, alt, text) {
+      var film = !!vid && /\.mp4$/.test(src);
+      img.hidden = film; if (vid) vid.hidden = !film;
+      if (film) { vid.src = src; vid.setAttribute('aria-label', alt || ''); var pl = vid.play(); if (pl && pl.catch) pl.catch(function () {}); }
+      else { img.src = src; img.alt = alt || ''; }
+      cap.textContent = text || ''; dlg.showModal(); if (lenis) lenis.stop();
+    };
     $$('[data-zoom]').forEach(function (el) {
       el.setAttribute('tabindex', '0'); el.setAttribute('role', 'button');
-      var inner = el.querySelector('img'); if (inner && !el.getAttribute('aria-label')) el.setAttribute('aria-label', 'Enlarge: ' + (inner.alt || 'image'));
-      var open = function () { openBox(el.dataset.zoom, inner ? inner.alt : '', el.dataset.cap || ''); };
+      var inner = el.querySelector('img'), clip = inner ? null : el.querySelector('video'); if (inner && !el.getAttribute('aria-label')) el.setAttribute('aria-label', 'Enlarge: ' + (inner.alt || 'image'));
+      var open = function () { openBox(el.dataset.zoom, inner ? inner.alt : clip ? clip.getAttribute('aria-label') : '', el.dataset.cap || ''); };
       el.addEventListener('click', function (e) { if (e.target.closest('a')) return; open(); });
       el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
     });
     dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
-    dlg.addEventListener('close', function () { img.removeAttribute('src'); if (lenis) lenis.start(); });
+    dlg.addEventListener('close', function () { img.removeAttribute('src'); if (vid && vid.getAttribute('src')) { vid.pause(); vid.removeAttribute('src'); vid.load(); } if (lenis) lenis.start(); });
   }
 
   function initCopy() {
@@ -3969,7 +4018,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
   }
 
   /* ---------- the archive grown as mycelium, with a tour through the photographs worth stopping at ----------
-     All 1,676 photographs sit along the hyphae in the order they were taken, 2016 at the centre. Most are context: they
+     All 1,671 photographs sit along the hyphae in the order they were taken, 2016 at the centre. Most are context: they
      only make the shape. Thirty of the best carry a ring and are drawn larger; the camera dives into eight of them as
      you scroll, and any of the thirty opens under a glass dish when you point at it.
      Drawing (11 Oct 2026, made lighter): the colony is painted once into one large bitmap as it grows; every frame only
@@ -4153,7 +4202,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       bars.forEach(function (b, k) { b.classList.toggle('done', k < i); b.firstChild.style.transform = k < i ? 'scaleX(1)' : 'scaleX(0)'; });
       cur = i; elapsed = 0; t0 = performance.now(); dur = 5000;
       var it = items[i], v = it.querySelector('video'), h = it.dataset.h || '';
-      if (v) { if (v.preload === 'none') v.preload = 'auto'; try { v.currentTime = 0; } catch (e) {} dur = (v.duration && isFinite(v.duration) ? v.duration : 9) * 1000; v.onloadedmetadata = function () { if (cur === i) dur = v.duration * 1000; }; if (vis && !paused) v.play().catch(function () {}); }
+      if (v) { if (vis && v.preload === 'none') v.preload = 'auto'; try { v.currentTime = 0; } catch (e) {} dur = (v.duration && isFinite(v.duration) ? v.duration : 9) * 1000; v.onloadedmetadata = function () { if (cur === i) dur = v.duration * 1000; }; if (vis && !paused) v.play().catch(function () {}); }
       var im = it.querySelector('img'); if (im && im.loading === 'lazy') im.loading = 'eager';
       if (now) now.innerHTML = h ? 'Story by <b>@' + h + '</b>, ' + it.dataset.d + '.' : 'My story, ' + it.dataset.d + '.';
       var g = 0; hls.forEach(function (b, k) { if (+b.dataset.goto <= i) g = k; }); hls.forEach(function (b, k) { b.classList.toggle('on', k === g); });
@@ -4376,7 +4425,8 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     clearTimeout(rt);
     rt = setTimeout(function () { var w = window.innerWidth; if (!wide() && w === lastW && World) { World.size(); frame(); return; } lastW = w; sizeAll(); frame(); }, 150);
   });
-  if (seqs[0]) seqs[0].load();
+  // the first growth film loads when it comes within reach, not with the page (14 Oct 2026)
+  if (seqs[0]) onScreen(seqs[0].anchor, function (v) { if (v) seqs[0].load(); }, '1600px 0px');
   if (!reduce) drawings.forEach(function (dw) { if (dw.el.getBoundingClientRect().top > vh() * 0.88) dw.set(0); });
   sizeAll(); frame();
   if (World) World.start();
@@ -4390,10 +4440,10 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     }, { rootMargin: '-45% 0px -50% 0px' });
     Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
   }
-  initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
+  initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='852341de497c';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='96408755c34b';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

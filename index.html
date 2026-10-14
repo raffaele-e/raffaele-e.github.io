@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-mKFKu4f99wEMADsnpNiqv6g8BWWdMgElMZoxt0MERtE='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-gR8+FWxn4VmLlCUsEJCktklfgCL0vuEcKDOozsU4uzI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -3846,24 +3846,12 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
     if (reduce) { vids.forEach(function (v) { v.removeAttribute('autoplay'); v.controls = true; }); return; }
     if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.play().catch(function () {}); }); return; }
     var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { unpark(v); if (v.preload === 'none') v.preload = 'auto'; v.play().catch(function () {}); } else { v.pause(); park(v); } });
+      es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { if (v.preload === 'none') v.preload = 'auto'; v.play().catch(function () {}); } else v.pause(); });
     }, { rootMargin: '200px 0px', threshold: 0.01 });
     vids.forEach(function (v) { io.observe(v); });
   }
-  // a film scrolled past before it has finished loading stops downloading, and starts again when it comes back: on a first
-  // visit the films went on loading after they were passed, and at 20 Mbit/s the pictures on screen waited behind them for
-  // up to 40 s (14 Oct 2026). A film that is fully loaded, or that the browser has already stopped fetching, is left alone.
-  function park(v) {
-    var b = v.buffered;
-    if (v.networkState !== 2 || (b.length && v.duration && b.end(b.length - 1) >= v.duration - 0.3)) return;
-    $$('source', v).forEach(function (x) { x.setAttribute('data-park', x.getAttribute('src')); x.removeAttribute('src'); });
-    v.load();
-  }
-  function unpark(v) {
-    var ss = $$('source[data-park]', v); if (!ss.length) return;
-    ss.forEach(function (x) { x.setAttribute('src', x.getAttribute('data-park')); x.removeAttribute('data-park'); });
-    v.load();
-  }
+  // A film scrolled past keeps loading: do not stop it by clearing its source and calling load(). Tried on 14 Oct 2026:
+  // in WebKit (Safari) the film then stalls for good, even on its first play, and a fresh URL did not help either.
 
   /* ---------- film posters are set shortly before their film comes into view, not all when the page opens (build.py
      writes them as data-poster; 14 Oct 2026) ---------- */
@@ -4443,7 +4431,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='96408755c34b';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='681aa78b38fb';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

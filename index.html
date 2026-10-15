@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-n6q7RsKYbZ71KtdzipGUxciiUaFhVFO3JIj0EMtR9M8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-A8X+GdQhBIWGi30nb68tEKV0rbiphOalQrYqTgbbQTQ='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -1595,10 +1595,10 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       </div>
       <p class="cap">Elevations, left, and sections, right, of the flat shells and the shells on the steps, between Bildmuseet and the School of Architecture. Archicad drawings of December 2021, coloured with AI.</p>
       <div class="duo" style="grid-template-columns:1.5fr 1.333fr">
-        <figure class="media r32"><img src="assets/img/x/th-shells-g.webp" alt="3D printed model of the flat shells, white, on a wooden board" loading="lazy" decoding="async" width="1200" height="800"></figure>
+        <figure class="media r32"><img src="assets/img/x/th-shells-g.webp" alt="3D printed model of the flat shells, white, on a wooden board against a plain grey ground (photograph relit with AI)" loading="lazy" decoding="async" width="1200" height="800"></figure>
         <figure class="media r43 zoomable" data-zoom="assets/img/x/th-flat-ill.webp" data-cap="The flat shells in section perspective, drawing of September 2021, coloured with AI."><img src="assets/img/x/th-flat-ill.webp" alt="Line and watercolour section perspective of the same flat shells in a park, people sitting and cycling under them and a skateboarder on the roof" loading="lazy" decoding="async" width="1600" height="1200"></figure>
       </div>
-      <p class="cap">The printed model of the flat shells, January 2022, and the same shells in section perspective, a drawing of September 2021 coloured with AI.</p>
+      <p class="cap">The printed model of the flat shells, January 2022, its photograph relit with AI, and the same shells in section perspective, a drawing of September 2021 coloured with AI.</p>
       <p class="cap">Three designs, three places. Renderings from 2020 and 2022, Archicad drawings from December 2021, the stair and net models from the winter of 2021 to 2022.</p>
       </div>
     </div>
@@ -2046,11 +2046,11 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <figure class="media r43"><img src="assets/img/x/pl-make-tutor.webp" alt="A tutor in the workshop hall beside the bending jigs, cardboard tubes clamped under curved strips of laminated wood" loading="lazy" decoding="async" width="1100" height="825"></figure>
         <figure class="media r43"><img src="assets/img/x/pl-make-jigs.webp" alt="The forming jigs on their trestles: large cardboard tubes with laminated wood bent over them, clamped" loading="lazy" decoding="async" width="1100" height="825"></figure>
       </div>
-      <div class="pair" style="margin-top:clamp(8px,1.2vw,18px)">
-        <figure class="media r32"><img src="assets/img/x/pl-canoe-group.webp" alt="The canoe group presenting the finished hull to visitors in the hall, with their tutors" loading="lazy" decoding="async" width="1200" height="800"></figure>
-        <figure class="media r32"><img src="assets/img/x/pl-canoe-try.webp" alt="Two students lying in the finished canoe on the cobbles outside the hall" loading="lazy" decoding="async" width="1200" height="800"></figure>
+      <div class="duo" style="grid-template-columns:1.5fr .75fr">
+        <figure class="media r32"><img src="assets/img/x/pl-boat-side.webp" alt="The finished canoe from the side on its curved plywood stands, PROTO LAB lettered on the bow" loading="lazy" decoding="async" width="1200" height="800"></figure>
+        <figure class="media r34"><img src="assets/img/x/pl-boat-bow.webp" alt="The finished canoe seen from above at the bow, the ribs of its laminated skin" loading="lazy" decoding="async" width="900" height="1200"></figure>
       </div>
-      <p class="cap">Making the canoe, July 2025: the laminated skin bent over cardboard tubes on the forming jigs; then the presentation, and the first try.</p>
+      <p class="cap">Making the canoe, July 2025: the laminated skin bent over cardboard tubes on the forming jigs, then the finished canoe on its stands.</p>
       </div>
     </div>
   </div>
@@ -4747,7 +4747,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='b4b63bcf6a52';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='c490d06a516d';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

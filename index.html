@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-bxzdXCyoBu7o13YKdoJtuXFJcB2IUUqOknIQjKVFeVA='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-Sm3kKHe/CWms/jHe+vIOgvFgzkkjbm/CFXho6eU07mw='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -810,7 +810,7 @@ html.nogl .mz-field canvas{display:block}
 #peek img{width:100%;height:100%;object-fit:cover}
 
 /* ---------------------------------------------------------------- contact */
-.contact{display:block;min-height:0;padding-block:clamp(140px,22vh,260px) calc(38px + var(--safe-b))}   /* the page ends 1 cm under the credits (15 Oct 2026) */
+.contact{display:block;min-height:100svh;padding-block:clamp(140px,22vh,260px) calc(32px + var(--safe-b))}
 .contact .lede{max-width:24em;padding:16px 20px;border-radius:20px;background:var(--glass-dark);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
 .l-contact{right:9vw;top:9vh;width:clamp(180px,24vw,380px);height:clamp(180px,24vw,380px)}
 .mail{display:inline-block;margin-top:clamp(28px,4vw,56px);font:700 clamp(28px,5.6vw,92px)/1 var(--display);letter-spacing:-.05em;color:var(--bone);word-break:break-word;user-select:all;-webkit-user-select:all;text-shadow:0 2px 30px rgba(0,0,0,.5)}
@@ -2291,7 +2291,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 </section>
 
 <!-- ============================================================ contact -->
-<section class="inter contact" id="contact" data-world data-src="assets/world/seat.mp4" data-poster="assets/world/seat.webp" data-stain="#393d32 #c17324 #bfa1a0 #cae7ea" data-type="Write|to me." data-place="stagger" data-ta=".38" data-dim=".6" data-hy=".8" aria-labelledby="contact-h">
+<section class="inter contact" id="contact" data-world data-src="assets/world/seat.mp4" data-poster="assets/world/seat.webp" data-stain="#393d32 #c17324 #bfa1a0 #cae7ea" data-type="Write|to me." data-place="stagger" data-ta=".42" data-dim=".68" data-mono=".35" data-hy=".3" aria-labelledby="contact-h">
   <div class="lens-anchor l-contact" data-lens="lens" data-mag="1.8" data-reveal data-follow aria-hidden="true"></div>
   <div class="wrap">
     <h2 class="h2 sr" id="contact-h">Write to me</h2>
@@ -4754,7 +4754,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='201428adf7ef';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='4bd2add42809';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

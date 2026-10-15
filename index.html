@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-aCFl15Uz/zFt4wYSBCUBDwin3khK3n4thSwZu993hSc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-MicXJf8gRJQR+iKkan4CO/mf8DsoR+aOFXIerkJZyhc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -588,10 +588,12 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .chap-t{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,4vw,72px);margin-top:clamp(24px,3vw,44px)}
 .chap-t>*{min-width:0}
 @media (max-width:899px){.chap-t{grid-template-columns:1fr}}
-.studio{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,4fr);gap:clamp(8px,1.2vw,18px);margin-top:clamp(8px,1.2vw,18px);align-items:start}
+.studio{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr);gap:clamp(8px,1.2vw,18px);margin-top:clamp(8px,1.2vw,18px);align-items:start}
 .studio>*{min-width:0}
 .studio .col{display:grid;gap:clamp(8px,1.2vw,18px)}
-@media (max-width:760px){.studio{grid-template-columns:1fr 1fr}.studio .col{grid-column:1/-1;order:3}}
+/* the lecturing carousel larger (his comment, 15 Oct 2026): it takes the wide column, the rest stacks beside it */
+.studio>.cycle{grid-row:1/span 2}
+@media (max-width:760px){.studio{grid-template-columns:1fr 1fr}.studio>.cycle{grid-row:auto}.studio .col{grid-column:1/-1;order:3}}
 .people3{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,5fr);gap:clamp(10px,1.4vw,20px);margin-top:clamp(18px,2vw,28px);align-items:start}
 .people3>*{min-width:0}
 .people3 .body{padding-left:clamp(0px,1.6vw,24px)}
@@ -4781,7 +4783,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='f017f315dcf3';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='9cc999e5e1b5';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

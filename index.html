@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-QS6zaGfG11ubxEwZYy9FZOmX0V9ndd+oRIa/ewCJK94='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-0z18iUpDm1cqvQvUoygV7i9naNHbEnk0v4sw9sMlg7Y='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -483,24 +483,25 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .wall .tile::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 5px rgba(255,255,255,.28),inset 6px 8px 14px rgba(255,255,255,.22),inset -8px -10px 18px rgba(0,0,0,.25);pointer-events:none}
 @media (max-width:760px){.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
-/* reel */
+/* reel: a full-screen band of photographs that slides sideways under the cursor (drag, trackpad, arrow keys), never
+   with the page scroll; the page just lands on it (Raffaele, 15 Oct 2026) */
 .reel{color:var(--bone)}
-.reel .stage{display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,4vh,48px)}
+.reel .stage{display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,4vh,48px);min-height:100vh;min-height:100svh;padding-block:clamp(40px,8vw,80px)}
+@media (min-width:900px){.reel .stage{padding-top:calc(60px + var(--safe-t))}}
 .reel-h{padding:clamp(16px,2vw,28px);border-radius:26px;background:var(--glass-dark);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
 .reel .lede{color:var(--bone)}
-.reel .track{display:flex;gap:clamp(12px,1.6vw,24px);padding-inline:var(--gut);will-change:transform;width:max-content}
+.reel .track{display:flex;gap:clamp(12px,1.6vw,24px);padding-inline:var(--gut);padding-bottom:10px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;cursor:grab;outline:none}
+.reel .track::-webkit-scrollbar{display:none}
+.reel .track:focus-visible{box-shadow:inset 0 0 0 2px var(--rust);border-radius:14px}
+.reel .track.drag{cursor:grabbing;-webkit-user-select:none;user-select:none}
+.reel .track img{-webkit-user-drag:none;user-select:none}
 .reel figure{margin:0;flex:0 0 auto;width:clamp(240px,24vw,400px)}
 .reel figure.w{width:clamp(300px,36vw,600px)}
 .reel .media{aspect-ratio:4/5;height:auto;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
 .reel figure.w .media{aspect-ratio:4/3}
 .reel .cap{color:var(--bone-2)}
-.js:not(.static) .reel.pin{height:300vh}
-@media (min-width:900px){.js:not(.static) .reel .stage{padding-top:calc(60px + var(--safe-t))}}
 @media (max-width:899px){
-  .js .reel.pin{height:auto!important}
-  .reel .stage{position:relative!important;height:auto!important;padding-block:clamp(40px,8vw,80px)}
-  .reel .track{width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:none;transform:none!important}
-  .reel .track::-webkit-scrollbar{display:none}
+  .reel .track{scroll-snap-type:x mandatory}
   .reel figure{scroll-snap-align:start;width:76vw}
   .reel figure.w{width:86vw}
 }
@@ -1286,7 +1287,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 <div class="gap" aria-hidden="true"></div>
 
 <!-- reel: printer to fruit -->
-<section class="pin reel" data-pin data-reel aria-labelledby="reel-h">
+<section class="reel" aria-labelledby="reel-h">
   <div class="stage">
     <div class="wrap">
       <div class="grid2 reel-h">
@@ -1294,7 +1295,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <p class="lede">Two demonstrators, from wet paste to finished object. D1 was published in 2026. D2, all white, was printed in March 2026 and shown at EURAU in Umeå that June.</p>
       </div>
     </div>
-    <div class="track">
+    <div class="track" data-drag tabindex="0" role="group" aria-label="Photographs from printer to fruit: drag sideways, or use the arrow keys">
       <figure class="w"><div class="media"><img src="assets/img/print-nozzle.webp" alt="The nozzle above the brain-coral pattern, laying a new layer" loading="lazy" decoding="async" width="1800" height="1200"></div><figcaption class="cap">Laying a layer.</figcaption></figure>
       <figure><div class="media"><img src="assets/img/print-delta.webp" alt="A delta clay printer printing the top of a demonstrator" loading="lazy" decoding="async" width="1200" height="1500"></div><figcaption class="cap">On the delta printer.</figcaption></figure>
       <figure><div class="media"><img src="assets/img/fresh-stool.webp" alt="A freshly printed grey demonstrator, hourglass-shaped" loading="lazy" decoding="async" width="1200" height="1500"></div><figcaption class="cap">Just printed, still wet.</figcaption></figure>
@@ -1479,7 +1480,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <p class="cap">The frame in two versions, June 2016.</p>
       <div class="split hm-row">
         <div class="body">
-          <p>The name has three capital Ms for its three poles, the three <i>mazze</i>, as we call them in Neapolitan. The Masseria had asked the university for places to rest, and we designed them from what was already in its store, so each frame cost nothing. Three chestnut poles cross at one joint, held by threaded steel bars, and carry three hammocks between them, with cables tying their tips together. Geometry gives the frame both its strength and its look.</p>
+          <p>The name has three capital Ms for its three poles, the three <i>mazze</i>, as we call them in Neapolitan. The Masseria had asked the university for places to rest, and we designed them from what was already in its store, so each frame cost nothing. Three chestnut poles cross at one joint, bound with rope, and carry three hammocks between them, with cables tying their tips together. Geometry gives the frame both its strength and its look.</p>
           <p>The poles hold each other up through reciprocal forces, and the frame needs weight to stay balanced. With one person in it, it stands only because of the anchors at its feet; the more people sit in it, the steadier it gets. It began with a few printed pages on tensegrity and a sketch on squared paper. We drew the parts in Rhino, tested a table-top model and raised the frames in a field among olive trees. It was the first structure I watched find its shape under load, and the first one I built together with others.</p>
         </div>
         <figure class="media r11"><img src="assets/img/x/hm-sketch-r.webp" alt="Pencil sketch on squared paper of crossed poles with curves hanging between them" loading="lazy" decoding="async" width="900" height="900"></figure>
@@ -4422,6 +4423,39 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
     }
   }
 
+  /* ---------- a band of photographs that slides sideways under the cursor: drag it with the mouse and it glides a little
+     when let go; trackpads, phones and the arrow keys scroll it natively; the page scroll never moves it (15 Oct 2026) ---------- */
+  function Drag(el) {
+    var down = null, moved = false, vx = 0, lastX = 0, lastT = 0, glide = 0;
+    el.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      cancelAnimationFrame(glide);
+      down = { x: e.clientX, left: el.scrollLeft }; moved = false; vx = 0; lastX = e.clientX; lastT = e.timeStamp;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - down.x;
+      if (!moved && Math.abs(dx) > 4) { moved = true; el.classList.add('drag'); }
+      if (!moved) return;
+      e.preventDefault();
+      el.scrollLeft = down.left - dx;
+      var dt = e.timeStamp - lastT;
+      if (dt > 0) vx = 0.8 * vx + 0.2 * (e.clientX - lastX) / dt;
+      lastX = e.clientX; lastT = e.timeStamp;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!down) return;
+      down = null;
+      if (!moved) return;
+      var v = reduce ? 0 : -vx * 16;
+      (function step() {
+        if (Math.abs(v) < 0.4) { el.classList.remove('drag'); return; }
+        el.scrollLeft += v; v *= 0.93; glide = requestAnimationFrame(step);
+      })();
+    });
+    el.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  }
+
   /* ---------- boot ---------- */
   var seqs = $$('[data-seq]').map(function (el) { return new Sequence(el); });
   var printers = $$('[data-printer]').map(function (el) { return new Printer(el); });
@@ -4433,6 +4467,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   var mosaics = $$('[data-mosaic]').map(function (el) { return new Mosaic(el); });
   $$('[data-stories]').forEach(function (el) { new Stories(el); });
   $$('[data-fig]').forEach(function (el) { new Anat(el); });
+  $$('[data-drag]').forEach(function (el) { new Drag(el); });
   var tubes = $$('.tube').map(function (el) { return new Tube(el); });
   seqs.forEach(function (s) {
     var clockEl = s.el.closest('[data-pin]') ? s.el.closest('[data-pin]').querySelector('[data-clock]') : null;
@@ -4443,7 +4478,6 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
     o.seq = seqs.filter(function (q) { return el.contains(q.el); })[0];
     o.printer = printers.filter(function (q) { return el.contains(q.el); })[0];
     o.globe = globes.filter(function (q) { return el.contains(q.el); })[0];
-    o.track = el.hasAttribute('data-reel') ? el.querySelector('.track') : null;
     o.mosaic = mosaics.filter(function (q) { return q && el === q.el; })[0];
     return o;
   });
@@ -4461,14 +4495,6 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
       sc.el.classList.toggle('cur', o > 0.5);
     });
   }
-  function sizeReels() {
-    pinned.forEach(function (o) {
-      if (!o.track) return;
-      if (reduce || !wide()) { o.el.style.height = ''; o.track.style.transform = ''; return; }
-      o.dist = Math.max(0, o.track.scrollWidth - window.innerWidth);
-      o.el.style.height = (o.dist + vh() * 1.1) + 'px';
-    });
-  }
   function frame() {
     var H = vh();
     pinned.forEach(function (o) {
@@ -4479,7 +4505,6 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
       if (o.printer) { if (!o.printer.loading) o.printer.load(); o.printer.set(reduce ? 1 : p); }
       if (o.globe) { if (!o.globe.loading) o.globe.load(); o.globe.set(reduce ? 1 : p); }
       if (o.mosaic) { o.mosaic.load(); o.mosaic.set(reduce ? 0.2 : p); }
-      if (o.track && !reduce && wide()) o.track.style.transform = 'translate3d(' + (-p * (o.dist || 0)).toFixed(1) + 'px,0,0)';
     });
     stagesAll.forEach(function (st) { if (visible(st.el, 40)) st.set(H); });
     drawings.forEach(function (dw) { if (!visible(dw.el, H * 0.2)) return; var r = dw.el.getBoundingClientRect(); dw.set(reduce ? 1 : clamp((0.88 * H - r.top) / (0.62 * H), 0, 1)); });
@@ -4510,7 +4535,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   function sizeAll() {
     if (World) World.size();
     seqs.forEach(function (s) { s.size(); }); printers.forEach(function (p) { p.size(); }); globes.forEach(function (g) { g.size(); }); rds.forEach(function (q) { q.size(); }); mosaics.forEach(function (q) { q.size(); }); tubes.forEach(function (t) { t.layout(); });
-    Glass.all(); sizeReels();
+    Glass.all();
   }
   var rt, lastW = window.innerWidth;
   window.addEventListener('resize', function () {
@@ -4523,7 +4548,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   sizeAll(); frame();
   if (World) World.start();
   window.addEventListener('load', function () { sizeAll(); frame(); });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { sizeReels(); frame(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { frame(); });
 
   if ('IntersectionObserver' in window && navLinks.length) {
     var map = {}; navLinks.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
@@ -4535,7 +4560,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='e88a9115dd27';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='3525a99bf3df';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

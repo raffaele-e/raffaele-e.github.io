@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-pvPNzAGZ2IKhFYcIq6qpseVZ0VQbv8cHgsVeVVl3DPk='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-px//mWiSjCgIVm5Q+KoO3INTzjT8kfy2LQxcOL94t5o='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -595,12 +595,12 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .chap-t{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,4vw,72px);margin-top:var(--sp-2)}
 .chap-t>*{min-width:0}
 @media (max-width:899px){.chap-t{grid-template-columns:1fr}}
-.studio{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr);gap:var(--sp-1);margin-top:var(--sp-1);align-items:start}
+.studio{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-1);margin-top:0;align-items:start}
 .studio>*{min-width:0}
 .studio .col{display:grid;gap:clamp(8px,1.2vw,18px)}
 /* the lecturing carousel larger (his comment, 15 Oct 2026): it takes the wide column, the rest stacks beside it */
-.studio>.cycle{grid-row:1/span 2}
-@media (max-width:760px){.studio{grid-template-columns:1fr 1fr}.studio>.cycle{grid-row:auto}.studio .col{grid-column:1/-1;order:3}}
+
+@media (max-width:760px){.studio{grid-template-columns:1fr 1fr}}
 .people3{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,5fr);gap:var(--sp-1);margin-top:var(--sp-2);align-items:start}
 .people3>*{min-width:0}
 .people3 .body{padding-left:clamp(0px,1.6vw,24px)}
@@ -1871,11 +1871,13 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
             <figure class="cycle" data-cycle data-every="2900" aria-label="Hands and petri dishes in the studio, changing every few seconds"><div class="tile r32"><img src="assets/img/s12-petri.webp" alt="A student's hands inoculating a petri dish" loading="lazy" decoding="async" width="1300" height="867"><img src="assets/img/x/s12-petri-2.webp" alt="A spoon of green substrate going into a petri dish" loading="lazy" decoding="async" width="1300" height="867"><img src="assets/img/x/s12-petri-3.webp" alt="Gloved hands plating a sample of moss in a petri dish on a rock" loading="lazy" decoding="async" width="1300" height="867"><img src="assets/img/x/s12-petri-4.webp" alt="Hands opening petri dishes over a tray of substrates" loading="lazy" decoding="async" width="1300" height="867"></div></figure>
             <figure class="cycle" data-cycle data-every="3100" aria-label="The microscope in the studio, changing every few seconds"><div class="tile r21"><img src="assets/img/x/s12-scope.webp" alt="A hand on the focus of a microscope, a phone on the eyepiece filming the green cells of a section" loading="lazy" decoding="async" width="1200" height="600"><img src="assets/img/x/s12-scope-2.webp" alt="The phone on the eyepiece, closer, the green cells on its screen" loading="lazy" decoding="async" width="1200" height="600"></div></figure>
           </div>
-          <figure class="cycle" data-cycle data-every="2800" aria-label="Views through the studio's microscope, changing every few seconds"><div class="tile r45"><img src="assets/img/x/s12-stain.webp" alt="A stained plant section under the microscope from a studio session, cells in blue and green" loading="lazy" decoding="async" width="800" height="1000"><img src="assets/img/x/s12-mic-1.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-2.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-3.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-4.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-5.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-6.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-7.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-8.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"></div></figure>
         </div>
       </div>
-      <figure class="cycle s12-macro" data-cycle data-every="2600" aria-label="Field sampling and lab sessions with the studio, changing every few seconds"><div class="tile r32"><img src="assets/img/x/s12-c-bag.webp" alt="Field sampling with the studio: a gloved hand holding a sample bag" loading="lazy" decoding="async" width="1400" height="933"><img src="assets/img/x/s12-c-rock.webp" alt="" loading="lazy" decoding="async" width="1400" height="933"><img src="assets/img/x/s12-c-sheet.webp" alt="" loading="lazy" decoding="async" width="1400" height="933"><img src="assets/img/x/s12-c-jars.webp" alt="" loading="lazy" decoding="async" width="1400" height="933"><img src="assets/img/x/s12-c-bags.webp" alt="" loading="lazy" decoding="async" width="1400" height="933"></div></figure>
-      <p class="cap">Field sampling and lab sessions with the studio, October 2023: lichens and mosses gathered with gloves and bagged, then pressed, kept in jars and laid out on the tables.</p>
+      <div class="duo s12-row" style="grid-template-columns:1fr 1.875fr;margin-top:var(--sp-2)">
+        <figure class="cycle" data-cycle data-every="2800" aria-label="Views through the studio's microscope, changing every few seconds"><div class="tile r45"><img src="assets/img/x/s12-stain.webp" alt="A stained plant section under the microscope from a studio session, cells in blue and green" loading="lazy" decoding="async" width="800" height="1000"><img src="assets/img/x/s12-mic-1.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-2.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-3.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-4.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-5.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-6.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-7.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"><img src="assets/img/x/s12-mic-8.webp" alt="" loading="lazy" decoding="async" width="900" height="1125"></div></figure>
+        <figure class="cycle s12-macro" data-cycle data-every="2600" aria-label="Field sampling and lab sessions with the studio, changing every few seconds"><div class="tile r32"><img src="assets/img/x/s12-c-bag.webp" alt="Field sampling with the studio: a gloved hand holding a sample bag" loading="lazy" decoding="async" width="1400" height="933"><img src="assets/img/x/s12-c-rock.webp" alt="" loading="lazy" decoding="async" width="1400" height="933"><img src="assets/img/x/s12-c-sheet.webp" alt="" loading="lazy" decoding="async" width="1400" height="933"><img src="assets/img/x/s12-c-jars.webp" alt="" loading="lazy" decoding="async" width="1400" height="933"><img src="assets/img/x/s12-c-bags.webp" alt="" loading="lazy" decoding="async" width="1400" height="933"></div></figure>
+      </div>
+      <p class="cap">Left, views through the studio's microscope. Right, field sampling and lab sessions with the studio, October 2023: lichens and mosses gathered with gloves and bagged, then pressed, kept in jars and laid out on the tables.</p>
       </div>
     </div>
   </div>
@@ -4827,7 +4829,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='8b2cbae3f2c0';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='d796502dffe6';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

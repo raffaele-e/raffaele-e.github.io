@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-4ATtaU+ye+32im0OH4doc4BlElCPvFIlS9AQaoQ1RuQ='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-fH9+4GXOVRh81eqAfhFxvL9tx7e/F0Jzuo+tZ02qnuA='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -3506,6 +3506,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
       self.L = m.layers; self.N = m.pointsPerLayer; self.meta = m;
       self.pts = new Float32Array(q.length); for (var i = 0; i < q.length; i++) self.pts[i] = q[i] / 10;
       self.cum = [0]; m.layerLengthM.forEach(function (l, i) { self.cum.push(self.cum[i] + l); });
+      self.Rmax = 0; for (var j = 0; j < self.pts.length; j += 2) self.Rmax = Math.max(self.Rmax, Math.hypot(self.pts[j], self.pts[j + 1]));
       self.ready = true; self.dirty = true; self.size(); self.loop();
     }).catch(function () { self.el.classList.add('no-data'); });
   };
@@ -3535,6 +3536,13 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
     var yaw = (this.rot + this.auto + this.p * 1.1) * (1 - flip * 0.6), cyw = Math.cos(yaw), syw = Math.sin(yaw);
     var tilt = 0.42 + (Math.PI / 2 - 0.42) * flip, ct = Math.cos(tilt)  /* when the print is done it tips towards you and shows the top pattern */, st = Math.sin(tilt), ca = Math.cos(ang), sa = Math.sin(ang), zc = total * 2;
     var scale = Math.min(r.width * d / 470, r.height * d / 560) * 0.92;
+    /* turned over, the piece grows to fill the glass dish that closes in on it, its outer tips about 1 cm (38 px) inside
+       the dish's rim on every screen (Raffaele, 17 Oct 2026); the dish's radius and magnification as set below */
+    /* (measured on screen: inside, the dish shows what is under it about 1.04 times larger; its glass rim, the outer
+       tenth of its radius, bends anything that reaches it outwards, more on a big dish, so the tips are kept 1 cm inside the
+       rim's inner edge and never past 0.8 of the radius, which the rim then shows at about 0.9) */
+    var dishR = Math.min(Math.min(r.width, r.height) * 0.44, window.innerWidth * 0.4), dishMag = 1.04;
+    scale = lerp(scale, Math.max(0.05, Math.min(dishR * 0.8, dishR * 0.9 - 38) * d / ((this.Rmax || 188) * dishMag)), flip);
     var ox = (r.left + r.width / 2) * d, oy = (r.top + r.height * 0.5) * d;
     var N = this.N, pts = this.pts;
     function proj(x, y, z) {
@@ -4846,7 +4854,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='82b7e78ed05d';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='01ec4c55443e';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-Mk2SQaPj5TrWlzUIK58Vk1uZ8vGZMwWboKtWxtU4/oU='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-GzNXeqhnHv/YhDOD/b4pbH0DFEch04il0le6i0xxYSs='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -608,10 +608,11 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 }
 /* Stasys: one film per step, a 16:9 and a 4:5 side by side at the same height (2.22 : 1), two rows in date order */
 .sn-films{display:grid;grid-template-columns:minmax(0,2.22fr) minmax(0,1fr);gap:clamp(22px,2.6vw,40px) clamp(10px,1.4vw,20px);margin-top:clamp(28px,3.4vw,48px);align-items:start}
+.sn-films.sn-rev{grid-template-columns:minmax(0,1fr) minmax(0,2.22fr)}
 .sn-films>*{min-width:0;margin:0}
 .sn-films .sn-w .media{aspect-ratio:16/9}
 .sn-films .sn-t .media{aspect-ratio:4/5}
-@media (max-width:760px){.sn-films{grid-template-columns:1fr}.sn-films .sn-t{width:min(100%,440px)}}
+@media (max-width:760px){.sn-films,.sn-films.sn-rev{grid-template-columns:1fr}.sn-films .sn-t{width:min(100%,440px)}}
 /* Coltivare strutture: one block per design, its name and date beside the main image, the rest in a row below */
 .th-m{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(18px,3vw,48px);align-items:end;margin-top:clamp(48px,6vw,88px)}
 .th-m>*{min-width:0;margin:0}
@@ -1562,8 +1563,10 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <div class="sn-films">
         <figure class="sn-w"><div class="media"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sn-model.webp" aria-label="The concrete model being made: thin rods bent into arches on a board, chicken wire stretched over them, clear plastic film pressed onto the wire and shrunk with a heat gun, a coat brushed over it, a layer of concrete, the finished grey shell, and a walk all round it once the rods were taken out"><source src="assets/video/sn-model.mp4" type="video/mp4"></video></div><figcaption class="cap">The concrete model, December 2019: rods bent into arches, chicken wire over them, plastic film shrunk onto the wire with a heat gun, a coat brushed on, then the concrete, and the shell standing on its own once the rods came out.</figcaption></figure>
         <figure class="sn-t"><div class="media"><img src="assets/img/x/sn-bw.webp" alt="Black and white photograph of a tall shell model with a small human figure for scale" loading="lazy" decoding="async" width="900" height="1200"></div><figcaption class="cap">A model of the shells in black and white, a small figure for scale.</figcaption></figure>
-        <figure class="sn-w"><div class="media"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sn-net.webp" aria-label="Timelapse in the workshop: two people on ladders pulling a white net over the arching pipes until it wraps the shells, the workshop emptying as the evening goes on"><source src="assets/video/sn-net.mp4" type="video/mp4"></video></div><figcaption class="cap">The net, February 2020, pulled over the pipes with Fabiana Polichetti in the workshop, in a timelapse edited that March.</figcaption></figure>
+      </div>
+      <div class="sn-films sn-rev">
         <figure class="sn-t"><div class="media"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sn-pipes.webp" aria-label="At night in the school hall: lines of tape on the floor marking the plan, a white pipe, Raffaele on a stool bending the pipes into place, and a walk through the finished cluster of arching pipes"><source src="assets/video/sn-pipes.mp4" type="video/mp4"></video></div><figcaption class="cap">The pipes, the night of 4 February 2020: the plan taped on the floor of the school hall, then the white pipes bent into place.</figcaption></figure>
+        <figure class="sn-w"><div class="media"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/sn-net.webp" aria-label="Timelapse in the workshop: two people on ladders pulling a white net over the arching pipes until it wraps the shells, the workshop emptying as the evening goes on"><source src="assets/video/sn-net.mp4" type="video/mp4"></video></div><figcaption class="cap">The net, February 2020, pulled over the pipes with Fabiana Polichetti in the workshop, in a timelapse edited that March.</figcaption></figure>
       </div>
       </div>
     </div>
@@ -4813,7 +4816,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='2e95a8c91cef';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='18ae1b74a81a';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

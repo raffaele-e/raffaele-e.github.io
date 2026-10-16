@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-fHcj79usYOh2/Ux8fF1UURMZyWmn9Z0RGnMyFy/3FrU='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-nnZ5ZYrZZ24dOq6H0xYmBOa1lkAftwER38HzNfx7xb8='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -1531,11 +1531,11 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <figure class="hm-film"><div class="media r169"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/hm-build.webp" aria-label="AI film of the chestnut frame going up, on the paper of the page: three rough chestnut poles rise and cross, a slim jute lashing binds the crossing, a steel wire is strung between the tips, the base logs slide in under the feet, three concrete blocks come down onto the logs, and three cream canvas hammocks drop from the pole tips on their ropes"><source src="assets/video/hm-build.mp4" type="video/mp4"></video></div><figcaption class="cap">The build, rendered by AI from a 3D model of the frame and the June 2016 photographs.</figcaption></figure>
       <div class="anat" data-fig="assets/fig/hm.html" style="--ar:640/760" role="group" aria-label="haMMMocks taken apart, an interactive drawing"></div>
       <div class="duo" style="grid-template-columns:1.333fr 1.5fr .75fr">
-        <figure class="media r43"><img src="assets/img/x/hm-model.webp" alt="Table-top model of the frame: wooden sticks, string and three canvas seats" loading="lazy" decoding="async" width="1100" height="825"></figure>
+        <figure class="cycle" data-cycle data-every="3000" aria-label="Building the frames in the field, changing every few seconds"><div class="tile r43"><img src="assets/img/x/hm-b-1.webp" alt="Students raising the chestnut poles of a frame in the field, summer 2016" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/hm-b-2.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/hm-b-3.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/hm-b-4.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"><img src="assets/img/x/hm-b-5.webp" alt="" loading="lazy" decoding="async" width="1200" height="900"></div></figure>
         <figure class="media r32"><img src="assets/img/x/hm-night.webp" alt="The two finished frames lit at night in the field, people resting in the hammocks, the glow of the sky behind them" loading="lazy" decoding="async" width="1024" height="683"></figure>
         <figure class="media r34"><img src="assets/img/x/hm-rest.webp" alt="Raffaele lying in one of the hammocks of the finished frame in the field" loading="lazy" decoding="async" width="900" height="1200"></figure>
       </div>
-      <p class="cap">Left to right: the table-top model; the frames at night in the field (photo: Atraz &amp; Emilia Photography); trying one out.</p>
+      <p class="cap">Left to right: building the frames (third photo: Atraz &amp; Emilia Photography); the frames at night in the field (photo: Atraz &amp; Emilia Photography); trying one out.</p>
       </div>
     </div>
   </div>
@@ -4827,7 +4827,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='29e4283e4dcc';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='3c5bbf09220f';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-px//mWiSjCgIVm5Q+KoO3INTzjT8kfy2LQxcOL94t5o='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-pg0PQ+h1UBT12g+4n5FnT9etSkUVH9Jzt2oK9AEoIMk='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -1752,14 +1752,17 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
             <p>The thesis shell, rebuilt in steel and rope. Steel tubes were bent on a plywood jig and joined with clamps, and nets of rope were stretched between them. I set out the saddle surfaces in Kangaroo, a physics solver for Grasshopper, and bent the tubes to match the simulation.</p>
             <p>MK3 is the step between the thesis and AURORA: the same shapes, now carried by parts that can be made and assembled in a workshop.</p>
           </div>
-          <figure class="cycle" data-cycle data-every="3200" aria-label="Rope nets on bent steel hoops on the workbench, changing every few seconds"><div class="tile" style="aspect-ratio:5/4"><img src="assets/img/x/mk-net3-w.webp" alt="MK3 on the workbench: bent steel hoops with a rope net drawn between them" loading="lazy" decoding="async" width="1000" height="800"><img src="assets/img/x/rods-net2-w.webp" alt="A test net stretched between two bent steel rods on the workbench" loading="lazy" decoding="async" width="1000" height="800"></div></figure>
         </div>
       </div>
-      <div class="duo" style="grid-template-columns:1fr .75fr">
-        <figure class="media r11"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/mk-jig.webp" aria-label="The bending jig, 14 July 2022: a steel tube along a curve of pulleys screwed to a plywood table, the pulleys and clamps up close, a hand pressing the tube into the curve, and Raffaele feeding the tube through with a wrench"><source src="assets/video/mk-jig.mp4" type="video/mp4"></video></figure>
+      <div class="duo" style="grid-template-columns:1.25fr .75fr;margin-top:var(--sp-2)">
+        <figure class="cycle" data-cycle data-every="3200" aria-label="Rope nets on bent steel hoops on the workbench, changing every few seconds"><div class="tile" style="aspect-ratio:5/4"><img src="assets/img/x/mk-net3-w.webp" alt="MK3 on the workbench: bent steel hoops with a rope net drawn between them" loading="lazy" decoding="async" width="1000" height="800"><img src="assets/img/x/rods-net2-w.webp" alt="A test net stretched between two bent steel rods on the workbench" loading="lazy" decoding="async" width="1000" height="800"></div></figure>
         <figure class="cycle" data-cycle data-every="3000" aria-label="Bent steel parts of MK3, changing every few seconds"><div class="tile r34"><img src="assets/img/x/mk-s.webp" alt="A long steel tube bent into a large S, laid on the concrete floor of the school hall" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/mk-arc.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/mk-joint.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"></div></figure>
       </div>
-      <p class="cap">The bending jig at work in July 2022, and the bent parts: the large S on the hall floor, a tube hung against the wall, a clamp joint.</p>
+      <p class="cap">Left, rope nets on bent steel hoops on the workbench. Right, the bent parts: the large S on the hall floor, a tube hung against the wall, a clamp joint.</p>
+      <div class="duo" style="grid-template-columns:1fr;margin-top:var(--sp-2)">
+        <figure class="media r169"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/mk-jig.webp" aria-label="The bending jig, 14 July 2022: a steel tube along a curve of pulleys screwed to a plywood table, the pulleys and clamps up close, a hand pressing the tube into the curve, and Raffaele feeding the tube through with a wrench"><source src="assets/video/mk-jig.mp4" type="video/mp4"></video></figure>
+      </div>
+      <p class="cap">The bending jig at work, July 2022.</p>
       </div>
     </div>
   </div>
@@ -4829,7 +4832,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='d796502dffe6';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='6f097bcd4692';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

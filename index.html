@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-GzNXeqhnHv/YhDOD/b4pbH0DFEch04il0le6i0xxYSs='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-pN1PeS3MzEZ/WexcHuxIF9cUYcMCC0vWk7lZQHuiRfA='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -146,6 +146,11 @@
   --ease:cubic-bezier(.2,.7,.15,1);
   --safe-t:env(safe-area-inset-top,0px);
   --safe-b:env(safe-area-inset-bottom,0px);
+  /* vertical rhythm: images in one group, groups, parts of a chapter, blocks of a sheet */
+  --sp-1:clamp(8px,1.2vw,18px);
+  --sp-2:clamp(28px,3.4vw,48px);
+  --sp-3:clamp(48px,6vw,88px);
+  --sp-4:clamp(80px,9vw,140px);
   --grid:color-mix(in oklab,var(--line) 45%,transparent);
   --grid-major:color-mix(in oklab,var(--line) 85%,transparent);
   color-scheme:light;
@@ -381,7 +386,7 @@ html.gl .hero .hl{position:absolute!important;width:1px;height:1px;overflow:hidd
 @media (max-width:899px){.said{grid-template-columns:1fr}}
 
 /* ---------------------------------------------------------------- research */
-.recipe{list-style:none;margin:clamp(64px,8vw,120px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.8vw,28px);counter-reset:step}
+.recipe{list-style:none;margin:var(--sp-4) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.8vw,28px);counter-reset:step}
 .recipe>li{min-width:0}
 .recipe h3{margin-top:16px;font-size:20px;line-height:1.2;font-weight:660;letter-spacing:-.02em}
 .recipe p{margin-top:6px;font-size:16px;line-height:1.5;color:var(--mute)}
@@ -390,7 +395,7 @@ html.gl .hero .hl{position:absolute!important;width:1px;height:1px;overflow:hidd
 .why{margin-bottom:clamp(72px,9vw,140px);padding-bottom:clamp(56px,7vw,104px);border-bottom:1px solid var(--line)}
 .why .h2{font-size:clamp(32px,3.9vw,60px)}
 .why .body{margin-top:6px}
-.arm{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,4vw,72px);align-items:end;margin-top:clamp(56px,7vw,110px)}
+.arm{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,4vw,72px);align-items:end;margin-top:var(--sp-4)}
 .arm>*{min-width:0}
 .arm .h3{margin-bottom:14px}
 @media (max-width:899px){.arm{grid-template-columns:1fr}}
@@ -451,7 +456,7 @@ html.gl .printer .rig canvas{visibility:hidden}
 html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* close-up rows */
-.zig{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,6vw,110px);align-items:center;margin-top:clamp(80px,10vw,150px)}
+.zig{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,6vw,110px);align-items:center;margin-top:var(--sp-4)}
 .zig>*{min-width:0}
 .zig.rev{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
 .zig.rev>:first-child{order:2}
@@ -475,7 +480,7 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .stages .knob{width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--paper);border:2px solid var(--sienna);box-shadow:0 4px 10px rgba(0,0,0,.25);transform:rotate(var(--a,0deg)) translateY(-48cqw)}
 .stages .now{position:absolute;right:-6px;bottom:-6px;display:grid;justify-items:end;font:700 clamp(30px,3.4vw,46px)/.95 var(--display);letter-spacing:-.04em;pointer-events:none}
 .stages .now span{font:400 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-top:6px}
-.wall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,1.2vw,18px);margin-top:clamp(40px,5vw,72px)}
+.wall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,1.2vw,18px);margin-top:var(--sp-2)}
 .wall .tile{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--paper-2);max-width:100%;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),0 18px 30px -20px rgba(0,0,0,.45)}
 .wall .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s var(--ease)}
 .wall .tile img.on,html:not(.js) .wall .tile img:first-child{opacity:1}
@@ -507,7 +512,7 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 }
 
 /* specimen plate */
-.plate{display:grid;grid-template-columns:minmax(0,4.4fr) minmax(0,3.8fr) minmax(0,3.8fr);gap:clamp(28px,4.4vw,72px);align-items:start;margin-top:clamp(56px,7vw,104px)}
+.plate{display:grid;grid-template-columns:minmax(0,4.4fr) minmax(0,3.8fr) minmax(0,3.8fr);gap:clamp(28px,4.4vw,72px);align-items:start;margin-top:var(--sp-4)}
 .plate>*{min-width:0}
 .spec-name{font:650 clamp(22px,1.9vw,28px)/1.15 var(--display);letter-spacing:-.025em}
 .spec-name span{margin-left:.55em;font:400 .56em var(--mono);letter-spacing:0;color:var(--mute);vertical-align:.2em}
@@ -520,7 +525,7 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 @media (max-width:899px){.plate{grid-template-columns:1fr;gap:32px}}
 @media (max-width:420px){.spec dl>div{grid-template-columns:1fr;gap:2px}}
 /* D2 after the D1 plate: the top view cut out on the paper, the label and text beside it, the rim cycle under them */
-.d2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-areas:"top txt" "top rim";column-gap:clamp(32px,5vw,96px);row-gap:clamp(28px,3.4vw,48px);align-items:start;margin-top:clamp(80px,9vw,140px)}
+.d2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-areas:"top txt" "top rim";column-gap:clamp(32px,5vw,96px);row-gap:clamp(28px,3.4vw,48px);align-items:start;margin-top:var(--sp-4)}
 .d2>*{min-width:0}
 .d2-top{grid-area:top;align-self:center}
 .d2-top img{display:block;width:100%;height:auto;filter:drop-shadow(0 26px 28px rgba(0,0,0,.2)) drop-shadow(0 4px 6px rgba(0,0,0,.12))}
@@ -531,7 +536,7 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .d2-rim{grid-area:rim}
 .d2-rim .tile{aspect-ratio:684/206}
 @media (max-width:899px){.d2{grid-template-columns:1fr;grid-template-areas:"top" "txt" "rim"}.d2-top{width:min(100%,460px);justify-self:center}}
-.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(32px,5vw,88px);margin-top:clamp(80px,9vw,140px)}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(32px,5vw,88px);margin-top:var(--sp-4)}
 .nums>div{min-width:0}
 .nums .k{font:400 12.5px/1.4 var(--mono);color:var(--mute);letter-spacing:.01em;margin-bottom:12px}
 .nums .n{font:600 clamp(48px,5.2vw,84px)/1 var(--display);letter-spacing:-.025em;white-space:nowrap;font-variant-numeric:tabular-nums}
@@ -539,7 +544,7 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .nums .n small{font:400 .3em var(--mono);letter-spacing:.02em;color:var(--mute);margin-left:.45em;vertical-align:.15em}
 .nums p{margin-top:16px;font-size:16px;line-height:1.55;color:var(--mute);max-width:21em}
 @media (max-width:760px){.nums{grid-template-columns:1fr;gap:40px}}
-.hold{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,5fr);gap:clamp(14px,2vw,32px);align-items:end;margin-top:clamp(80px,10vw,150px)}
+.hold{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,3fr) minmax(0,5fr);gap:clamp(14px,2vw,32px);align-items:end;margin-top:var(--sp-4)}
 .hold>*{min-width:0}
 .hold .txt{padding-left:clamp(0px,3vw,48px);align-self:center}
 .hold .body{margin-top:clamp(20px,2.4vw,32px)}
@@ -582,22 +587,22 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .split.rev>:first-child{order:2}
 .split .side{display:grid;gap:clamp(18px,2.4vw,32px)}
 @media (max-width:899px){.split,.split.rev{grid-template-columns:1fr}.split.rev>:first-child{order:0}}
-.duo{display:grid;gap:clamp(8px,1.2vw,18px);margin-top:clamp(8px,1.2vw,18px);align-items:start}
+.duo{display:grid;gap:var(--sp-1);margin-top:var(--sp-1);align-items:start}
 .duo>*{min-width:0}
 @media (max-width:560px){.duo{grid-template-columns:1fr!important}}
-.chap-t{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,4vw,72px);margin-top:clamp(24px,3vw,44px)}
+.chap-t{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,4vw,72px);margin-top:var(--sp-2)}
 .chap-t>*{min-width:0}
 @media (max-width:899px){.chap-t{grid-template-columns:1fr}}
-.studio{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr);gap:clamp(8px,1.2vw,18px);margin-top:clamp(8px,1.2vw,18px);align-items:start}
+.studio{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr);gap:var(--sp-1);margin-top:var(--sp-1);align-items:start}
 .studio>*{min-width:0}
 .studio .col{display:grid;gap:clamp(8px,1.2vw,18px)}
 /* the lecturing carousel larger (his comment, 15 Oct 2026): it takes the wide column, the rest stacks beside it */
 .studio>.cycle{grid-row:1/span 2}
 @media (max-width:760px){.studio{grid-template-columns:1fr 1fr}.studio>.cycle{grid-row:auto}.studio .col{grid-column:1/-1;order:3}}
-.people3{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,5fr);gap:clamp(10px,1.4vw,20px);margin-top:clamp(18px,2vw,28px);align-items:start}
+.people3{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,4fr) minmax(0,5fr);gap:var(--sp-1);margin-top:var(--sp-2);align-items:start}
 .people3>*{min-width:0}
 .people3 .body{padding-left:clamp(0px,1.6vw,24px)}
-@media (max-width:899px){.people3{grid-template-columns:1fr 1fr}.people3 .body{grid-column:1/-1;padding-left:0}}
+@media (max-width:899px){.people3{grid-template-columns:1fr 1fr}.people3 .body{grid-column:1/-1;padding-left:0;margin-top:calc(var(--sp-2) - var(--sp-1))}}
 @media (max-width:899px){
   .ch{grid-template-columns:1fr;gap:18px}
   .ch .rail{position:relative;top:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
@@ -607,14 +612,17 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
   .more+.more{margin-left:0;margin-right:24px}
 }
 /* Stasys: one film per step, a 16:9 and a 4:5 side by side at the same height (2.22 : 1), two rows in date order */
-.sn-films{display:grid;grid-template-columns:minmax(0,2.22fr) minmax(0,1fr);gap:clamp(22px,2.6vw,40px) clamp(10px,1.4vw,20px);margin-top:clamp(28px,3.4vw,48px);align-items:start}
+.sn-films{display:grid;grid-template-columns:minmax(0,2.22fr) minmax(0,1fr);gap:clamp(22px,2.6vw,40px) var(--sp-1);margin-top:clamp(28px,3.4vw,48px);align-items:start}
 .sn-films.sn-rev{grid-template-columns:minmax(0,1fr) minmax(0,2.22fr)}
 .sn-films>*{min-width:0;margin:0}
+.sn-films+.sn-films{margin-top:clamp(22px,2.6vw,40px)}
+.anat+.duo,.cap+.duo,.cap+.studio{margin-top:var(--sp-2)}
+@media (max-width:899px){.chap-t:has(>.body:last-child)+*,.people3+*{margin-top:var(--sp-2)}}
 .sn-films .sn-w .media{aspect-ratio:16/9}
 .sn-films .sn-t .media{aspect-ratio:4/5}
 @media (max-width:760px){.sn-films,.sn-films.sn-rev{grid-template-columns:1fr}.sn-films .sn-t{width:min(100%,440px)}}
 /* Coltivare strutture: one block per design, its name and date beside the main image, the rest in a row below */
-.th-m{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(18px,3vw,48px);align-items:end;margin-top:clamp(48px,6vw,88px)}
+.th-m{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(18px,3vw,48px);align-items:end;margin-top:var(--sp-3)}
 .th-m>*{min-width:0;margin:0}
 .th-h p{font-size:16.5px;line-height:1.55;max-width:26em}
 .th-t{font:650 clamp(21px,1.8vw,26px)/1.15 var(--display);letter-spacing:-.025em}
@@ -677,7 +685,7 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .static .scrub-stage,html:not(.js) .scrub-stage{position:relative;top:0;height:auto}
 html:not(.js) .rail-txt>div{grid-area:auto;opacity:1;transform:none;margin-bottom:12px}
 .static .scrub figure,html:not(.js) .scrub figure{position:relative;top:0}
-.lineage{list-style:none;margin:clamp(36px,4.6vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,1.2vw,18px)}
+.lineage{list-style:none;margin:var(--sp-2) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,1.2vw,18px)}
 .lineage li{min-width:0}
 .lineage p{margin-top:10px;font:400 13.5px/1.35 var(--display);color:var(--mute)}
 .lineage b{display:block;font:500 12px/1.3 var(--mono);color:var(--ink);margin-bottom:2px}
@@ -889,7 +897,7 @@ figure.cycle{margin:0}
 @media (prefers-reduced-motion:reduce){.hint{animation:none;opacity:.8}}
 
 /* more photographs per chapter: one sprite sheet, four tiles that cross-fade through it */
-.pmore{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(6px,.9vw,12px);margin-top:clamp(20px,2.6vw,36px)}
+.pmore{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(6px,.9vw,12px);margin-top:var(--sp-2)}
 .pmore i{position:relative;display:block;aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--paper-2)}
 .pmore i b{position:absolute;inset:0;background-repeat:no-repeat;opacity:0;transition:opacity 1.2s var(--ease)}
 .pmore i b.on{opacity:1}
@@ -898,7 +906,7 @@ figure.cycle{margin:0}
 /* growth on the toolpath and the conference row */
 .grow2d{margin:0}
 .grow2d canvas{display:block;width:100%;height:auto;aspect-ratio:1;border-radius:18px;background:#16171a}
-.confs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.4vw,20px);margin-top:clamp(36px,4.5vw,64px)}
+.confs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-1);margin-top:var(--sp-2)}
 @media (max-width:760px){.confs{grid-template-columns:1fr}}
 
 .zones-k{margin:0 0 18px;font-size:16px;line-height:1.5;color:var(--mute)}
@@ -931,14 +939,14 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 .ed-bar .ed-main{background:var(--sienna);border-color:var(--sienna);color:#fff}
 @media (max-width:560px){.ed-bar button{padding:0 11px;font-size:13px}}
 /* first experiments: specimens on one shelf at the same height, in date order, and a row of petri dishes */
-.shelf{list-style:none;margin:clamp(56px,7vw,104px) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(32px,4vw,56px) clamp(12px,2vw,28px);align-items:start}
+.shelf{list-style:none;margin:var(--sp-3) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(32px,4vw,56px) clamp(12px,2vw,28px);align-items:start}
 .shelf li{min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
 .shelf .obj{height:clamp(150px,15vw,230px);width:100%;display:flex;align-items:flex-end;justify-content:center}
 .shelf .obj img{max-height:100%;max-width:100%;width:auto;height:auto;transform-origin:50% 100%;will-change:transform;position:relative;filter:drop-shadow(0 16px 14px rgba(0,0,0,.18)) drop-shadow(0 2px 3px rgba(0,0,0,.12))}
 .shelf .d{margin-top:14px;font:400 12px/1.4 var(--mono);color:var(--mute)}
 .shelf .what{margin-top:3px;font-size:14.5px;line-height:1.35;max-width:13em}
 @media (max-width:760px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.dishes{list-style:none;margin:clamp(48px,6vw,88px) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.6vw,24px)}
+.dishes{list-style:none;margin:var(--sp-3) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.6vw,24px)}
 .dishes li{min-width:0;position:relative;will-change:transform;border-radius:50%;filter:drop-shadow(0 14px 16px rgba(0,0,0,.2))}
 .dishes img{display:block;width:100%;height:auto;border-radius:50%}
 /* the lid as glass (his comment, 16 Oct 2026): a bright rim, a soft specular sweep at the top left, a small catchlight
@@ -954,20 +962,21 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 .lineage .au-cell .tile{border-radius:14px}
 .lineage .au-cell .tile img{object-fit:contain;background:#fff}
 @media (max-width:760px){.lineage{grid-template-columns:repeat(2,minmax(0,1fr))}.lineage .au-cell{grid-column:1/-1}}
-.rd-wide{aspect-ratio:3/1;margin-top:clamp(40px,5vw,72px);background:none;border-radius:0;cursor:crosshair;touch-action:pan-y;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(0deg,transparent,#000 16%,#000 84%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(0deg,transparent,#000 16%,#000 84%,transparent);mask-composite:intersect}
+.rd-wide{aspect-ratio:3/1;margin-top:var(--sp-3);background:none;border-radius:0;cursor:crosshair;touch-action:pan-y;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(0deg,transparent,#000 16%,#000 84%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(0deg,transparent,#000 16%,#000 84%,transparent);mask-composite:intersect}
 .rd-txt{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(16px,4vw,72px);margin-top:clamp(18px,2vw,28px)}
 .rd-txt>*{min-width:0}
 @media (max-width:899px){.rd-txt{grid-template-columns:1fr}.rd-wide{aspect-ratio:2/1}}
 
 /* Anatomy of a Living Joint (UOU, 2025) */
-.uou{margin-top:clamp(80px,10vw,150px)}
+.uou{margin-top:var(--sp-4)}
 .uou-k{margin-top:10px;font:400 12.5px/1.4 var(--mono);color:var(--mute)}
-.uou .duo,.uou .uou-wide{margin-top:clamp(28px,3.4vw,48px)}
+.uou .duo,.uou .uou-wide{margin-top:var(--sp-2)}
 .uou .media img{object-fit:contain}
 @media (max-width:899px){.uou .duo{grid-template-columns:1fr!important}}
 
 /* REishi chair: the making-of film at the full width of the side column */
-.rc-film,.hm-film{margin-top:clamp(18px,2vw,28px)}
+.hm-film{margin-top:var(--sp-2)}
+.side>.rc-film{margin-top:0}
 /* haMMMocks film: its backdrop is the page's paper, so it has no card and its edges fade into the sheet (Raffaele,
    12 Oct 2026: "no background for the animation so that you can blend it into the page"); on the dark sheet it is a card */
 .hm-film .media{background:none;border-radius:0}
@@ -979,7 +988,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 
 /* ---------------------------------------------------------------- exploded drawings (v8-tools/anatomy; engine Anat)
    The drawing arrives as a fragment when it comes near; until then its space is kept at the drawing's own proportion. */
-.anat{max-width:min(640px,100%);margin:clamp(44px,5vw,80px) auto 0}
+.anat{max-width:min(640px,100%);margin:var(--sp-3) auto 0}
 .anat:not(.ready){aspect-ratio:var(--ar);border-radius:14px;box-shadow:inset 0 0 0 1px var(--line)}
 
 </style>
@@ -1470,7 +1479,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <h2 class="h2" id="next-h">Early findings,<span class="it">shared with colleagues</span></h2>
       <p class="lede">The results so far are early ones: printed parts that keep their size within a few percent as they dry, segments that grow into one piece in a week, and a toolpath that may make parts stronger. I put them in front of other researchers while they are still early, on a table and in talks, and their questions go back into the work.</p>
     </div>
-    <figure class="media r169 unveil zoomable table" data-zoom="assets/img/x/eu-table.webp" data-cap="Every printed piece so far on one table at EURAU26 in Umeå, June 2026." style="margin-top:clamp(28px,3.4vw,48px)"><img src="assets/img/x/eu-table.webp" alt="A long table covered with printed and grown pieces: demonstrators, cylinders, blocks and terracotta tests" loading="lazy" decoding="async" width="1800" height="1012"></figure>
+    <figure class="media r169 unveil zoomable table" data-zoom="assets/img/x/eu-table.webp" data-cap="Every printed piece so far on one table at EURAU26 in Umeå, June 2026." style="margin-top:var(--sp-2)"><img src="assets/img/x/eu-table.webp" alt="A long table covered with printed and grown pieces: demonstrators, cylinders, blocks and terracotta tests" loading="lazy" decoding="async" width="1800" height="1012"></figure>
     <p class="cap">Every printed piece so far on one table at EURAU26 in Umeå, June 2026, where I presented the paper on biochar-mycelium composites for circular construction in northern Sweden and chaired a session.</p>
     <div class="confs">
       <figure><div class="media r32"><img style="object-position:50% 100%" src="assets/img/x/cf-sigradi3.webp" alt="Raffaele at the speakers' table at UIC Barcelona, the slide behind him showing AURORA's reaction-diffusion reinforcement in top, front and side view" loading="lazy" decoding="async" width="1000" height="750"></div><figcaption class="cap">SIGraDi 2024, UIC Barcelona, November 2024: AURORA, the shell the doctorate starts from, and its reaction-diffusion reinforcement.</figcaption></figure>
@@ -1646,7 +1655,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <p class="meta">Alongside the thesis, November 2021 to May 2022: growing <i>Pleurotus ostreatus</i>, the oyster mushroom, at home near Naples, a visit to the farm Il Rivo above Sorrento, then the first sterile cultures in Umeå.</p>
       <figure class="media r169" style="margin-top:clamp(24px,3vw,40px)"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/ex-mix.webp" aria-label="Filmed from above on a white sheet: bowls of substrates weighed and mixed by hand, bags filled and taped, a pressure cooker, then bags opened and inoculated by hands in a clean suit and gloves"><source src="assets/video/ex-mix.mp4" type="video/mp4"></video></figure>
       <p class="cap">Mixing day, 19 January 2022, filmed from above: the substrates weighed and mixed, the bags filled and taped, sterilised in a pressure cooker, then inoculated with spawn.</p>
-      <div class="zig rev" style="margin-top:clamp(48px,6vw,88px)">
+      <div class="zig rev" style="margin-top:var(--sp-3)">
         <div class="duo" style="grid-template-columns:1fr 1fr;margin-top:0">
           <figure class="media r34 zoomable" data-zoom="assets/img/x/ex-fruit1.webp" data-cap="A jar of Pleurotus ostreatus prepared by Il Rivo with the help of Chiara Sente, Sant'Agata sui Due Golfi, 20 January 2022."><img src="assets/img/x/ex-fruit1.webp" alt="A jar labelled Pleurotus ostreatus among garden plants, grey oyster mushrooms growing from the top" loading="lazy" decoding="async" width="900" height="1200"></figure>
           <figure class="media r34 zoomable" data-zoom="assets/img/x/ex-fruit2.webp" data-cap="A white oyster mushroom on a block, 21 February 2022."><img src="assets/img/x/ex-fruit2.webp" alt="A block of substrate on a plant saucer with a large white oyster mushroom cap growing from its side" loading="lazy" decoding="async" width="900" height="1200"></figure>
@@ -1936,7 +1945,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         </div>
         <p class="cap">Right: early Midjourney sketches for the trophy, December 2022. The design turned out to be set already, by Doberman.</p>
       </div>
-      <figure class="media" style="aspect-ratio:16/9;margin-top:clamp(28px,3.4vw,48px)"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/ds-film.webp" aria-label="Making the Design S plaques, filmed from the bench: a block cut on the table saw, then on the band saw, a plate cut from it, the planer set to five millimetres and the plate fed under, the plates dropped one by one into a pile, the award text engraved by laser, and the photographer filming the three grown S pieces in the room"><source src="assets/video/ds-film.mp4" type="video/mp4"></video></figure>
+      <figure class="media" style="aspect-ratio:16/9;margin-top:var(--sp-2)"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/ds-film.webp" aria-label="Making the Design S plaques, filmed from the bench: a block cut on the table saw, then on the band saw, a plate cut from it, the planer set to five millimetres and the plate fed under, the plates dropped one by one into a pile, the award text engraved by laser, and the photographer filming the three grown S pieces in the room"><source src="assets/video/ds-film.mp4" type="video/mp4"></video></figure>
         <p class="cap">Making the plaques, 21 and 22 April 2023: cut on the table saw and the band saw, planed to five millimetres, stacked and engraved by laser in the school workshop. Then the finished set filmed before the ceremony, 30 May.</p>
       <div class="pmore" data-more="assets/img/more/m09.webp" data-n="12" role="img" aria-label="Twelve more photographs of this project from the archive, changing every few seconds"><i></i><i></i><i></i><i></i></div>
       </div>
@@ -1974,7 +1983,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <img src="assets/img/x/mc-12.webp" alt="Through the microscope: a golden edge crossing the field" loading="lazy" decoding="async" width="700" height="700">
       </div>
       <p class="cap">Soil, moss and lichen samples under the microscope, October 2023.</p>
-      <div class="split rev" style="margin-top:clamp(28px,3.4vw,48px)">
+      <div class="split rev" style="margin-top:var(--sp-2)">
         <figure>
           <div class="media r11"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/atlas.webp" aria-label="Mixed-reality view through a headset in the UmArts gallery: scanned rocks on a river map projected on the floor and a tower appearing among them; the hand menu; a globe where a place is picked with a red ring; objects swapped from the menu, a rock, the tower, a railway, a timber ruin; a press on the menu that opens onto a fungal forest, lichen and a snowy landscape in section; the snow world as a sphere floating in the room"><source src="assets/video/atlas.mp4" type="video/mp4"></video></div>
           <figcaption class="cap">Recorded through the headset at UmArts, January 2024: the objects in the room, the hand menu and the globe, then the worlds.</figcaption>
@@ -2103,7 +2112,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       </ol>
       <!-- the courtyard film made for the UmArts talk on 14 Oct 2026 (v8-tools/aurora-film/web.py), in place of au-sun;
            16:9 so its "AI visualisation" label at the lower left is never cropped, the columns set so both frames are the same height -->
-      <div class="duo" style="grid-template-columns:1.5fr 1.778fr;margin-top:clamp(28px,3.4vw,48px)">
+      <div class="duo" style="grid-template-columns:1.5fr 1.778fr;margin-top:var(--sp-2)">
         <figure class="media r32"><img src="assets/img/x/au-cover.webp" alt="The AURORA cover from the SIGraDi 2024 talk: the shell in violet on black" loading="lazy" decoding="async" width="1400" height="933"></figure>
         <figure class="media r169 zoomable" aria-label="Enlarge the film: AURORA in the courtyard of Umeå School of Architecture, AI visualisation" data-zoom="assets/video/au-film-hd.mp4" data-cap="AURORA in the courtyard of Umeå School of Architecture, from the path and from inside the school (AI visualisation)."><video data-auto muted playsinline loop preload="none" data-poster="assets/video/au-film.webp" aria-label="AI visualisation, film: AURORA, three pale funnel shells of mycelium composite with rust streaks and reishi brackets, standing on upturned birch trunks in the sunlit courtyard of Umeå School of Architecture. The camera walks in along the path past the bike racks, slides slowly past the pavilion while people talk under it, then looks out at it through the glass wall of the school, the river behind, people seen from behind"><source src="assets/video/au-film.mp4" type="video/mp4"></video></figure>
       </div>
@@ -4816,7 +4825,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='18ae1b74a81a';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='759707e76b09';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

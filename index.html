@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-gYmJowMmB2IME3V2zt3o8kMFZM1meIvVgCEjNI6pfgA='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-VwBjFRsFZiI/U/S790WVqA+sT9xiUNoTYgSCUESLnpk='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -1890,10 +1890,9 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
           </div>
         </div>
       </div>
-      <div class="duo" style="grid-template-columns:.75fr .75fr .75fr 1.78fr">
-        <figure class="cycle" data-cycle data-every="3200" aria-label="The fluted dome printed, then grown white under a plastic cloche, changing every few seconds"><div class="tile r34"><img src="assets/img/x/rs-dome-c.webp" alt="A fluted dome of dark paste on the printer bed" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/rs-grow-1.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><video muted playsinline preload="none" data-hold="7400" data-poster="assets/video/rs-g1.webp" aria-label="The dome grown white, filmed through the plastic cloche"><source src="assets/video/rs-g1.mp4" type="video/mp4"></video><img src="assets/img/x/rs-grow-2.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/rs-grow-3.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><video muted playsinline preload="none" data-hold="7400" data-poster="assets/video/rs-g2.webp" aria-label="The grown dome out of the cloche, turned in the hand"><source src="assets/video/rs-g2.mp4" type="video/mp4"></video></div></figure>
-        <figure class="media r34"><img src="assets/img/x/rs-top.webp" alt="The fluted dome seen from above, a ring of folds around an opening" loading="lazy" decoding="async" width="900" height="1200"></figure>
-        <figure class="media r34"><img src="assets/img/rise-print.webp" alt="A delta printer extruding a grey mycelium paste" loading="lazy" decoding="async" width="1100" height="1375"></figure>
+      <div class="duo" style="grid-template-columns:.75fr 1.78fr 1.78fr">
+        <figure class="cycle" data-cycle data-every="3200" aria-label="The fluted dome on the printer, then grown white under a plastic cloche, changing every few seconds"><div class="tile r34"><img src="assets/img/x/rs-dome-c.webp" alt="A fluted dome of dark paste on the printer bed" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/rs-top.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/rise-print.webp" alt="" loading="lazy" decoding="async" width="1100" height="1375"><img src="assets/img/x/rs-grow-1.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/rs-grow-2.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"><img src="assets/img/x/rs-grow-3.webp" alt="" loading="lazy" decoding="async" width="900" height="1200"></div></figure>
+        <figure class="media r169"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/rs-g2w.webp" aria-label="The fluted dome grown white, out of its cloche, turned in the hand"><source src="assets/video/rs-g2w.mp4" type="video/mp4"></video></figure>
         <figure class="media r169"><img src="assets/img/rise-expo.webp" alt="Living Architecture posters above a table of mycelium samples" loading="lazy" decoding="async" width="1600" height="900"></figure>
       </div>
       <div class="cycle duo" data-cycle style="grid-template-columns:1fr 1fr 1fr" aria-label="Images made with Midjourney, the printing, and a printed brick, changing every few seconds">
@@ -4782,7 +4781,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
 })();
 
-(function(){var B='df989131d7d8';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='5b6b59de933e';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

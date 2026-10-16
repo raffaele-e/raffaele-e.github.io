@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-fuPn6MnaKSWkeY0mDulqSjsVsZ88mPT40j0yfyXBekg='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-OwUEWrltkLXTeeuG5ZofUe0QFk1uoNlNBiWrS/5GM3I='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -931,9 +931,10 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 @media (max-width:560px){.ed-bar button{padding:0 11px;font-size:13px}}
 /* first experiments: specimens on one shelf at the same height, in date order, and a row of petri dishes */
 .shelf{list-style:none;margin:clamp(56px,7vw,104px) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(32px,4vw,56px) clamp(12px,2vw,28px);align-items:start}
-.shelf li{min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.shelf li{min-width:0;position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+.shelf li:hover{z-index:2}
 .shelf .obj{height:clamp(150px,15vw,230px);width:100%;display:flex;align-items:flex-end;justify-content:center}
-.shelf .obj img{max-height:100%;max-width:100%;width:auto;height:auto;filter:drop-shadow(0 16px 14px rgba(0,0,0,.18)) drop-shadow(0 2px 3px rgba(0,0,0,.12))}
+.shelf .obj img{max-height:100%;max-width:100%;width:auto;height:auto;transform-origin:50% 100%;will-change:transform;position:relative;filter:drop-shadow(0 16px 14px rgba(0,0,0,.18)) drop-shadow(0 2px 3px rgba(0,0,0,.12))}
 .shelf .d{margin-top:14px;font:400 12px/1.4 var(--mono);color:var(--mute)}
 .shelf .what{margin-top:3px;font-size:14.5px;line-height:1.35;max-width:13em}
 @media (max-width:760px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -4785,10 +4786,39 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
     }, { rootMargin: '-45% 0px -50% 0px' });
     Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
   }
-  initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek();
+  // the specimen shelf as a magnifying dock (his comment, 16 Oct 2026): each object grows as the cursor comes near it,
+  // by distance, and settles back when it leaves; fine pointers only, never under reduced motion
+  function initShelf() {
+    if (reduce || !finePointer) return;
+    document.querySelectorAll('.shelf').forEach(function (shelf) {
+      var items = [].slice.call(shelf.querySelectorAll('.obj img')).map(function (im) { return { im: im, s: 1, t: 1 }; });
+      var raf = 0;
+      function tick() {
+        var moving = false;
+        items.forEach(function (o) {
+          o.s += (o.t - o.s) * 0.18;
+          if (Math.abs(o.t - o.s) > 0.002) moving = true; else o.s = o.t;
+          o.im.style.transform = o.s === 1 ? '' : 'scale(' + o.s.toFixed(3) + ')';
+        });
+        raf = moving ? requestAnimationFrame(tick) : 0;
+      }
+      function kick() { if (!raf) raf = requestAnimationFrame(tick); }
+      shelf.addEventListener('pointermove', function (e) {
+        var reach = Math.max(140, shelf.clientWidth / 6);
+        items.forEach(function (o) {
+          var r = o.im.getBoundingClientRect(), dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+          var d = Math.sqrt(dx * dx + dy * dy) / o.s;
+          o.t = 1 + 0.42 * Math.exp(-(d * d) / (reach * reach));
+        });
+        kick();
+      });
+      shelf.addEventListener('pointerleave', function () { items.forEach(function (o) { o.t = 1; }); kick(); });
+    });
+  }
+  initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='086ade02a678';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='5a09bad94f10';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

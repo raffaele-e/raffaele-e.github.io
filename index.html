@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-77uWXI2wEQ7hoi7oRDPWuOzkcDy4Vrf6qVdr3/06YfU='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-jZsMFsKVyHurMj3N3N1FlInN1FAOibxh5w+8w30NagM='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -386,12 +386,12 @@ html.gl .hero .hl{position:absolute!important;width:1px;height:1px;overflow:hidd
 @media (max-width:899px){.said{grid-template-columns:1fr}}
 
 /* ---------------------------------------------------------------- research */
-.recipe{list-style:none;margin:var(--sp-4) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.8vw,28px);counter-reset:step}
+.recipe{list-style:none;margin:var(--sp-4) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,28px);counter-reset:step}
 .recipe>li{min-width:0}
 .recipe h3{margin-top:16px;font-size:20px;line-height:1.2;font-weight:660;letter-spacing:-.02em}
 .recipe p{margin-top:6px;font-size:16px;line-height:1.5;color:var(--mute)}
 .recipe .media{border-radius:14px}   /* rectangular, like every other frame (his comment, 17 Oct 2026; was arched) */
-@media (max-width:899px){.recipe{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 14px}}
+@media (max-width:560px){.recipe{grid-template-columns:1fr;gap:28px}}
 .why{margin-bottom:clamp(72px,9vw,140px);padding-bottom:clamp(56px,7vw,104px);border-bottom:1px solid var(--line)}
 .why .h2{font-size:clamp(32px,3.9vw,60px)}
 .why .body{margin-top:6px}
@@ -1182,11 +1182,6 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <figure class="media r45"><img src="assets/img/mixing.webp" alt="Gloved hands mixing a wood-based substrate in a plastic tub" loading="lazy" decoding="async" width="1300" height="975"></figure>
         <h3>Mix</h3>
         <p>Biochar and wood fibres are sterilised, then kneaded with flour, binders and the reishi spawn.</p>
-      </li>
-      <li>
-        <figure class="media r45"><img src="assets/img/jar.webp" alt="Dark biochar mix in a glass container, threaded with white mycelium" loading="lazy" decoding="async" width="900" height="1125"></figure>
-        <h3>Let it colonise</h3>
-        <p>The mix rests for about two weeks, so the fungus is established before printing.</p>
       </li>
       <li>
         <figure class="media r45"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/print.webp" aria-label="Close-up of the nozzle laying paste along the brain-coral pattern"><source src="assets/video/print.mp4" type="video/mp4"></video></figure>
@@ -4854,7 +4849,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='925ee9d9ccb1';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='10a2f972b96d';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

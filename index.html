@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-jZsMFsKVyHurMj3N3N1FlInN1FAOibxh5w+8w30NagM='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-TTDU3LP6yiGBUve1CRc9BYxGAIqi+8sugPVr4Uj153s='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -977,9 +977,17 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 .uou-k{margin-top:10px;font:400 12.5px/1.4 var(--mono);color:var(--mute)}
 .uou .duo,.uou .uou-wide{margin-top:var(--sp-2)}
 /* the paper's figures cut into their framed cards, the page between them (17 Oct 2026) */
-.uou-card{margin:0;background:#fff}
-.uou-card img{display:block;width:100%;height:100%}
-@media (max-width:560px){.uou-cards{grid-template-columns:1fr 1fr!important}}
+/* the Living Joint figures as instant prints, scattered in scale order (17 Oct 2026): each print is placed by
+   --x/--y and turned by --r (--mx/--my/--mr on phones); hover lifts and straightens it */
+.prints{position:relative;aspect-ratio:1200/680;margin-top:var(--sp-2)}
+.print{position:absolute;left:var(--x);top:var(--y);width:19.5%;margin:0;transform:rotate(var(--r));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.print img{display:block;width:100%;height:auto;filter:drop-shadow(0 1px 1.5px var(--psh1,rgba(40,30,15,.28))) drop-shadow(0 12px 16px var(--psh2,rgba(40,30,15,.16)))}
+.print:hover,.print:focus-visible{z-index:5;transform:translateY(-6px) rotate(0deg) scale(1.1)}
+.print:focus-visible{outline:2px solid var(--rust);outline-offset:6px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .prints{--psh1:rgba(0,0,0,.55);--psh2:rgba(0,0,0,.45)}}
+:root[data-theme="dark"] .prints{--psh1:rgba(0,0,0,.55);--psh2:rgba(0,0,0,.45)}
+@media (max-width:699px){.prints{aspect-ratio:360/780}.print{left:var(--mx);top:var(--my);width:44%;transform:rotate(var(--mr))}}
+@media (prefers-reduced-motion:reduce){.print{transition:none}}
 .uou .media img{object-fit:contain}
 @media (max-width:899px){.uou .duo{grid-template-columns:1fr!important}}
 
@@ -1315,21 +1323,18 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
           <p>The essay follows the joint through the scales, the way Charles and Ray Eames did in <i>Powers of Ten</i>: from the joint in centimetres down to a 30 mm sample and to hyphae a few micrometres wide, then back out along a column, to a 9 metre pavilion and a city block whose buildings share a fungal network underground. <a class="u" href="https://doi.org/10.14198/UOU.2025.10.13" target="_blank" rel="noopener">Read the essay</a>, open access.</p>
         </div>
       </div>
-      <div class="duo uou-cards" style="grid-template-columns:1fr 1fr;margin-top:var(--sp-2)">
-        <figure class="uou-card zoomable" style="aspect-ratio:900/1106" data-zoom="assets/img/x/uou-f3a.webp" data-cap="The brain coral Diploria labyrinthiformis, 10 cm across (adapted from NMITA)."><img src="assets/img/x/uou-f3a.webp" alt="From the paper: a brain coral seen from above, with a scale bar and its name, scale and size" loading="lazy" decoding="async" width="900" height="1106"></figure>
-        <figure class="uou-card zoomable" style="aspect-ratio:900/1106" data-zoom="assets/img/x/uou-f3b.webp" data-cap="The joint in plan, 30 by 30 cm: the white line is the printed path, the black its pores."><img src="assets/img/x/uou-f3b.webp" alt="From the paper: the joint in plan, white printed ribs folding in a ring around a dark centre, with a scale bar and a View, Scale and Dim strip" loading="lazy" decoding="async" width="900" height="1106"></figure>
+      <!-- the seven figures as instant prints in scale order, centimetres to micrometres: the print look is Gemini's,
+           cut out by v8-tools/uou/prints.py; hover lifts and straightens one, a click opens it large -->
+      <div class="prints">
+        <figure class="print zoomable" style="--x:0.5%;--y:3%;--r:-6deg;--mx:3%;--my:0.5%;--mr:-4deg" data-zoom="assets/img/x/uou-p3a-l.webp" data-cap="The brain coral Diploria labyrinthiformis, 10 cm across (adapted from NMITA)."><img src="assets/img/x/uou-p3a.webp" width="600" height="743" alt="From the paper: a brain coral seen from above, with a scale bar and its name, scale and size" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:14%;--y:42%;--r:4deg;--mx:52%;--my:5%;--mr:4deg" data-zoom="assets/img/x/uou-p3b-l.webp" data-cap="The joint in plan, 30 by 30 cm: the white line is the printed path, the black its pores."><img src="assets/img/x/uou-p3b.webp" width="600" height="739" alt="From the paper: the joint in plan, white printed ribs folding in a ring around a dark centre, with a scale bar and a View, Scale and Dim strip" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:28%;--y:1%;--r:-2deg;--mx:4%;--my:23.5%;--mr:3deg" data-zoom="assets/img/x/uou-p4a-l.webp" data-cap="Sample 1, 30 by 30 mm, where moisture gathers in the closed parts of the pattern, located on the plan."><img src="assets/img/x/uou-p4a.webp" width="600" height="808" alt="From the paper: a square detail of the pattern in black and white, dotted where moisture gathers, with a small plan showing where it was taken" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:41%;--y:45%;--r:5deg;--mx:51%;--my:28%;--mr:-3deg" data-zoom="assets/img/x/uou-p4b-l.webp" data-cap="Sample 2, 30 by 30 mm, located on the plan."><img src="assets/img/x/uou-p4b.webp" width="600" height="807" alt="From the paper: a second 30 mm detail of the pattern, located on the plan" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:54%;--y:2%;--r:-4deg;--mx:5%;--my:48.5%;--mr:-2deg" data-zoom="assets/img/x/uou-p4c-l.webp" data-cap="Sample 3, 30 by 30 mm, located on the plan."><img src="assets/img/x/uou-p4c.webp" width="600" height="804" alt="From the paper: a third 30 mm detail of the pattern, located on the plan" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:67%;--y:43%;--r:3deg;--mx:52%;--my:53%;--mr:4deg" data-zoom="assets/img/x/uou-p5a-l.webp" data-cap="Hyphae bridging the pores of a substrate, electron microscopy, 220 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-p5a.webp" width="600" height="689" alt="From the paper: an electron microscope image of fungal hyphae, a dense white web on black" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:80%;--y:5%;--r:-3deg;--mx:28%;--my:74%;--mr:-3deg" data-zoom="assets/img/x/uou-p5b-l.webp" data-cap="Single hyphae, electron microscopy, 30 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-p5b.webp" width="600" height="683" alt="From the paper: a closer electron microscope view of single fungal threads" loading="lazy" decoding="async"></figure>
       </div>
-      <p class="cap">Centimetres. The brain coral, 10 cm across (adapted from NMITA), and the joint in plan, 30 by 30 cm: the white line is the printed path, the black its pores.</p>
-      <div class="duo uou-cards" style="grid-template-columns:1fr 1fr 1fr;margin-top:var(--sp-2)">
-        <figure class="uou-card zoomable" style="aspect-ratio:900/1266" data-zoom="assets/img/x/uou-f4a.webp" data-cap="Sample 1, 30 by 30 mm, where moisture gathers in the closed parts of the pattern, located on the plan."><img src="assets/img/x/uou-f4a.webp" alt="From the paper: a square detail of the pattern in black and white, dotted where moisture gathers, with a small plan showing where it was taken" loading="lazy" decoding="async" width="900" height="1266"></figure>
-        <figure class="uou-card zoomable" style="aspect-ratio:900/1266" data-zoom="assets/img/x/uou-f4b.webp" data-cap="Sample 2, 30 by 30 mm, located on the plan."><img src="assets/img/x/uou-f4b.webp" alt="" loading="lazy" decoding="async" width="900" height="1266"></figure>
-        <figure class="uou-card zoomable" style="aspect-ratio:900/1266" data-zoom="assets/img/x/uou-f4c.webp" data-cap="Sample 3, 30 by 30 mm, located on the plan."><img src="assets/img/x/uou-f4c.webp" alt="" loading="lazy" decoding="async" width="900" height="1266"></figure>
-      </div>
-      <div class="duo uou-cards" style="grid-template-columns:1fr 1fr">
-        <figure class="uou-card zoomable" style="aspect-ratio:900/1033" data-zoom="assets/img/x/uou-f5a.webp" data-cap="Hyphae bridging the pores of a substrate, electron microscopy, 220 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-f5a.webp" alt="From the paper: an electron microscope image of fungal hyphae, a dense white web on black" loading="lazy" decoding="async" width="900" height="1033"></figure>
-        <figure class="uou-card zoomable" style="aspect-ratio:900/1033" data-zoom="assets/img/x/uou-f5b.webp" data-cap="Single hyphae, electron microscopy, 30 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-f5b.webp" alt="From the paper: a closer electron microscope view of single fungal threads" loading="lazy" decoding="async" width="900" height="1033"></figure>
-      </div>
-      <p class="cap">Millimetres and micrometres. Three 30 mm samples, where moisture gathers in the closed parts of the pattern; then hyphae bridging the pores of a substrate under the electron microscope, 220 and 30 micrometres across (adapted from Islam et al. 2017 and Motamedi et al. 2025).</p>
+      <p class="cap">From centimetres to micrometres. The brain coral, 10 cm across (adapted from NMITA), and the joint in plan, 30 by 30 cm, where the white line is the printed path and the black its pores. Three 30 mm samples, where moisture gathers in the closed parts of the pattern. Hyphae bridging the pores of a substrate under the electron microscope, 220 and 30 micrometres across (adapted from Islam et al. 2017 and Motamedi et al. 2025). The figures are shown as instant prints, a look made with AI (Gemini).</p>
       <figure class="media uou-wide" style="aspect-ratio:1600/1136"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/uou-f7.webp" aria-label="The paper's longitudinal section of a 60 cm column, animated: a section plane moves through the column and back, the printed paths cut in white, the solid beyond in grey, the welded seams repeating along its length"><source src="assets/video/uou-f7.mp4" type="video/mp4"></video></figure>
       <p class="cap">Back to centimetres. A section plane runs through a 60 cm column and back, and the welded seams repeat along it.</p>
     </div>
@@ -4849,7 +4854,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='10a2f972b96d';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='fd7446ad22e6';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-84QjuLi95A2R8XjSnN7I44H+qQg0mvFOFkmlM0/YG4Q='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-Eph9DP0fbRXYuNPSwNgcVA9FHFH7ZYzXrGHWoJ/TkYc='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -234,8 +234,10 @@ html:has(.top.open) main{opacity:0;pointer-events:none}html:has(.top.open) .worl
 
 /* the scroll tube */
 .tube{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));top:50%;z-index:45;width:14px;height:46vh;transform:translateY(-50%);border-radius:999px;display:none;overflow:visible}
-.tube .fill{position:absolute;left:3px;right:3px;bottom:3px;height:calc(var(--p,0) * (100% - 6px));border-radius:999px;background:linear-gradient(0deg,var(--sienna),#e9b27a);opacity:.9}
-.tube .fill::after{content:"";position:absolute;left:1px;right:1px;top:1px;height:5px;border-radius:999px;background:rgba(255,255,255,.6)}
+/* the fill runs from the top down as the page scrolls, the same way the section ticks are laid out (Raffaele, 17 Oct
+   2026); the warm end at the top, the light leading edge below */
+.tube .fill{position:absolute;left:3px;right:3px;top:3px;height:calc(var(--p,0) * (100% - 6px));border-radius:999px;background:linear-gradient(180deg,var(--sienna),#e9b27a);opacity:.9}
+.tube .fill::after{content:"";position:absolute;left:1px;right:1px;bottom:1px;height:5px;border-radius:999px;background:rgba(255,255,255,.6)}
 .tube .ticks{position:absolute;inset:0}
 .tube button{position:absolute;left:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:0;padding:0;background:none;cursor:pointer}
 .tube button::before{content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:var(--bone);opacity:.6;transition:transform .2s var(--ease),opacity .2s}
@@ -4913,7 +4915,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='14bf17710ed4';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='fd0da9ca2ece';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

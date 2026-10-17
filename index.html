@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-mAJSQScPU12YZUNFzERjjrf9jzi+n/pDLj+Zl6iSFy4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-84QjuLi95A2R8XjSnN7I44H+qQg0mvFOFkmlM0/YG4Q='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -401,7 +401,7 @@ html.gl .hero .hl{position:absolute!important;width:1px;height:1px;overflow:hidd
 @media (max-width:899px){.arm{grid-template-columns:1fr}}
 
 /* printer: the drawing lives in the world; the copy and readouts float over it */
-.printer{height:460vh;color:var(--bone)}
+.printer{height:360vh;color:var(--bone)}   /* shorter, 17 Oct 2026 (was 460vh) */
 .printer .stage{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
 .printer .copy{position:relative;min-width:0;padding:calc(96px + var(--safe-t)) 0 clamp(24px,4vh,48px) var(--gut);display:flex;flex-direction:column;justify-content:flex-end;gap:16px}
 .printer .scenes{position:relative;flex:1 1 auto}
@@ -418,7 +418,7 @@ html.gl .printer .rig canvas{visibility:hidden}
 .readout .code{grid-column:1/-1;margin:2px 0 0;padding-top:12px;border-top:1px solid rgba(255,255,255,.14);font:400 11.5px/1.6 var(--mono);color:#f3c79d;white-space:pre;overflow:hidden;min-height:6.4em;opacity:.92}
 .printer.no-data .readout{visibility:hidden}
 @media (max-width:899px){
-  .printer{height:400vh}
+  .printer{height:320vh}
   .printer .stage{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) auto}
   .printer .rig{grid-row:1}
   .printer .copy{grid-row:2;padding:0 var(--gut) calc(14px + var(--safe-b))}
@@ -994,6 +994,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 .print-film{position:relative;width:min(100%,780px);margin:var(--sp-2) auto 0;transform:rotate(-1.2deg);border-radius:7px;overflow:hidden;
   box-shadow:0 1px 2px var(--psh1,rgba(40,30,15,.28)),0 14px 22px -6px var(--psh2,rgba(40,30,15,.2))}
 .print-film video{display:block;width:100%;height:100%;object-fit:cover}
+.print-film + .cap{margin-top:26px}   /* the turn drops its lower corner about 8 px; the usual 10 px gap after that, plus the shadow */
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .print-film{--psh1:rgba(0,0,0,.55);--psh2:rgba(0,0,0,.5)}}
 :root[data-theme="dark"] .print-film{--psh1:rgba(0,0,0,.55);--psh2:rgba(0,0,0,.5)}
 @media (max-width:699px){.print-film{transform:rotate(-.8deg)}}
@@ -1337,13 +1338,13 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
       <!-- the seven figures as instant prints in scale order, centimetres to micrometres: the print look is Gemini's,
            cut out by v8-tools/uou/prints.py; hover lifts and straightens one, a click opens it large -->
       <div class="prints">
-        <figure class="print zoomable" style="--x:0.5%;--y:3%;--r:-6deg;--mx:3%;--my:0.5%;--mr:-4deg" data-zoom="assets/img/x/uou-p3a-l.webp" data-cap="The brain coral Diploria labyrinthiformis, 10 cm across (adapted from NMITA)."><img src="assets/img/x/uou-p3a.webp" width="600" height="743" alt="From the paper: a brain coral seen from above, with a scale bar and its name, scale and size" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:0.5%;--y:3%;--r:-6deg;--mx:3%;--my:0.5%;--mr:-4deg" data-zoom="assets/img/x/uou-p3a-l.webp" data-cap="The brain coral Diploria labyrinthiformis, 10 cm across (adapted from NMITA)."><img src="assets/img/x/uou-p3a.webp" width="600" height="747" alt="From the paper: a brain coral seen from above, with a scale bar and its name, scale and size" loading="lazy" decoding="async"></figure>
         <figure class="print zoomable" style="--x:14%;--y:42%;--r:4deg;--mx:52%;--my:5%;--mr:4deg" data-zoom="assets/img/x/uou-p3b-l.webp" data-cap="The joint in plan, 30 by 30 cm: the white line is the printed path, the black its pores."><img src="assets/img/x/uou-p3b.webp" width="600" height="739" alt="From the paper: the joint in plan, white printed ribs folding in a ring around a dark centre, with a scale bar and a View, Scale and Dim strip" loading="lazy" decoding="async"></figure>
-        <figure class="print zoomable" style="--x:28%;--y:1%;--r:-2deg;--mx:4%;--my:23.5%;--mr:3deg" data-zoom="assets/img/x/uou-p4a-l.webp" data-cap="Sample 1, 30 by 30 mm, where moisture gathers in the closed parts of the pattern, located on the plan."><img src="assets/img/x/uou-p4a.webp" width="600" height="808" alt="From the paper: a square detail of the pattern in black and white, dotted where moisture gathers, with a small plan showing where it was taken" loading="lazy" decoding="async"></figure>
-        <figure class="print zoomable" style="--x:41%;--y:45%;--r:5deg;--mx:51%;--my:28%;--mr:-3deg" data-zoom="assets/img/x/uou-p4b-l.webp" data-cap="Sample 2, 30 by 30 mm, located on the plan."><img src="assets/img/x/uou-p4b.webp" width="600" height="815" alt="From the paper: a second 30 mm detail of the pattern, located on the plan" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:28%;--y:1%;--r:-2deg;--mx:4%;--my:23.5%;--mr:3deg" data-zoom="assets/img/x/uou-p4a-l.webp" data-cap="Sample 1, 30 by 30 mm, where moisture gathers in the closed parts of the pattern, located on the plan."><img src="assets/img/x/uou-p4a.webp" width="600" height="809" alt="From the paper: a square detail of the pattern in black and white, dotted where moisture gathers, with a small plan showing where it was taken" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:41%;--y:45%;--r:5deg;--mx:51%;--my:28%;--mr:-3deg" data-zoom="assets/img/x/uou-p4b-l.webp" data-cap="Sample 2, 30 by 30 mm, located on the plan."><img src="assets/img/x/uou-p4b.webp" width="600" height="822" alt="From the paper: a second 30 mm detail of the pattern, located on the plan" loading="lazy" decoding="async"></figure>
         <figure class="print zoomable" style="--x:54%;--y:2%;--r:-4deg;--mx:5%;--my:48.5%;--mr:-2deg" data-zoom="assets/img/x/uou-p4c-l.webp" data-cap="Sample 3, 30 by 30 mm, located on the plan."><img src="assets/img/x/uou-p4c.webp" width="600" height="804" alt="From the paper: a third 30 mm detail of the pattern, located on the plan" loading="lazy" decoding="async"></figure>
         <figure class="print zoomable" style="--x:67%;--y:43%;--r:3deg;--mx:52%;--my:53%;--mr:4deg" data-zoom="assets/img/x/uou-p5a-l.webp" data-cap="Hyphae bridging the pores of a substrate, electron microscopy, 220 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-p5a.webp" width="600" height="689" alt="From the paper: an electron microscope image of fungal hyphae, a dense white web on black" loading="lazy" decoding="async"></figure>
-        <figure class="print zoomable" style="--x:80%;--y:5%;--r:-3deg;--mx:28%;--my:74%;--mr:-3deg" data-zoom="assets/img/x/uou-p5b-l.webp" data-cap="Single hyphae, electron microscopy, 30 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-p5b.webp" width="600" height="683" alt="From the paper: a closer electron microscope view of single fungal threads" loading="lazy" decoding="async"></figure>
+        <figure class="print zoomable" style="--x:80%;--y:5%;--r:-3deg;--mx:28%;--my:74%;--mr:-3deg" data-zoom="assets/img/x/uou-p5b-l.webp" data-cap="Single hyphae, electron microscopy, 30 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-p5b.webp" width="600" height="687" alt="From the paper: a closer electron microscope view of single fungal threads" loading="lazy" decoding="async"></figure>
       </div>
       <p class="cap">From centimetres to micrometres. The brain coral, 10 cm across (adapted from NMITA), and the joint in plan, 30 by 30 cm, where the white line is the printed path and the black its pores. Three 30 mm samples, where moisture gathers in the closed parts of the pattern. Hyphae bridging the pores of a substrate under the electron microscope, 220 and 30 micrometres across (adapted from Islam et al. 2017 and Motamedi et al. 2025). The figures are shown as instant prints, a look made with AI (Gemini).</p>
       <figure class="print-film" style="aspect-ratio:1594/1122"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/uou-f7p.webp" aria-label="The paper's longitudinal section of a 60 cm column as an instant print, animated: a section plane moves through the column and back, the printed paths cut in white, the solid beyond in grey, the welded seams repeating along its length"><source src="assets/video/uou-f7p.mp4" type="video/mp4"></video></figure>
@@ -1394,9 +1395,9 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
     <div class="scrub" data-scrub data-phases='[{"key":"design","from":0.0},{"key":"full","from":0.426},{"key":"A","from":0.5714},{"key":"B","from":0.7245},{"key":"C","from":0.8776}]'>
       <div class="scrub-stage">
         <div class="scrub-film">
-          <img class="scrub-poster" src="assets/video/d1-cut.webp" alt="" loading="lazy" decoding="async" width="1152" height="648">
+          <img class="scrub-poster" src="assets/video/d1-cut2.webp" alt="" loading="lazy" decoding="async" width="1152" height="648">
           <canvas role="img" aria-label="D1 drawn from its G-code splits into its three printed segments and closes again. Then the grown piece lifts away to show the real cuts A-A', B-B' and C-C' one after another, all seen from the same side."></canvas>
-          <video muted playsinline preload="none" aria-hidden="true"><source src="assets/video/d1-cut.mp4" type="video/mp4"></video>
+          <video muted playsinline preload="none" aria-hidden="true"><source src="assets/video/d1-cut2.mp4" type="video/mp4"></video>
         </div>
         <div class="scrub-rail" aria-live="polite">
           <svg class="d1-plan" viewBox="-224 -224 449 449" role="img" aria-label="D1 seen from above, drawn from the first printed layer of its toolpath, with the three cut lines A, B and C"><path class="fp" d="M-142,-59 L-157,-57 L-172,-51 L-176,-63 L-169,-78 L-156,-84 L-143,-75 L-133,-62 L-124,-49 L-114,-36 L-104,-43 L-94,-49 L-83,-37 L-72,-25 L-61,-30 L-49,-20 L-35,-19 L-39,-32 L-55,-36 L-56,-49 L-71,-53 L-87,-56 L-91,-67 L-86,-80 L-102,-82 L-118,-84 L-134,-86 L-149,-91 L-153,-105 L-145,-119 L-132,-126 L-128,-110 L-124,-95 L-109,-96 L-98,-107 L-93,-122 L-108,-128 L-124,-130 L-121,-143 L-108,-152 L-93,-151 L-86,-136 L-84,-120 L-83,-104 L-80,-88 L-69,-89 L-57,-90 L-53,-74 L-50,-58 L-38,-56 L-32,-42 L-21,-34 L-18,-47 L-29,-59 L-24,-70 L-35,-82 L-48,-92 L-45,-103 L-35,-112 L-47,-122 L-60,-131 L-73,-141 L-83,-153 L-80,-168 L-66,-176 L-51,-174 L-56,-159 L-60,-144 L-46,-138 L-31,-142 L-20,-152 L-29,-164 L-42,-175 L-33,-184 L-17,-185 L-5,-177 L-6,-161 L-13,-146 L-20,-132 L-26,-117 L-15,-111 L-4,-106 L-9,-91 L-14,-75 L-5,-68 L-7,-52 L-1,-40 L8,-50 L4,-66 L15,-73 L10,-88 L5,-104 L13,-112 L26,-114 L21,-129 L14,-144 L7,-159 L4,-174 L15,-185 L31,-185 L43,-177 L31,-166 L20,-154 L29,-143 L44,-138 L59,-142 L57,-157 L51,-172 L63,-176 L78,-169 L84,-156 L75,-143 L62,-133 L49,-124 L36,-114 L43,-104 L49,-94 L37,-83 L25,-72 L30,-61 L20,-49 L19,-35 L32,-39 L36,-55 L49,-56 L53,-71 L56,-87 L67,-91 L80,-86 L82,-102 L84,-118 L86,-134 L91,-149 L105,-153 L119,-145 L126,-132 L110,-128 L95,-124 L96,-109 L107,-98 L122,-93 L128,-108 L130,-124 L143,-121 L152,-108 L151,-93 L136,-86 L120,-84 L104,-83 L88,-80 L89,-69 L90,-57 L74,-53 L58,-50 L56,-38 L42,-32 L34,-21 L47,-18 L59,-29 L70,-24 L82,-35 L92,-48 L103,-45 L112,-35 L122,-47 L131,-60 L141,-73 L153,-83 L168,-80 L176,-66 L174,-51 L159,-56 L144,-60 L138,-46 L142,-31 L152,-20 L164,-29 L175,-42 L184,-33 L185,-17 L177,-5 L161,-6 L146,-13 L132,-20 L117,-26 L111,-15 L106,-4 L91,-9 L75,-14 L68,-5 L52,-7 L40,-1 L50,8 L66,4 L73,15 L88,10 L104,5 L112,13 L114,26 L129,21 L144,14 L159,7 L174,4 L185,15 L185,31 L177,43 L166,31 L154,20 L143,29 L138,44 L142,59 L157,57 L172,51 L176,63 L169,78 L156,84 L143,75 L133,62 L124,49 L114,36 L104,43 L94,49 L83,37 L72,25 L61,30 L49,20 L35,19 L39,32 L55,36 L56,49 L71,53 L87,56 L91,67 L86,80 L102,82 L118,84 L134,86 L149,91 L153,105 L145,119 L132,126 L128,110 L124,95 L109,96 L98,107 L93,122 L108,128 L124,130 L121,143 L108,152 L93,151 L86,136 L84,120 L83,104 L80,88 L69,89 L57,90 L53,74 L50,58 L38,56 L32,42 L21,34 L18,47 L29,59 L24,70 L35,82 L48,92 L45,103 L35,112 L47,122 L60,131 L73,141 L83,153 L80,168 L66,176 L51,174 L56,159 L60,144 L46,138 L31,142 L20,152 L29,164 L42,175 L33,184 L17,185 L5,177 L6,161 L13,146 L20,132 L26,117 L15,111 L4,106 L9,91 L14,75 L5,68 L7,52 L1,40 L-8,50 L-4,66 L-15,73 L-10,88 L-5,104 L-13,112 L-26,114 L-21,129 L-14,144 L-7,159 L-4,174 L-15,185 L-31,185 L-43,177 L-31,166 L-20,154 L-29,143 L-44,138 L-59,142 L-57,157 L-51,172 L-63,176 L-78,169 L-84,156 L-75,143 L-62,133 L-49,124 L-36,114 L-43,104 L-49,94 L-37,83 L-25,72 L-30,61 L-20,49 L-19,35 L-32,39 L-36,55 L-49,56 L-53,71 L-56,87 L-67,91 L-80,86 L-82,102 L-84,118 L-86,134 L-91,149 L-105,153 L-119,145 L-126,132 L-110,128 L-95,124 L-96,109 L-107,98 L-122,93 L-128,108 L-130,124 L-143,121 L-152,108 L-151,93 L-136,86 L-120,84 L-104,83 L-88,80 L-89,69 L-90,57 L-74,53 L-58,50 L-56,38 L-42,32 L-34,21 L-47,18 L-59,29 L-70,24 L-82,35 L-92,48 L-103,45 L-112,35 L-122,47 L-131,60 L-141,73 L-153,83 L-168,80 L-176,66 L-174,51 L-159,56 L-144,60 L-138,46 L-142,31 L-152,20 L-164,29 L-175,42 L-184,33 L-185,17 L-177,5 L-161,6 L-146,13 L-132,20 L-117,26 L-111,15 L-106,4 L-91,9 L-75,14 L-68,5 L-52,7 L-40,1 L-50,-8 L-66,-4 L-73,-15 L-88,-10 L-104,-5 L-112,-13 L-114,-26 L-129,-21 L-144,-14 L-159,-7 L-174,-4 L-185,-15 L-185,-31 L-177,-43 L-166,-31 L-154,-20 L-143,-29 L-138,-44 Z"/><circle class="vent" r="23"/><g class="cut" data-cut="A"><line x1="-188" y1="57" x2="188" y2="57"/><text x="196" y="64">A</text></g><g class="cut" data-cut="B"><line x1="-194" y1="0" x2="194" y2="0"/><text x="202" y="7">B</text></g><g class="cut" data-cut="C"><line x1="-183" y1="-74" x2="183" y2="-74"/><text x="191" y="-67">C</text></g></svg>
@@ -2808,7 +2809,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   var lenis = null;
   if (!reduce && finePointer && window.Lenis) {
     try {
-      lenis = new window.Lenis({ lerp: 0.1, wheelMultiplier: 0.9, smoothWheel: true });
+      lenis = new window.Lenis({ lerp: 0.08, wheelMultiplier: 0.9, smoothWheel: true });   // a little softer (17 Oct 2026)
       var lloop = function (t) { lenis.raf(t); requestAnimationFrame(lloop); };
       requestAnimationFrame(lloop);
     } catch (e) { lenis = null; }
@@ -4000,6 +4001,50 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
       el.addEventListener('click', function (e) { if (e.target.closest('a')) return; open(); });
       el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
     });
+    /* every other photograph opens large on a click too (Raffaele, 17 Oct 2026: "cliccare su tutte le foto per poterle
+       ingrandire, ove possibile"): a figure with one photograph, and in a carousel the frame it is showing. In the artifact
+       a carousel's frames are cells of a sprite sheet, so the cell is cut out of the sheet onto a canvas first. Left
+       alone: the story cards, the drawings that move or come apart, the archive, the pinned scenes, links and buttons; in the
+       reel a click enlarges and a drag still scrolls (Drag drops the click that ends a drag) */
+    var skip = '[data-zoom],[data-stories],[data-fig],[data-mosaic],[data-pin],.s,.rd,a,button,.top,.foot';
+    var lastUrl = null;
+    function shown(tile) {
+      var xs = $$('img,i.spr,video', tile); if (!xs.length) return null;
+      var on = xs.filter(function (x) { return x.classList.contains('on'); });
+      if (on.length) return on[on.length - 1];
+      return (xs.reduce(function (b, x) { var z = +(x.style.zIndex || 0), o = +(getComputedStyle(x).opacity); return (o > 0.5 && (!b || z >= b.z)) ? { x: x, z: z } : b; }, null) || { x: xs[0] }).x;
+    }
+    function openFrame(x, text) {
+      if (!x) return;
+      if (x.tagName === 'IMG') { openBox(x.currentSrc || x.src, x.alt, text); return; }
+      if (x.tagName === 'VIDEO') { var s = x.currentSrc || (x.querySelector('source') || {}).src; if (s) openBox(s, x.getAttribute('aria-label') || '', text); return; }
+      var cs = getComputedStyle(x), sz = cs.backgroundSize.split(' '), ps = cs.backgroundPosition.split(' ');
+      var cols = Math.round(parseFloat(sz[0]) / 100), rows = Math.round(parseFloat(sz[1] || sz[0]) / 100);
+      var c = cols > 1 ? Math.round(parseFloat(ps[0]) / 100 * (cols - 1)) : 0, r = rows > 1 ? Math.round(parseFloat(ps[1]) / 100 * (rows - 1)) : 0;
+      var im = new Image();
+      im.onload = function () {
+        var w = im.naturalWidth / cols, h = im.naturalHeight / rows, cv = document.createElement('canvas');
+        cv.width = Math.round(w); cv.height = Math.round(h);
+        cv.getContext('2d').drawImage(im, c * w, r * h, w, h, 0, 0, cv.width, cv.height);
+        cv.toBlob(function (b) { if (!b) return; if (lastUrl) URL.revokeObjectURL(lastUrl); lastUrl = URL.createObjectURL(b); openBox(lastUrl, x.getAttribute('aria-label') || '', text); }, 'image/jpeg', 0.92);
+      };
+      im.src = x.dataset.spr;
+    }
+    $$('main figure').forEach(function (fig) {
+      if (fig.closest(skip)) return;
+      var cycle = fig.classList.contains('cycle');
+      if (!cycle && ($$('img', fig).length !== 1 || fig.querySelector('video,canvas,svg'))) return;
+      if (cycle && !fig.querySelector('img,i.spr')) return;
+      var capEl = fig.querySelector('figcaption'), text = capEl ? capEl.textContent.trim() : '';
+      fig.classList.add('zoomable'); fig.setAttribute('tabindex', '0'); fig.setAttribute('role', 'button');
+      if (!fig.getAttribute('aria-label')) fig.setAttribute('aria-label', 'Enlarge: ' + ((fig.querySelector('img') || {}).alt || fig.getAttribute('aria-label') || 'image'));
+      var open = function (e) {
+        var tile = cycle ? ((e && e.target.closest && e.target.closest('.tile')) || fig.querySelector('.tile')) : fig;
+        openFrame(cycle ? shown(tile) : fig.querySelector('img'), text);
+      };
+      fig.addEventListener('click', function (e) { if (e.target.closest('a')) return; open(e); });
+      fig.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    });
     dlg.addEventListener('click', function (e) { if (e.target === dlg || e.target.closest('[data-close]')) dlg.close(); });
     dlg.addEventListener('close', function () { img.removeAttribute('src'); if (vid && vid.getAttribute('src')) { vid.pause(); vid.removeAttribute('src'); vid.load(); } if (lenis) lenis.start(); });
   }
@@ -4740,7 +4785,10 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
 
   function applyScenes(list, p) {
     list.forEach(function (sc) {
-      var fade = 0.06, o = clamp(Math.min((p - sc.a) / fade + (sc.a <= 0 ? 1 : 0), (sc.b - p) / fade + (sc.b >= 1 ? 1 : 0), 1), 0, 1);
+      // the scenes cross over a longer stretch of scroll and ease in and out (Raffaele, 17 Oct 2026: the hero should
+      // scroll more smoothly); the shortest scene (0.24) still reaches full strength
+      var fade = 0.09, o = clamp(Math.min((p - sc.a) / fade + (sc.a <= 0 ? 1 : 0), (sc.b - p) / fade + (sc.b >= 1 ? 1 : 0), 1), 0, 1);
+      o = o * o * (3 - 2 * o);
       if (reduce) o = sc.a <= 0 ? 1 : 0;
       sc.el.style.opacity = o.toFixed(3); sc.el.style.transform = 'translate3d(0,' + ((1 - o) * 18).toFixed(1) + 'px,0)';
       sc.el.style.visibility = o < 0.01 ? 'hidden' : 'visible';
@@ -4865,7 +4913,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='d55f793706d9';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='14bf17710ed4';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

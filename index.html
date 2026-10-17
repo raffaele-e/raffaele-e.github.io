@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-UW+Ty79/TqlE2rmWupP7lyKlemWGtMC1qQwzxr9P3U4='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-jZsMFsKVyHurMj3N3N1FlInN1FAOibxh5w+8w30NagM='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -979,19 +979,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
 /* the paper's figures cut into their framed cards, the page between them (17 Oct 2026) */
 .uou-card{margin:0;background:#fff}
 .uou-card img{display:block;width:100%;height:100%}
-/* the paper's figures as instant prints (Raffaele, 17 Oct 2026): smaller, set like a row of Instax prints; a faint paper
-   grain that only shows on the white (multiply), a soft sheen that only shows on the dark photograph (screen), and the
-   light shadow of a print lying on the page */
-.uou-cards{display:flex!important;flex-wrap:wrap;gap:clamp(14px,1.8vw,24px);align-items:flex-start}
-.uou-cards>.uou-card{width:clamp(150px,19vw,250px)}
-.uou-card,.uou-print{position:relative;overflow:hidden;border-radius:2px;
-  box-shadow:0 1px 1px rgba(40,30,20,.10),0 2px 4px rgba(40,30,20,.08),0 12px 22px -12px rgba(40,30,20,.38)}
-.uou-card::before,.uou-print::before,.uou-card::after,.uou-print::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit}
-.uou-card::before,.uou-print::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .52 0 0 0 0 .47 0 0 0 1.1 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;mix-blend-mode:multiply;opacity:.42}
-.uou-card::after,.uou-print::after{background:linear-gradient(118deg,rgba(255,255,255,0) 22%,rgba(255,255,255,.11) 38%,rgba(255,255,255,.04) 50%,rgba(255,255,255,0) 62%),
-  radial-gradient(120% 70% at 18% 8%,rgba(255,255,255,.10),rgba(255,255,255,0) 55%);mix-blend-mode:screen}
-.uou .uou-print{max-width:min(100%,560px);border-radius:2px;background:#fff}
-@media (max-width:560px){.uou-cards>.uou-card{width:calc(50% - 8px)}}
+@media (max-width:560px){.uou-cards{grid-template-columns:1fr 1fr!important}}
 .uou .media img{object-fit:contain}
 @media (max-width:899px){.uou .duo{grid-template-columns:1fr!important}}
 
@@ -1342,7 +1330,7 @@ html:not(.ed-on) [data-ed-off]{display:none!important}
         <figure class="uou-card zoomable" style="aspect-ratio:900/1033" data-zoom="assets/img/x/uou-f5b.webp" data-cap="Single hyphae, electron microscopy, 30 micrometres across. Adapted from Islam et al. 2017 and Motamedi et al. 2025."><img src="assets/img/x/uou-f5b.webp" alt="From the paper: a closer electron microscope view of single fungal threads" loading="lazy" decoding="async" width="900" height="1033"></figure>
       </div>
       <p class="cap">Millimetres and micrometres. Three 30 mm samples, where moisture gathers in the closed parts of the pattern; then hyphae bridging the pores of a substrate under the electron microscope, 220 and 30 micrometres across (adapted from Islam et al. 2017 and Motamedi et al. 2025).</p>
-      <figure class="media uou-wide uou-print" style="aspect-ratio:1600/1136"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/uou-f7.webp" aria-label="The paper's longitudinal section of a 60 cm column, animated: a section plane moves through the column and back, the printed paths cut in white, the solid beyond in grey, the welded seams repeating along its length"><source src="assets/video/uou-f7.mp4" type="video/mp4"></video></figure>
+      <figure class="media uou-wide" style="aspect-ratio:1600/1136"><video data-auto muted playsinline loop preload="none" data-poster="assets/video/uou-f7.webp" aria-label="The paper's longitudinal section of a 60 cm column, animated: a section plane moves through the column and back, the printed paths cut in white, the solid beyond in grey, the welded seams repeating along its length"><source src="assets/video/uou-f7.mp4" type="video/mp4"></video></figure>
       <p class="cap">Back to centimetres. A section plane runs through a 60 cm column and back, and the welded seams repeat along it.</p>
     </div>
   </div>
@@ -4861,7 +4849,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='0834478969d6';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='10a2f972b96d';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>

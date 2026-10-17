@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-EfJ5YUvNxWFgLSSCfrMf1sAWKcboiZ2vnyEI0Rss3HI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2aXUAyr4y5HwhHmZkiL9GxlWPjC31j/WITiZgkK8rwM=' 'sha256-Pou2OAmGK2C6S8TLm9mEenH+t3b9fo090o6+uJaSkNo=' 'sha256-GBSNzbRYvDDGp3pbfBfW1qwvGaLkI736pXIuO3c3vkY=' 'sha256-/5e5cRaWOiMZNm3DwHs7oubjtnLcu4rxMlX0GKmoWsI='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Raffaele Errichiello</title>
@@ -661,8 +661,8 @@ html.nogl .grow .film canvas{display:block;position:absolute;inset:0;width:100%;
 .scrub{position:relative;height:calc(100svh + 560vh);container-type:inline-size}
 .scrub-stage{--fh:calc((100cqw - 15.5rem - clamp(20px,3vw,48px)) * 592 / 944);--sh:min(calc(100svh - 64px - var(--safe-t)),calc(var(--fh) + 48px));
   position:sticky;top:calc(64px + var(--safe-t) + (100svh - 64px - var(--safe-t) - var(--sh)) / 2);height:var(--sh);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,15.5rem);gap:clamp(20px,3vw,48px);align-items:center}
-.scrub-film{position:relative;aspect-ratio:944/592;width:100%;max-height:100%;margin:auto}
-.scrub-film>*{position:absolute;left:-18.644%;top:0;width:122.034%;height:109.459%}
+.scrub-film{position:relative;aspect-ratio:944/592;width:min(100%,calc((var(--sh) - 48px) * 944 / 592));margin:auto}
+.scrub-film>*{position:absolute;left:-18.644%;top:0;width:122.034%;height:109.459%;max-width:none;max-height:none}
 .scrub-film video{visibility:hidden}
 .scrub-film .scrub-poster{object-fit:contain;transition:opacity .4s}
 .scrub.live .scrub-poster{opacity:0}
@@ -4858,7 +4858,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
   initPosters(); initVideos(); initScrub(); initLightbox(); initCopy(); initPeek(); initShelf();
 })();
 
-(function(){var B='a909384185ea';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
+(function(){var B='5c738d81c4c8';function check(){try{fetch('version.txt?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null}).then(function(v){v=v&&v.trim();if(!v||v===B)return;var k='reloaded-for';try{if(sessionStorage.getItem(k)===v)return;sessionStorage.setItem(k,v)}catch(e){}location.reload()}).catch(function(){})}catch(e){}}check();addEventListener('pageshow',function(e){if(e.persisted)check()});document.addEventListener('visibilitychange',function(){if(!document.hidden)check()})})();
 </script>
 </body>
 </html>
